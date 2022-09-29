@@ -2,4 +2,4 @@
 
 Temática del sitio: Sitio web de venta mayorista/minorista de jeans
 
-Público objetivo:
+Público objetivo: Adolescentes y adultos
