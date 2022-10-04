@@ -1,10 +1,10 @@
 #on denim 
 
-Temática del sitio: Sitio web de venta mayorista/minorista de jeans. \
-Público objetivo: Adolescentes y adultos. \
-Oferta a público: Intentaremos ajustar una web sencilla, fácil de usar, con colores llamativos, con opción a movile para que se pueda acceder con distintos dispositivos y que sea fácil para comprar. 
+- Temática del sitio: Sitio web de venta mayorista/minorista de jeans. \
+- Público objetivo: Adolescentes y adultos. \
+- Oferta a público: Intentaremos ajustar una web sencilla, fácil de usar, con colores llamativos, con opción a movile para que se pueda acceder con distintos dispositivos y que sea fácil para comprar. 
 
-Paginas de referencia: \
+Paginas de referencia: 
 > https://es.diesel.com/es/ \
 > https://bowen.com.ar/  \
 > https://herenciacustomgarage.com.ar/ \
