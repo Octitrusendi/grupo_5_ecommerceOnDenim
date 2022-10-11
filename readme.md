@@ -1,6 +1,6 @@
-#on denim\
+#on denim
 
-Url Repositorio: https://github.com/Octitrusendi/grupo_5_ecommerceOnDenim/graphs/contributors \
+Url Repositorio: https://github.com/Octitrusendi/grupo_5_ecommerceOnDenim/graphs/contributors
 
 - Temática del sitio: Sitio web de venta mayorista/minorista de jeans. 
 - Público objetivo: Adolescentes y adultos. 
