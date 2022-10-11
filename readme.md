@@ -15,6 +15,9 @@ Elegimos estas páginas por la temática de e-commerce que queremos armar, y las
 
 Equipo: 
 - Octavio Trusendi: 28 años, vive en La Plata (Bs As), estudia administración de empresa, trabaja en una consultora de marketing y va a aportar sus conocimientos en la publicidad de la página. 
-- Julián Biondi: 30 años, vive en Pergamino (Bs As), estudia licenciatura en informática, diseñador de jeas, y va a aportar sus conocimientos de la industria textíl.  
-- Francisco:
-- Macarena:
+
+- Julián Biondi: 30 años, vive en Pergamino (Bs As), estudia licenciatura en informática, diseñador de jeas, y va a aportar sus conocimientos de la industria textíl.
+
+- Francisco Zelalia: 21 años, vive en Berazategui (Bs As), estudia ingenieria electronica, trabajo en automatizacion y control industrial, y va a aportar sus conocimientos en el diseño visual de interfaz de usuario. 
+
+- Macarena Fernandez: 27 años, vive en Cordoba, estudia Contador Publico, trabaja en administración de compras y va a aporta sus conocimientos de lado financiero.
