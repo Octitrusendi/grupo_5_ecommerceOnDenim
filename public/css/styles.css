@@ -36,7 +36,32 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 
 body{
         text-decoration: none;
+        font-family: 'Libre Franklin', sans-serif;
 }
+header{
+        justify-content: space-between;
+        align-content: center;
+        align-items: center;
+}
+
+.contenedor-logo img{
+        height: 100px;
+        width: 130px;
+        padding: 5px 20px;
+
+}
+
+.contenedor-menuPagina, .buscador-nav, .contenedor-menuUsuario{
+        display: none;
+}
+
+.menu-mobile{
+        padding: 20px;
+}
+.menu-mobile i{
+        font-size: 25px;
+}
+
 
 
 .carrusel {
@@ -44,7 +69,7 @@ body{
         height: 30vh;
         background-image: url(/img/carrusel.jpg);
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: cover;
 }
 
 .flex-colum{
@@ -52,6 +77,10 @@ body{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+}
+.flex-row{
+        display: flex;
+        flex-direction: row;
 }
 
 .cajas-productosPersonalizados {
