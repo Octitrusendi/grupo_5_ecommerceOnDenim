@@ -13,3 +13,15 @@ app.listen(3001, ()=>{
 app.get("/", (req, res) =>{
         res.sendFile(path.resolve('./views/index.html'))
 });
+app.get("/login", (req, res) =>{
+        res.sendFile(path.resolve('./views/login.html'))
+});
+app.get("/carrito", (req, res) =>{
+        res.sendFile(path.resolve('./views/productCart.html'))
+});
+app.get("/detalle-producto", (req, res) =>{
+        res.sendFile(path.resolve('./views/productDetail.html'))
+});
+app.get("/registro", (req, res) =>{
+        res.sendFile(path.resolve('./views/register.html'))
+});
