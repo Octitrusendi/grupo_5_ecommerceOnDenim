@@ -46,7 +46,7 @@ header{
 }
 
 :root{
-        --colorPrincipal: #ff7c63;
+        --colorPrincipal: #df502e;
 }
 
 /* nav */
@@ -187,8 +187,8 @@ header{
         color: #ffff;
 }
 .footer-datosContacto div{
-        width: 40%;
-        padding: 8px;
+        width: 50%;
+        padding: 8px 0;
         text-align: center;
         font-size: 14px;
         align-self: center;
