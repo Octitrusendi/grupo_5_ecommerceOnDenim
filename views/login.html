@@ -8,45 +8,68 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">        <title>OnDenim | Login</title>
-        <link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/styles.css">        <link rel="stylesheet" href="/css/stylesLogin.css">
 </head>
 <body>
-        <header class="flex-colum">
-                 <!-- Logo -->
-                <div class="contenedor-logo">
-                        <img src="/img/logo.png" alt="Logo-OnDenim">
-                </div>
-                <!-- menu usuario -->
-                        <div>
-                                <ul class="menu-usuario">
-                                        <li><a href="#">Creá tu cuenta<i class="fas fa-address-card"> </i></a></li>
-                                        <li><a href="#">Ingresá<i class="fas fa-sign-in-alt"></i></a></li>
-                                        <li><a href="#">Mis compras<i class="fas fa-shopping-basket"> </i></a></li>
-                                </ul>
-                        </div>
-                        <div class="menu">
-                                <i class="fa fa-bars" aria-hidden="true"></i>
+        <header class="flex-row">
+                <!-- Logo -->
+               <div class="contenedor-logo">
+                       <img src="/img/logo.png" alt="Logo-OnDenim">
+               </div>
+               <!-- Barra de navegacion -->
+               <nav>
+               <!-- menu pagina -->
+                       <div class="contenedor-menuPagina">
+                               <ul>
+                                       <li><a href="">Nuestros Jeans</a></li>
+                                       <li><a href="">¿Quiénes somos?</a></li>
+                                       <li><a href="">¡OFERTAS!</a></li>
+                               </ul>
+                       </div>
+               <!-- buscador -->
+                       <div class="buscador-nav">
+                               <form action="">
+                                       <input type="text" placeholder="Buscar productos, marcas">
+                                       <button class="boton-searchNav"><i class="fas fa-search"></i></button>  
+                               </form>
+                       </div>
+               <!-- menu usuario -->
+                       <div class="contenedor-menuUsuario">
+                               <ul class="menu-usuario">
+                                       <li><a href="#">Creá tu cuenta<i class="fas fa-address-card"> </i></a></li>
+                                       <li><a href="#">Ingresá<i class="fas fa-sign-in-alt"></i></a></li>
+                                       <li><a href="#">Mis compras<i class="fas fa-shopping-basket"> </i></a></li>
+                               </ul>
+                       </div>
+                       <div class="menu-mobile">
+                               <i class="fa fa-bars" aria-hidden="true"></i>
 
+                       </div>
+               </nav>
+        </header class="flex-colum">
+        <div class="container">
+            <div class="central">
+                <div class="login">
+                    <div class="title">
+                        Iniciar Sesion
+                    </div>
+                    <div class="loginconsult">
+                        <form id="loginform">
+                                <input type="text" name="user" placeholder="Usuario" id="user" required>
+                                <input type="password" placeholder="Contraseña" name="password" id="password" required>
+    
+                                <button type="submit" title="Login" name="Ingresar">Login</button>
+                        </form>
                         </div>
-                </nav>
-        </header class="flex-column">
-        <main>
-                <!-- seccion 1 -->
-                <section>
-
-                </section>
-        </main>
-        <main class="login-reg-bg">
-        <!-- login -->
-                <div class="usuario">
-                        <div class="text-usuario">
-                                <h2>Nombre de usuario   </h2>
-                        </div>
-                        <div class="ingreso-usuario">
-                                <form action="">
-                                        <input type="text" placeholder="Correo electronico">
-                                </form>
-                        </div>
+                    <div class="foot-form">
+                        <a href="#">¿Perdiste la contraseña?</a>
+                        <a href="/registro">¿No tenés cuenta? Registrarse</a>
+                    </div>
                 </div>
-</body>
+                <div class="bottom">
+                    <a href="/">Volver</a>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

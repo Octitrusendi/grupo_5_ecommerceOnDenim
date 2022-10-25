@@ -7,86 +7,73 @@
 <script src="https://kit.fontawesome.com/c95374d5c5.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">        <title>OnDenim | Registro</title>
-        <link rel="stylesheet" href="/css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">        <title>OnDenim | Login</title>
+<link rel="stylesheet" href="/css/styles.css">        <link rel="stylesheet" href="/css/stylesReg.css">
 </head>
 <body>
-        <header class="flex-colum">
-                 <!-- Logo -->
-                <div class="contenedor-logo">
-                        <img src="/img/logo.png" alt="Logo-OnDenim">
-                </div>
-                <!-- Barra de navegacion -->
-                <nav>
-                <!-- menu pagina -->
-                        <div>
-                                <ul>
-                                        <li><a href="">Nuestros Jeans</a></li>
-                                        <li><a href="">¿Quiénes somos?</a></li>
-                                        <li><a href="">¡OFERTAS!</a></li>
-                                </ul>
-                        </div>
-                <!-- buscador -->
-                        <div>
-                                <form action="">
-                                        <input type="text" placeholder="Buscar productos, marcas">
-                                        <button class="boton-searchNav"><i class="fas fa-search"></i></button>  
-                                </form>
-                        </div>
-                <!-- menu usuario -->
-                        <div>
-                                <ul class="menu-usuario">
-                                        <li><a href="#">Creá tu cuenta<i class="fas fa-address-card"> </i></a></li>
-                                        <li><a href="#">Ingresá<i class="fas fa-sign-in-alt"></i></a></li>
-                                        <li><a href="#">Mis compras<i class="fas fa-shopping-basket"> </i></a></li>
-                                </ul>
-                        </div>
-                        <div class="menu">
-                                <i class="fa fa-bars" aria-hidden="true"></i>
+        <header class="flex-row">
+                <!-- Logo -->
+               <div class="contenedor-logo">
+                       <img src="/img/logo.png" alt="Logo-OnDenim">
+               </div>
+               <!-- Barra de navegacion -->
+               <nav>
+               <!-- menu pagina -->
+                       <div class="contenedor-menuPagina">
+                               <ul>
+                                       <li><a href="">Nuestros Jeans</a></li>
+                                       <li><a href="">¿Quiénes somos?</a></li>
+                                       <li><a href="">¡OFERTAS!</a></li>
+                               </ul>
+                       </div>
+               <!-- buscador -->
+                       <div class="buscador-nav">
+                               <form action="">
+                                       <input type="text" placeholder="Buscar productos, marcas">
+                                       <button class="boton-searchNav"><i class="fas fa-search"></i></button>  
+                               </form>
+                       </div>
+               <!-- menu usuario -->
+                       <div class="contenedor-menuUsuario">
+                               <ul class="menu-usuario">
+                                       <li><a href="#">Creá tu cuenta<i class="fas fa-address-card"> </i></a></li>
+                                       <li><a href="#">Ingresá<i class="fas fa-sign-in-alt"></i></a></li>
+                                       <li><a href="#">Mis compras<i class="fas fa-shopping-basket"> </i></a></li>
+                               </ul>
+                       </div>
+                       <div class="menu-mobile">
+                               <i class="fa fa-bars" aria-hidden="true"></i>
 
-                        </div>
-                </nav>
+                       </div>
+               </nav>
         </header class="flex-colum">
-        <main>
-                <!-- seccion 1 -->
-                <section>
-
-                </section>
-        </main>
-        <footer class="flex-colum">
-        <!-- bloque suscribite -->
-                <div>
-                        <div>
-                                <h4>10% de descuento en tu primera compra online</h4>
-                                <p>SUSCRIBIÉNDOTE A NUESTRO NEWSLETTER</p>
+        <div class="container">
+            <div class="central">
+                <div class="login">
+                    <div class="title">
+                        Registrarse
+                    </div>
+                    <div class="regconsult">
+                        <form id="regform">
+                                <input type="text" name="name" placeholder="Nombre" id="name" required>
+                                <input type="text" name="user" placeholder="Usuario" id="user" required>
+                                <input type="text" name="mail" placeholder="Correo Elecronico" id="mail" required>
+                                <input type="text" name="direc" placeholder="Direccion" id="direc" required>
+                                <input type="password" placeholder="Contraseña" name="password" id="password" required>
+                                <input type="password" placeholder="Repetir Contraseña" name="repeatPassword" id="repeatPassword" required>
+    
+                                <button type="submit" title="registrarse" name="guardar">Registrarse</button>
+                        </form>
                         </div>
-                        <a href="">
-                                <div>
-                                        <h4>SUSCRIBITE AL NEWSLETTER</h4>
-                                </div>
-                        </a>
+                    <div class="foot-form">
+                        <a href="#">¿Perdiste la contraseña?</a>
+                        <a href="/login">¿Ya tenés cuenta? Inisiar Sesion</a>
+                    </div>
                 </div>
-                <div>
-                        <div>
-                                <h5>Estamos en</h5>
-                                <p>Av. xxxxxxxxx</p>
-                        </div>
-                        <div>
-                                <h5>Contáctanos</h5>
-                                <p>5490023232</p>
-                                <p>5490023232</p>
-                        </div>
-                        <div>
-                                <h5>Información</h5>
-                                <a href=""><p>Politicas de devolución</p></a>
-                                <a href=""><p>Guia de talles</p></a>
-                        </div>
-                        <div>
-                                <a href=""><p>face</p></a>
-                                <a href=""><p>tw</p></a>
-                                <a href=""><p>ig</p></a>                      
-                        </div>
+                <div class="bottom">
+                    <a href="/">Volver</a>
                 </div>
-        </footer class="flex-colum">
-</body>
+            </div>
+        </div>
+    </body>
 </html>
