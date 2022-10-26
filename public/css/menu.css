@@ -47,7 +47,6 @@ body{
 }
 
 .dropdown .title .fa-angle-right{
-	float: right;
 	margin-right: .7em;
 	transition: transform .3s;
 }
