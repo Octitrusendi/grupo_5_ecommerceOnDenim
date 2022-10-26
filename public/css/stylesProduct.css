@@ -126,25 +126,27 @@
     margin-top: 10px;
 }
 
-.descripcion{
+.descript{
+    margin-top: 10px;
     display: flex;
-    width: 100%;
+    width: auto;
     height: 80%;
     align-items: center;
     margin-bottom: 60px;
 }
 .descriptionText{
+    margin-right: 5px;
     padding-left: 5px;
-    width: 115%;
+    width: 99%;
     height: 200px;
     text-align: left;
     background-color: var(--colorPrincipal);
 }
 
 .contact{
-    margin-left: 60px;
+    margin-left: 5px;
     padding-left: 5px;
-    width: 70%;
+    width: 99%;
     height: 200px;
     text-align: left;
     background-color: var(--colorPrincipal);

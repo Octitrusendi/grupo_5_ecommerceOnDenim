@@ -170,75 +170,8 @@
                                         <button type="submit" title="addToChart" name="AGREGAR AL CARRITO">AGREGAR AL CARRITO</button>
                                 </div>
                                 </div>
-                                <script>
-                        function toggleClass(elem,className){
-                                if (elem.className.indexOf(className) !== -1){
-                                  elem.className = elem.className.replace(className,'');
-                                }
-                                else{
-                                  elem.className = elem.className.replace(/\s+/g,' ') + 	' ' + className;
-                                }
-                              
-                                return elem;
-                              }
-                              
-                              function toggleDisplay(elem){
-                                const curDisplayStyle = elem.style.display;			
-                              
-                                if (curDisplayStyle === 'none' || curDisplayStyle === ''){
-                                  elem.style.display = 'block';
-                                }
-                                else{
-                                  elem.style.display = 'none';
-                                }
-                              
-                              }
-                              
-                              function toggleMenuDisplay(e){
-                                const dropdown = e.currentTarget.parentNode;
-                                const menu = dropdown.querySelector('.menu');
-                                const icon = dropdown.querySelector('.fa-angle-right');
-                              
-                                toggleClass(menu,'hide');
-                                toggleClass(icon,'rotate-90');
-                              }
-                              
-                              function handleOptionSelected(e){
-                                toggleClass(e.target.parentNode, 'hide');			
-                              
-                                const id = e.target.id;
-                                const newValue = e.target.textContent + ' ';
-                                const titleElem = document.querySelector('.listaTalle .title');
-                                const icon = document.querySelector('.listaTalle .title .fa');
-                              
-                              
-                                titleElem.textContent = newValue;     //cambiar titulo
-                                titleElem.appendChild(icon);
-                              
-                                //eventos personalizados
-                                document.querySelector('.listaTalle .title').dispatchEvent(new Event('change'));
-                                  //setTimeout is used so transition is properly shown
-                                //setTimeout(() => toggleClass(icon,'rotate-90',0));*/
-                              }
-                              
-                              function handleTitleChange(e){
-                                const result = document.getElementById('result');
-                                result.innerHTML = 'The result is: ' + e.target.textContent;
-                              }
-                              
-                              //get elements
-                              const listaTalleTitle = document.querySelector('.listaTalle .title');
-                              const listaTalleOptions = document.querySelectorAll('.listaTalle .option');
-                              
-                              //bind listeners to these elements
-                              listaTalleTitle.addEventListener('click', toggleMenuDisplay);
-                              
-                              listaTalleOptions.forEach(option => option.addEventListener('click',handleOptionSelected));
-                              
-                              document.querySelector('.listaTalle').addEventListener('change',handleTitleChange);
-                                </script>
                         </div>
-                <div class="descripcion">
+                <div class="descript">
                         <div class="left">
                                 <div class="descriptionText">
                                         <label>DESCRIPCION</label>
@@ -316,4 +249,71 @@
                 </div>
         </footer >
 </body>
+<script>
+        function toggleClass(elem,className){
+                if (elem.className.indexOf(className) !== -1){
+                  elem.className = elem.className.replace(className,'');
+                }
+                else{
+                  elem.className = elem.className.replace(/\s+/g,' ') + 	' ' + className;
+                }
+              
+                return elem;
+              }
+              
+              function toggleDisplay(elem){
+                const curDisplayStyle = elem.style.display;			
+              
+                if (curDisplayStyle === 'none' || curDisplayStyle === ''){
+                  elem.style.display = 'block';
+                }
+                else{
+                  elem.style.display = 'none';
+                }
+              
+              }
+              
+              function toggleMenuDisplay(e){
+                const dropdown = e.currentTarget.parentNode;
+                const menu = dropdown.querySelector('.menu');
+                const icon = dropdown.querySelector('.fa-angle-right');
+              
+                toggleClass(menu,'hide');
+                toggleClass(icon,'rotate-90');
+              }
+              
+              function handleOptionSelected(e){
+                toggleClass(e.target.parentNode, 'hide');			
+              
+                const id = e.target.id;
+                const newValue = e.target.textContent + ' ';
+                const titleElem = document.querySelector('.listaTalle .title');
+                const icon = document.querySelector('.listaTalle .title .fa');
+              
+              
+                titleElem.textContent = newValue;     //cambiar titulo
+                titleElem.appendChild(icon);
+              
+                //eventos personalizados
+                document.querySelector('.listaTalle .title').dispatchEvent(new Event('change'));
+                  //setTimeout is used so transition is properly shown
+                //setTimeout(() => toggleClass(icon,'rotate-90',0));*/
+              }
+              
+              function handleTitleChange(e){
+                const result = document.getElementById('result');
+                result.innerHTML = 'The result is: ' + e.target.textContent;
+              }
+              
+              //get elements
+              const listaTalleTitle = document.querySelector('.listaTalle .title');
+              const listaTalleOptions = document.querySelectorAll('.listaTalle .option');
+              
+              //bind listeners to these elements
+              listaTalleTitle.addEventListener('click', toggleMenuDisplay);
+              
+              listaTalleOptions.forEach(option => option.addEventListener('click',handleOptionSelected));
+              
+              document.querySelector('.listaTalle').addEventListener('change',handleTitleChange);
+                </script>
 </html>
