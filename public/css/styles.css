@@ -55,22 +55,8 @@ header{
 .contenedor-logo img{
         height: 100px;
         width: 130px;
-        padding: 5px 20px;
 
 }
-
-.contenedor-menuPagina, .buscador-nav, .contenedor-menuUsuario{
-        display: none;
-}
-
-.menu-mobile{
-        padding: 20px;
-}
-.menu-mobile i{
-        font-size: 25px;
-        color: var(--colorPrincipal)
-}
-
 
 /* home */
 .carrusel {
@@ -90,6 +76,7 @@ header{
 .flex-row{
         display: flex;
         flex-direction: row;
+        height:150px;
 }
 
 .carrusel-productosPersonalizados, .carrusel-newColection, .seccion-contacto div:first-child{
