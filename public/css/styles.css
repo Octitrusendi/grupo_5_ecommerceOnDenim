@@ -76,13 +76,15 @@ header{
 .flex-row{
         display: flex;
         flex-direction: row;
-        height:150px;
+
 }
 
 .carrusel-productosPersonalizados, .carrusel-newColection, .seccion-contacto div:first-child{
         padding: 15px 30px;
 }
-
+.carrusel-newColection{
+        position: relative;
+}
 .cajas-productosPersonalizados {
         width: 85vw;
         height: max-content;
@@ -233,6 +235,9 @@ header{
         cursor: pointer;
 
 }
+.arrow-rightNew, .arrow-leftNew{
+        top: 30%;
+}
 .solo-mobile{
         display: none;
 }
@@ -287,6 +292,12 @@ header{
                 width: 28%;
                 max-width: 28%;
         }
+        .arrow-rightNew, .arrow-leftNew{
+                top: 45%;
+        }
+         .arrow-rightNew{
+                right: 40%;
+         }  
 
 }
 @media screen and (min-width: 760px) {
@@ -313,4 +324,10 @@ header{
                 width: 28%;
                 max-width: 28%;
         }
+     .arrow-rightNew, .arrow-leftNew{
+                top: 50%;
+        }
+        .arrow-rightNew{
+                right: 41%;
+         }  
 }
