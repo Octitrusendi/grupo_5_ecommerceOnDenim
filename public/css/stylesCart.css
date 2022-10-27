@@ -1,11 +1,17 @@
-html {
-    padding: 15px;
-    margin: 0;
-  }
-  
-  .cesta-beneficios-actualizar {}
+
+.table-responsive{
+  padding: 15px;
+}
+.cesta{
+  margin: 0 auto;
+}
+.cesta-beneficios-actualizar {
+  text-align: center;
+  padding: 10px 0;
+}
   .cesta-beneficios-actualizar span:nth-of-type(1) {
     font-size: 18px;
+
   }
   .cesta-beneficios-actualizar span:nth-of-type(2) {
     font-size: 16px;
@@ -18,12 +24,13 @@ html {
     color: green;
     
   }
-
-  
+.total4{
+  padding: 8px;
+}
   
   table th {
-    text-align: center;
-     border-bottom:1pt solid black;
+    text-align: left;
+     border-bottom:1pt solid var(--colorPrincipal);
   }
   
   tr.totales td {
@@ -38,3 +45,15 @@ html {
   tr td:nth-of-type(2), tr td:nth-of-type(3){
     text-align: center;
   }
+  .btn{
+    width: 50%;
+  }
+
+  @media screen and (min-width: 460px) {
+    .cesta{
+      width: 85%;
+    }
+    .continuar{
+      width: 40%;
+    }
+    }
