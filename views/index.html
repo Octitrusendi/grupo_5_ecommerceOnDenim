@@ -134,45 +134,98 @@ function toggleClass(elem,className){
                 </div>
                 </section>
                 <!-- seccion 2 (carrusel de diseños personalizados, se termina con js) -->
-                <section class="carrusel-productosPersonalizados flex-colum">
+                <section class="carrusel-productosPersonalizados flex-colum ">
                         <div>
                                 <h2>Diseños personalizados</h2>
                         </div>
+                        <div class="contenedor-productos flex-colum">
                 <!-- producto 1 -->
-                        <div class="cajas-productosPersonalizados  flex-colum">
+                        <div class="cajas-productosPersonalizados  flex-colum ">
                                 <div class="img-producto">
                                         <img src="/img/productos/jean1.jpg" alt="Producto 1">
                                 </div> 
                                 <div class="descripcion">
                                         <h3 class="descripciones-productos">Jean 1</h3>
                                         <h4 class="precios">$ 10.000</h4>
-                                </div>      
+                                </div> 
                         </div>  
-                </section>
-                <section class="carrusel-newColection flex-colum">
-                        <div class="flex-colum">
-                                <div>
-                                        <h2>New Collection</h2>
-                                </div>
-                        <!-- producto 1 -->
-                                <div class="cajas-productosPersonalizados  flex-colum">
-                                        <div class="img-producto">
-                                                <img src="/img/productos/jean1.jpg" alt="Producto 1">
+                        <!-- producto 2 -->
+                        <div class="cajas-productosPersonalizados  flex-colum solo-mobile">
+                                <div class="img-producto">
+                                        <img src="/img/productos/jean1.jpg" alt="Producto 1">
+                                </div> 
+                                <div class="descripcion">
+                                        <h3 class="descripciones-productos">Jean 1</h3>
+                                        <h4 class="precios">$ 10.000</h4>
                                 </div> 
                         </div>
-                </section>
-                <section class="flex-colum seccion-contacto">
-                        <div>
-                                <h2>Dejanos tu contacto</h2>
+                        <!-- producto 3 -->
+                        <div class="cajas-productosPersonalizados  flex-colum solo-mobile solo-tablet">
+                                <div class="img-producto">
+                                        <img src="/img/productos/jean1.jpg" alt="Producto 1">
+                                </div> 
+                                <div class="descripcion">
+                                        <h3 class="descripciones-productos">Jean 1</h3>
+                                        <h4 class="precios">$ 10.000</h4>
+                                </div> 
+                        </div>     
+                        <!-- producto 4 -->
+                        <div class="cajas-productosPersonalizados  flex-colum solo-mobile solo-tablet">
+                                <div class="img-producto">
+                                        <img src="/img/productos/jean1.jpg" alt="Producto 1">
+                                </div> 
+                                <div class="descripcion">
+                                        <h3 class="descripciones-productos">Jean 1</h3>
+                                        <h4 class="precios">$ 10.000</h4>
+                                </div> 
+                        </div>            
+
+                        <i class="fas fa-greater-than arrow-left"></i>
+                        <i class="fas fa-greater-than arrow-right"></i>     
                         </div>
-                        <div class="formulario-contacto">
-                                <form class="flex-colum" action="">
-                                        <input type="email" placeholder="Escriba su correo electronico">
-                                        <textarea name="" id=""  style="min-height: 100px; max-height: 300px;"></textarea>
-                                        <button type="submit">Enviar</button>
-                                </form>
-                        </div>
                 </section>
+                <section class="carrusel-newColection flex-colum">
+                        <div class="contenedor-newColection">
+                                <div>
+                                        <h2 class="titulo-newColection">New Collection</h2>
+                                </div>
+                        <div class="contenedor-productos contenedor-productosNew  flex-colum">
+                        <!-- producto 1 -->
+                                <div class="cajas-productosPersonalizados cajas-productosPersonalizados-new  flex-colum">
+                                        <div class="img-producto">
+                                                <img src="/img/productos/jean1.jpg" alt="Producto 1">
+                                        </div> 
+                                </div>
+                        <!-- producto 2 -->
+                                <div class="cajas-productosPersonalizados cajas-productosPersonalizados-new  flex-colum solo-mobile ">
+                                        <div class="img-producto">
+                                                <img src="/img/productos/jean1.jpg" alt="Producto 1">
+                                        </div> 
+                                </div>
+                        <!-- producto 2-->
+                                <div class="cajas-productosPersonalizados cajas-productosPersonalizados-new  flex-colum solo-mobile solo-tablet">
+                                        <div class="img-producto">
+                                                <img src="/img/productos/jean1.jpg" alt="Producto 1">
+                                        </div> 
+                                </div>
+                        </div>
+                        <i class="fas fa-greater-than arrow-left"></i>
+                        <i class="fas fa-greater-than arrow-right"></i>  
+                        </div>   
+                        <article class="flex-colum seccion-contacto">
+                                <div>
+                                        <h2>Dejanos tu contacto</h2>
+                                </div>
+                                <div class="formulario-contacto">
+                                        <form class="flex-colum" action="">
+                                                <input type="email" placeholder="Escriba su correo electronico">
+                                                <textarea name="" id="" placeholder="Escriba su comentario aquí..." style="min-height: 100px; max-height: 300px;"></textarea>
+                                                <button type="submit">Enviar</button>
+                                        </form>
+                                </div>
+                        </article>
+                </section>
+
         </main>
         <footer class="flex-colum">
         <!-- bloque suscribite -->

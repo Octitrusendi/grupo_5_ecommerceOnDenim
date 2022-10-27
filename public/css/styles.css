@@ -80,7 +80,7 @@ header{
 }
 
 .carrusel-productosPersonalizados, .carrusel-newColection, .seccion-contacto div:first-child{
-        padding: 20px;
+        padding: 15px 30px;
 }
 
 .cajas-productosPersonalizados {
@@ -94,6 +94,7 @@ header{
         transition: all .3s ease-in-out;
         border: 1px solid var(--colorPrincipal);
         cursor: pointer;
+        position: relative;
 }
 
 .img-producto{
@@ -214,4 +215,102 @@ header{
         margin-left: 30%;
         justify-content: center;
         align-items: center;
+}
+
+.arrow-left{
+        position: absolute;
+        left: 2%;
+        transform: rotate(180deg);
+        color: var(--colorPrincipal);
+        font-size: 18px; 
+        cursor: pointer;
+}
+.arrow-right{
+        right: 2%;
+        position: absolute;
+        color: var(--colorPrincipal);
+        font-size: 18px; 
+        cursor: pointer;
+
+}
+.solo-mobile{
+        display: none;
+}
+
+@media screen and (min-width: 460px) {
+        .carrusel {
+                background-position-y: -5px ;
+        }
+        .contenedor-productos{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+        }
+        .cajas-productosPersonalizados{
+                width: 50%;
+                min-width: 50%;
+                display: block;
+        }
+
+        .solo-tablet{
+                display: none;
+        }
+        .arrow-right{
+                right: 1%;
+        }
+        .arrow-left{
+                left: 1%;
+        }
+        .carrusel-newColection {
+                flex-direction: row;
+                justify-content: center;
+                 align-items: flex-start;
+                 gap: 35px;
+        }
+        .contenedor-productosNew{
+                justify-content: space-evenly;
+        }
+
+        .contenedor-newColection {
+                width: 60%;
+                text-align: center;
+        }
+        .seccion-contacto{
+                width: 40%;
+        }
+        .titulo-newColection{
+                padding: 15px 30px 5px;
+        }
+        .cajas-productosPersonalizados-new{
+                width: 28%;
+                max-width: 28%;
+        }
+
+}
+@media screen and (min-width: 760px) {
+        .carrusel {
+                background-position-y: -140px ;
+        }
+        .contenedor-productos{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                
+        }
+        .contenedor-productosNew{
+                justify-content: space-evenly;
+        }
+        .cajas-productosPersonalizados{
+                width: 23%;
+                min-width: 23%;
+                display: block;
+        }
+        .cajas-productosPersonalizados-new{
+                width: 28%;
+                max-width: 28%;
+        }
 }
