@@ -15,14 +15,7 @@
 
 }
 
-@media screen and (min-width: 701px) {
-    .dropdown{
-        visibility: hidden;
-    }
-    .contenedor-menuPagina, .buscador-nav, .contenedor-menuUsuario{
-        display: block;
-    }
-}
+
 .option{
     color: black;
     font-size: 100%;
@@ -76,4 +69,13 @@
 
 .rotate-90{
 	transform: rotate(90deg);
+}
+
+@media screen and (min-width: 701px) {
+    .dropdown{
+        visibility: hidden;
+    }
+    .contenedor-menuPagina, .buscador-nav, .contenedor-menuUsuario{
+        display: block;
+    }
 }
