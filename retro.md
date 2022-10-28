@@ -6,5 +6,6 @@ Dinámica de la estrella de mar
 5. Dejar de hacer.
 
 Deberiamos comenzar a usar mas herramientas como Trello, para practicar mas metodologias agiles y ser mas ordenados, tambien nos sirve para recordar cada tarea y vencimiento de los sprints. 
-Hacer mas ayuda memorias de algunos codigos.
-Continuar haciendo reuniones de equipo. 
+Hacer mas ayuda memorias de algunos codigos. Y programar alguna reunion fija durante el finde para poder estar mas relajados de actividades.
+Continuar haciendo reuniones de equipo. Poner un minimo de reuniones por semana.
+Evitar cancelar reuniones.
