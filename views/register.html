@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://kit.fontawesome.com/c95374d5c5.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">        <title>OnDenim | Login</title>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/menu.css">        
+<link rel="stylesheet" href="/css/stylesReg.css">
+</head>
+<body>
+        <header class="flex-row">
+                <!-- Logo -->
+               <div class="contenedor-logo">
+                       <img src="/img/logo.png" alt="Logo-OnDenim">
+               </div>
+               <!-- Barra de navegacion -->
+               <nav>
+               <!-- menu pagina -->
+                       <div class="contenedor-menuPagina">
+                               <ul>
+                                       <li><a href="">Nuestros Jeans</a></li>
+                                       <li><a href="">¿Quiénes somos?</a></li>
+                                       <li><a href="">¡OFERTAS!</a></li>
+                               </ul>
+                       </div>
+               <!-- buscador -->
+                       <div class="buscador-nav">
+                               <form action="">
+                                       <input type="text" placeholder="Buscar productos, marcas">
+                                       <button class="boton-searchNav"><i class="fas fa-search"></i></button>  
+                               </form>
+                       </div>
+               <!-- menu usuario -->
+                       <div class="contenedor-menuUsuario">
+                               <ul class="menu-usuario">
+                                       <li><a href="#">Creá tu cuenta<i class="fas fa-address-card"> </i></a></li>
+                                       <li><a href="#">Ingresá<i class="fas fa-sign-in-alt"></i></a></li>
+                                       <li><a href="#">Mis compras<i class="fas fa-shopping-basket"> </i></a></li>
+                               </ul>
+                       </div>
+               </nav>
+        </header class="flex-colum">
+        <div class="menu-mobile">
+                                
+                <div class='dropdown'>
+                <div class='title pointerCursor'> <i class="fa fa-bars"></i></div>
+        
+                        <div class='menu pointerCursor hide'>
+                                <div class='option' id='option1'><a href="/">HOME </a></div>
+                                <div class='option' id='option2'><a href="/carrito">CARRITO </a></div>
+                                <div class='option' id='option3'><a href="/detalle-producto">PRODUCTO </a></div>
+                                <div class='option' id='option4'>LOGIN/REGISTER</div>
+                        </div>
+                </div>
+                <script>
+        function toggleClass(elem,className){
+                if (elem.className.indexOf(className) !== -1){
+                  elem.className = elem.className.replace(className,'');
+                }
+                else{
+                  elem.className = elem.className.replace(/\s+/g,' ') + 	' ' + className;
+                }
+              
+                return elem;
+              }
+              
+              function toggleDisplay(elem){
+                const curDisplayStyle = elem.style.display;			
+              
+                if (curDisplayStyle === 'none' || curDisplayStyle === ''){
+                  elem.style.display = 'block';
+                }
+                else{
+                  elem.style.display = 'none';
+                }
+              
+              }
+              
+              function toggleMenuDisplay(e){
+                const dropdown = e.currentTarget.parentNode;
+                const menu = dropdown.querySelector('.menu');
+                const icon = dropdown.querySelector('.fa-angle-right');
+              
+                toggleClass(menu,'hide');
+                toggleClass(icon,'rotate-90');
+              }
+              
+              function handleOptionSelected(e){
+                toggleClass(e.target.parentNode, 'hide');			
+              
+                const id = e.target.id;
+                const newValue = e.target.textContent + ' ';
+                const titleElem = document.querySelector('.dropdown .title');
+                const icon = document.querySelector('.dropdown .title .fa');
+              
+              
+                //titleElem.textContent = newValue;     //cambiar titulo
+                titleElem.appendChild(icon);
+              
+                //eventos personalizados
+                /*document.querySelector('.dropdown .title').dispatchEvent(new Event('change'));
+                  //setTimeout is used so transition is properly shown
+                setTimeout(() => toggleClass(icon,'rotate-90',0));*/
+              }
+              
+              function handleTitleChange(e){
+                const result = document.getElementById('result');
+                result.innerHTML = 'The result is: ' + e.target.textContent;
+              }
+              
+              //get elements
+              const dropdownTitle = document.querySelector('.dropdown .title');
+              const dropdownOptions = document.querySelectorAll('.dropdown .option');
+              
+              //bind listeners to these elements
+              dropdownTitle.addEventListener('click', toggleMenuDisplay);
+              
+              dropdownOptions.forEach(option => option.addEventListener('click',handleOptionSelected));
+              
+              document.querySelector('.dropdown').addEventListener('change',handleTitleChange);
+                </script>
+               </div>
+        <div class="container">
+            <div class="central">
+                <div class="login">
+                    <div class="title">
+                        Registrarse
+                    </div>
+                    <div class="regconsult">
+                        <form id="regform">
+                                <input type="text" name="name" placeholder="Nombre" id="name" required>
+                                <input type="text" name="user" placeholder="Usuario" id="user" required>
+                                <input type="text" name="mail" placeholder="Correo Elecronico" id="mail" required>
+                                <input type="text" name="direc" placeholder="Direccion" id="direc" required>
+                                <input type="password" placeholder="Contraseña" name="password" id="password" required>
+                                <input type="password" placeholder="Repetir Contraseña" name="repeatPassword" id="repeatPassword" required>
+    
+                                <button type="submit" title="registrarse" name="guardar">Registrarse</button>
+                        </form>
+                        </div>
+                    <div class="foot-form">
+                        <a href="#">¿Perdiste la contraseña?</a>
+                        <a href="/login">¿Ya tenés cuenta? Inisiar Sesion</a>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <a href="/"><p style="color:rgb(0, 0, 0);">Volver </p></a>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="flex-colum">
+                <!-- bloque suscribite -->
+                        <div class="bloque-suscribite">
+                                <div>
+                                        <h4>10% de descuento en tu primera compra online</h4>
+                                        <p>SUSCRIBIÉNDOTE A NUESTRO NEWSLETTER</p>
+                                </div>
+                                <a href="">
+                                        <div>
+                                               <button> <h4>SUSCRIBITE AL NEWSLETTER</h4></button>
+                                        </div>
+                                </a>
+                        </div>
+                        <div class="footer-datosContacto flex-row">
+                                <div>
+                                        <h5>Estamos en</h5>
+                                        <p>Av. xxxxxxxxx</p>
+                                </div>
+                                <div>
+                                        <h5>Contáctanos</h5>
+                                        <p>5490023232</p>
+                                        <p>5490023232</p>
+                                </div>
+                                <div>
+                                        <h5>Información</h5>
+                                        <a href=""><p>Politicas de devolución</p></a>
+                                        <a href=""><p>Guia de talles</p></a>
+                                </div>
+                                <div class="redesSociales">
+                                        <a href=""><i class="fab fa-instagram"></i></a>
+                                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                                        <a href=""><i class="fab fa-twitter"></i></a>                      
+                                </div>
+                        </div>
+                </footer >
+    </body>
+</html>
