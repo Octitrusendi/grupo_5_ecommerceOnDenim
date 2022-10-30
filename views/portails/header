@@ -1,0 +1,69 @@
+<!-- header de productCart-->
+
+<header class="flex-row">
+                <!-- Logo -->
+               <div class="contenedor-logo">
+                       <img src="/img/logo.png" alt="Logo-OnDenim">
+               </div>
+               <!-- Barra de navegacion -->
+               <nav>
+               <!-- menu pagina -->
+                       <div class="contenedor-menuPagina">
+                               <ul>
+                                       <li><a href="">Nuestros Jeans</a></li>
+                                       <li><a href="">¿Quiénes somos?</a></li>
+                                       <li><a href="">¡OFERTAS!</a></li>
+                               </ul>
+                       </div>
+               <!-- buscador -->
+                       <div class="buscador-nav">
+                               <form action="">
+                                       <input type="text" placeholder="Buscar productos, marcas">
+                                       <button class="boton-searchNav"><i class="fas fa-search"></i></button>  
+                               </form>
+                       </div>
+               <!-- menu usuario -->
+                       <div class="contenedor-menuUsuario">
+                               <ul class="menu-usuario">
+                                       <li><a href="#">Creá tu cuenta<i class="fas fa-address-card"> </i></a></li>
+                                       <li><a href="#">Ingresá<i class="fas fa-sign-in-alt"></i></a></li>
+                                       <li><a href="#">Mis compras<i class="fas fa-shopping-basket"> </i></a></li>
+                               </ul>
+                       </div>
+               </nav>
+       </header >
+
+       <!--header de producDetail-->
+
+       <header class="flex-row">
+        <!-- Logo -->
+       <div class="contenedor-logo">
+               <img src="/img/logo.png" alt="Logo-OnDenim">
+       </div>
+       <!-- Barra de navegacion -->
+       <nav>
+       <!-- menu pagina -->
+               <div class="contenedor-menuPagina">
+                       <ul>
+                               <li><a href="">Nuestros Jeans</a></li>
+                               <li><a href="">¿Quiénes somos?</a></li>
+                               <li><a href="">¡OFERTAS!</a></li>
+                       </ul>
+               </div>
+       <!-- buscador -->
+               <div class="buscador-nav">
+                       <form action="">
+                               <input type="text" placeholder="Buscar productos, marcas">
+                               <button class="boton-searchNav"><i class="fas fa-search"></i></button>  
+                       </form>
+               </div>
+       <!-- menu usuario -->
+               <div class="contenedor-menuUsuario">
+                       <ul class="menu-usuario">
+                               <li><a href="#">Creá tu cuenta<i class="fas fa-address-card"> </i></a></li>
+                               <li><a href="#">Ingresá<i class="fas fa-sign-in-alt"></i></a></li>
+                               <li><a href="#">Mis compras<i class="fas fa-shopping-basket"> </i></a></li>
+                       </ul>
+               </div>
+       </nav>
+</header class="flex-colum">
