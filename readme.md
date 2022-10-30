@@ -26,4 +26,4 @@ Equipo:
 
 - Macarena Fernandez: 27 años, vive en Cordoba, estudia Contador Publico, trabaja en administración de compras y va a aporta sus conocimientos de lado financiero.
 
-
+Tablero de trabajo: https://trello.com/b/i29XQC5Z/ondenim
