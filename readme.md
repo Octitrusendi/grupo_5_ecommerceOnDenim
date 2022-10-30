@@ -25,3 +25,4 @@ Equipo:
 - Macarena Fernandez: 27 años, vive en Cordoba, estudia Contador Publico, trabaja en administración de compras y va a aporta sus conocimientos de lado financiero.
 
 Retrospectiva del segundo sprint: Creemos que las cosas salieron mejor de las esperadas, a pesar de las diferencias horarias de cada uno y el otro proyecto de mercado liebre que iba a la par, pudimos sacar adelante el sprint 2 y logramos quedar conformes con lo logrado, como punto en contra creemos que confiamos muchos en nosotros mismos y deberiamos juntarnos unas horas mas. Sin mas, creemos que para el proximo sprint lo vamos a lograr.
+
