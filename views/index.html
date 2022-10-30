@@ -57,73 +57,7 @@
                         <div class='option' id='option4'><a href="/login">LOGIN/REGISTER </a></div>
                 </div>
         </div>
-        <script>
-function toggleClass(elem,className){
-        if (elem.className.indexOf(className) !== -1){
-          elem.className = elem.className.replace(className,'');
-        }
-        else{
-          elem.className = elem.className.replace(/\s+/g,' ') + 	' ' + className;
-        }
-      
-        return elem;
-      }
-      
-      function toggleDisplay(elem){
-        const curDisplayStyle = elem.style.display;			
-      
-        if (curDisplayStyle === 'none' || curDisplayStyle === ''){
-          elem.style.display = 'block';
-        }
-        else{
-          elem.style.display = 'none';
-        }
-      
-      }
-      
-      function toggleMenuDisplay(e){
-        const dropdown = e.currentTarget.parentNode;
-        const menu = dropdown.querySelector('.menu');
-        const icon = dropdown.querySelector('.fa-angle-right');
-      
-        toggleClass(menu,'hide');
-        toggleClass(icon,'rotate-90');
-      }
-      
-      function handleOptionSelected(e){
-        toggleClass(e.target.parentNode, 'hide');			
-      
-        const id = e.target.id;
-        const newValue = e.target.textContent + ' ';
-        const titleElem = document.querySelector('.dropdown .title');
-        const icon = document.querySelector('.dropdown .title .fa');
-      
-      
-        //titleElem.textContent = newValue;     //cambiar titulo
-        titleElem.appendChild(icon);
-      
-        //eventos personalizados
-        /*document.querySelector('.dropdown .title').dispatchEvent(new Event('change'));
-          //setTimeout is used so transition is properly shown
-        setTimeout(() => toggleClass(icon,'rotate-90',0));*/
-      }
-      
-      function handleTitleChange(e){
-        const result = document.getElementById('result');
-        result.innerHTML = 'The result is: ' + e.target.textContent;
-      }
-      
-      //get elements
-      const dropdownTitle = document.querySelector('.dropdown .title');
-      const dropdownOptions = document.querySelectorAll('.dropdown .option');
-      
-      //bind listeners to these elements
-      dropdownTitle.addEventListener('click', toggleMenuDisplay);
-      
-      dropdownOptions.forEach(option => option.addEventListener('click',handleOptionSelected));
-      
-      document.querySelector('.dropdown').addEventListener('change',handleTitleChange);
-        </script>
+        
        </div>
         <main>
                 <!-- seccion 1 (carrusel de imagenes, se termina con js) -->
@@ -134,45 +68,98 @@ function toggleClass(elem,className){
                 </div>
                 </section>
                 <!-- seccion 2 (carrusel de diseños personalizados, se termina con js) -->
-                <section class="carrusel-productosPersonalizados flex-colum">
+                <section class="carrusel-productosPersonalizados flex-colum ">
                         <div>
                                 <h2>Diseños personalizados</h2>
                         </div>
+                        <div class="contenedor-productos flex-colum">
                 <!-- producto 1 -->
-                        <div class="cajas-productosPersonalizados  flex-colum">
+                        <div class="cajas-productosPersonalizados  flex-colum ">
                                 <div class="img-producto">
                                         <img src="/img/productos/jean1.jpg" alt="Producto 1">
                                 </div> 
                                 <div class="descripcion">
                                         <h3 class="descripciones-productos">Jean 1</h3>
                                         <h4 class="precios">$ 10.000</h4>
-                                </div>      
+                                </div> 
                         </div>  
-                </section>
-                <section class="carrusel-newColection flex-colum">
-                        <div class="flex-colum">
-                                <div>
-                                        <h2>New Collection</h2>
-                                </div>
-                        <!-- producto 1 -->
-                                <div class="cajas-productosPersonalizados  flex-colum">
-                                        <div class="img-producto">
-                                                <img src="/img/productos/jean1.jpg" alt="Producto 1">
+                        <!-- producto 2 -->
+                        <div class="cajas-productosPersonalizados  flex-colum solo-mobile">
+                                <div class="img-producto">
+                                        <img src="/img/productos/jean1.jpg" alt="Producto 1">
+                                </div> 
+                                <div class="descripcion">
+                                        <h3 class="descripciones-productos">Jean 2</h3>
+                                        <h4 class="precios">$ 10.000</h4>
                                 </div> 
                         </div>
-                </section>
-                <section class="flex-colum seccion-contacto">
-                        <div>
-                                <h2>Dejanos tu contacto</h2>
+                        <!-- producto 3 -->
+                        <div class="cajas-productosPersonalizados  flex-colum solo-mobile solo-tablet">
+                                <div class="img-producto">
+                                        <img src="/img/productos/jean1.jpg" alt="Producto 1">
+                                </div> 
+                                <div class="descripcion">
+                                        <h3 class="descripciones-productos">Jean 3</h3>
+                                        <h4 class="precios">$ 10.000</h4>
+                                </div> 
+                        </div>     
+                        <!-- producto 4 -->
+                        <div class="cajas-productosPersonalizados  flex-colum solo-mobile solo-tablet">
+                                <div class="img-producto">
+                                        <img src="/img/productos/jean1.jpg" alt="Producto 1">
+                                </div> 
+                                <div class="descripcion">
+                                        <h3 class="descripciones-productos">Jean 4</h3>
+                                        <h4 class="precios">$ 10.000</h4>
+                                </div> 
+                        </div>            
+
+                        <i class="fas fa-greater-than arrow-left"></i>
+                        <i class="fas fa-greater-than arrow-right"></i>     
                         </div>
-                        <div class="formulario-contacto">
-                                <form class="flex-colum" action="">
-                                        <input type="email" placeholder="Escriba su correo electronico">
-                                        <textarea name="" id=""  style="min-height: 100px; max-height: 300px;"></textarea>
-                                        <button type="submit">Enviar</button>
-                                </form>
-                        </div>
                 </section>
+                <section class="carrusel-newColection flex-colum">
+                        <div class="contenedor-newColection">
+                                <div>
+                                        <h2 class="titulo-newColection">New Collection</h2>
+                                </div>
+                        <div class="contenedor-productos contenedor-productosNew  flex-colum">
+                        <!-- producto 1 -->
+                                <div class="cajas-productosPersonalizados cajas-productosPersonalizados-new  flex-colum">
+                                        <div class="img-producto">
+                                                <img src="/img/productos/jean1.jpg" alt="Producto 1">
+                                        </div> 
+                                </div>
+                        <!-- producto 2 -->
+                                <div class="cajas-productosPersonalizados cajas-productosPersonalizados-new  flex-colum solo-mobile ">
+                                        <div class="img-producto">
+                                                <img src="/img/productos/jean1.jpg" alt="Producto 1">
+                                        </div> 
+                                </div>
+                        <!-- producto 2-->
+                                <div class="cajas-productosPersonalizados cajas-productosPersonalizados-new  flex-colum solo-mobile solo-tablet">
+                                        <div class="img-producto">
+                                                <img src="/img/productos/jean1.jpg" alt="Producto 1">
+                                        </div> 
+                                </div>
+                        </div>
+                        <i class="fas fa-greater-than arrow-left arrow-leftNew"></i>
+                        <i class="fas fa-greater-than arrow-right arrow-rightNew"></i>  
+                        </div>   
+                        <article class="flex-colum seccion-contacto">
+                                <div>
+                                        <h2>Dejanos tu contacto</h2>
+                                </div>
+                                <div class="formulario-contacto">
+                                        <form class="flex-colum" action="">
+                                                <input type="email" placeholder="Escriba su correo electronico">
+                                                <textarea name="" id="" placeholder="Escriba su comentario aquí..." style="min-height: 100px; max-height: 300px;"></textarea>
+                                                <button type="submit">Enviar</button>
+                                        </form>
+                                </div>
+                        </article>
+                </section>
+
         </main>
         <footer class="flex-colum">
         <!-- bloque suscribite -->
@@ -210,4 +197,71 @@ function toggleClass(elem,className){
                 </div>
         </footer >
 </body>
+<script>
+        function toggleClass(elem,className){
+                if (elem.className.indexOf(className) !== -1){
+                  elem.className = elem.className.replace(className,'');
+                }
+                else{
+                  elem.className = elem.className.replace(/\s+/g,' ') + 	' ' + className;
+                }
+              
+                return elem;
+              }
+              
+              function toggleDisplay(elem){
+                const curDisplayStyle = elem.style.display;			
+              
+                if (curDisplayStyle === 'none' || curDisplayStyle === ''){
+                  elem.style.display = 'block';
+                }
+                else{
+                  elem.style.display = 'none';
+                }
+              
+              }
+              
+              function toggleMenuDisplay(e){
+                const dropdown = e.currentTarget.parentNode;
+                const menu = dropdown.querySelector('.menu');
+                const icon = dropdown.querySelector('.fa-angle-right');
+              
+                toggleClass(menu,'hide');
+                toggleClass(icon,'rotate-90');
+              }
+              
+              function handleOptionSelected(e){
+                toggleClass(e.target.parentNode, 'hide');			
+              
+                const id = e.target.id;
+                const newValue = e.target.textContent + ' ';
+                const titleElem = document.querySelector('.dropdown .title');
+                const icon = document.querySelector('.dropdown .title .fa');
+              
+              
+                //titleElem.textContent = newValue;     //cambiar titulo
+                titleElem.appendChild(icon);
+              
+                //eventos personalizados
+                /*document.querySelector('.dropdown .title').dispatchEvent(new Event('change'));
+                  //setTimeout is used so transition is properly shown
+                setTimeout(() => toggleClass(icon,'rotate-90',0));*/
+              }
+              
+              function handleTitleChange(e){
+                const result = document.getElementById('result');
+                result.innerHTML = 'The result is: ' + e.target.textContent;
+              }
+              
+              //get elements
+              const dropdownTitle = document.querySelector('.dropdown .title');
+              const dropdownOptions = document.querySelectorAll('.dropdown .option');
+              
+              //bind listeners to these elements
+              dropdownTitle.addEventListener('click', toggleMenuDisplay);
+              
+              dropdownOptions.forEach(option => option.addEventListener('click',handleOptionSelected));
+              
+              document.querySelector('.dropdown').addEventListener('change',handleTitleChange);
+                </script>
 </html>

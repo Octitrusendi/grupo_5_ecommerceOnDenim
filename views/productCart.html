@@ -44,7 +44,7 @@
                                </ul>
                        </div>
                </nav>
-       </header class="flex-colum">
+       </header >
        <div class="menu-mobile">
                                
        <div class='dropdown'>
@@ -127,35 +127,33 @@ function toggleClass(elem,className){
       </div>
         <main>
                 <!-- seccion 1 -->
-                <section>
-                        <h3>
-                                Resumen de compras
-                        </h3>
-                </section>
+
 
                 <section>
-                        <div class="cesta-beneficios-actualizar" data-accion='actualizar'>
+                        <div class="cesta-beneficios-actualizar" >
+                                <h3>
+                                        Resumen de compras
+                                </h3>
                                 <span>Productos</span>
                               
                               <!--Tabla-->
                               <div class="table-responsive">
-                              <table class="table table-bordered table-condensed cesta" id="cesta-beneficios">
+                              <table class="table table-bordered table-condensed cesta" >
                                 <thead>
                                   <th>Producto</th>
                                   <th>Cantidad</th> 
                                   <th>Precio por unidad</th>
                                   <th>Total</th>
                                 </thead>
-                                <tr class="beneficio" data-elemento='1'>
+                                <tr class="beneficio" >
                                   <td>
-                                    <img src="/img/productos/jean1.jpg" width="125px" alt="Nombre del producto"/>
+                                    <img src="/img/productos/jean1.jpg" width="125px" alt="Jean1"/>
                                     <span>Producto 1</span><br>
-                                    <span>Descripción</span><br>
-                                    <button class="btn btn-default">Guardar para más tarde</button>
-                                    <button class="btn btn-danger">Eliminar</button>
+                                    <p>Descripción</p><br>
+                                    <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                                   </td>
                                   <td class="cantidad">
-                                    <select class="selectpicker" data-width="fit" id="cantidadNro">
+                                    <select class="selectpicker" >
                                       <option value="1">1</option>
                                       <option value="2">2</option>
                                       <option value="3">3</option>
@@ -169,13 +167,13 @@ function toggleClass(elem,className){
                                   <td>
                                         <img src="/img/productos/jean1.jpg" width="125px" alt="Nombre del producto"/>
                                         <span>Producto 2</span><br>
-                                        <span>Descripción</span><br>
-                                        <button class="btn btn-default">Guardar para más tarde</button>
-                                        <button class="btn btn-danger">Eliminar</button>
+                                        <p>Descripción</p><br>
+                                        
+                                        <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                                         </td>
                                   </td>
                                   <td class="cantidad">
-                                    <select class="selectpicker" data-width="fit" id="cantidadNro">
+                                    <select class="selectpicker" 
                                       <option value="1">1</option>
                                       <option value="2">2</option>
                                       <option value="3">3</option>
@@ -189,12 +187,11 @@ function toggleClass(elem,className){
                                   <td>
                                     <img src="/img/productos/jean1.jpg" width="125px" alt="Nombre del producto"/>
                                     <span>Producto 3</span><br>
-                                    <span>Descripción</span><br>
-                                    <button class="btn btn-default">Guardar para más tarde</button>
-                                    <button class="btn btn-danger">Eliminar</button>
+                                    <p>Descripción</p><br>
+                                    <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                                   </td>
                                   <td class="cantidad">
-                                    <select class="selectpicker" data-width="fit" id="cantidadNro">
+                                    <select class="selectpicker" >
                                       <option value="1">1</option>
                                       <option value="2">2</option>
                                       <option value="3">3</option>
@@ -213,63 +210,50 @@ function toggleClass(elem,className){
                               </table>
                                 <div class='pie-de-cesta'>
                                   <span class="total4" style="float:right; font-size: 24px;"> 
-                                Al finalizar esta transacción <em style="color: green"><b>$450</b></em></span>
+                                Precio Final<b>$450</b></span>
                                   <br><br><br>
                                   <button class='btn btn-link continuar'>Continuar comprando...</button>
-                                  <button class='btn' style='float:right'>Comprar</button>
+                                  <button class='btn continuar' style='float:right'>Comprar</button>
                                   
                                 </div>
                               </div>
-                              
-                              
-                                  
-                                  
-                              <!--Agregar-->
-                              <button class="btn btn-primary suma"><i class="fa fa-plus fa-2x"></i></button>
-                              
+                            
 
-                </section>
-                <section>
-
-                </section>
-                <section>
-
-                </section>
         </main>
         <footer class="flex-colum">
-        <!-- bloque suscribite -->
-                <div>
-                        <div>
-                                <h4>10% de descuento en tu primera compra online</h4>
-                                <p>SUSCRIBIÉNDOTE A NUESTRO NEWSLETTER</p>
-                        </div>
-                        <a href="">
+                <!-- bloque suscribite -->
+                        <div class="bloque-suscribite">
                                 <div>
-                                        <h4>SUSCRIBITE AL NEWSLETTER</h4>
+                                        <h4>10% de descuento en tu primera compra online</h4>
+                                        <p>SUSCRIBIÉNDOTE A NUESTRO NEWSLETTER</p>
                                 </div>
-                        </a>
-                </div>
-                <div>
-                        <div>
-                                <h5>Estamos en</h5>
-                                <p>Av. xxxxxxxxx</p>
+                                <a href="">
+                                        <div>
+                                               <button> <h4>SUSCRIBITE AL NEWSLETTER</h4></button>
+                                        </div>
+                                </a>
                         </div>
-                        <div>
-                                <h5>Contáctanos</h5>
-                                <p>5490023232</p>
-                                <p>5490023232</p>
+                        <div class="footer-datosContacto flex-row">
+                                <div>
+                                        <h5>Estamos en</h5>
+                                        <p>Av. xxxxxxxxx</p>
+                                </div>
+                                <div>
+                                        <h5>Contáctanos</h5>
+                                        <p>5490023232</p>
+                                        <p>5490023232</p>
+                                </div>
+                                <div>
+                                        <h5>Información</h5>
+                                        <a href=""><p>Politicas de devolución</p></a>
+                                        <a href=""><p>Guia de talles</p></a>
+                                </div>
+                                <div class="redesSociales">
+                                        <a href=""><i class="fab fa-instagram"></i></a>
+                                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                                        <a href=""><i class="fab fa-twitter"></i></a>                      
+                                </div>
                         </div>
-                        <div>
-                                <h5>Información</h5>
-                                <a href=""><p>Politicas de devolución</p></a>
-                                <a href=""><p>Guia de talles</p></a>
-                        </div>
-                        <div>
-                                <a href=""><p>face</p></a>
-                                <a href=""><p>tw</p></a>
-                                <a href=""><p>ig</p></a>                      
-                        </div>
-                </div>
-        </footer class="flex-colum">
+                </footer >
 </body>
 </html>

@@ -8,25 +8,21 @@
     color: var(--colorPrincipal);
 }
 
-@media screen and (max-width: 700px) {
+
 .dropdown{
     visibility: visible;
 
 
 }
-}
-@media screen and (min-width: 701px) {
-    .dropdown{
-        visibility: hidden;
-    }
-}
+
+
 .option{
     color: black;
     font-size: 100%;
 }
-body{
+/* body{
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+} */
 
 .hide {
     max-height: 0 !important;
@@ -73,4 +69,13 @@ body{
 
 .rotate-90{
 	transform: rotate(90deg);
+}
+
+@media screen and (min-width: 701px) {
+    .dropdown{
+        visibility: hidden;
+    }
+    .contenedor-menuPagina, .buscador-nav, .contenedor-menuUsuario{
+        display: block;
+    }
 }
