@@ -9,3 +9,4 @@ Deberiamos comenzar a usar mas herramientas como Trello, para practicar mas meto
 Hacer mas ayuda memorias de algunos codigos. Y programar alguna reunion fija durante el finde para poder estar mas relajados de actividades.
 Continuar haciendo reuniones de equipo. Poner un minimo de reuniones por semana.
 Evitar cancelar reuniones.
+Creemos que las cosas salieron mejor de las esperadas, a pesar de las diferencias horarias de cada uno y el otro proyecto de mercado liebre que iba a la par, pudimos sacar adelante el sprint 2 y logramos quedar conformes con lo logrado, como punto en contra creemos que confiamos muchos en nosotros mismos y deberiamos juntarnos unas horas mas. Sin mas, creemos que para el proximo sprint lo vamos a lograr.
