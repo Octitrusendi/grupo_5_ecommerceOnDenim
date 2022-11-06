@@ -22,25 +22,27 @@
                 <nav>
                 <!-- menu pagina -->
                         <div class="contenedor-menuPagina">
-                                <ul>
-                                        <li><a href="">Nuestros Jeans</a></li>
-                                        <li><a href="">¿Quiénes somos?</a></li>
-                                        <li><a href="">¡OFERTAS!</a></li>
+                                <ul class="menuPagina">
+                                        <li  class="item-menu"><a href="">Nuestros Jeans</a></li>
+                                        <li class="item-menu"><a href="">¿Quiénes somos?</a></li>
+                                        <li class="item-menu"><a href="">¡OFERTAS!</a></li>
                                 </ul>
                         </div>
                 <!-- buscador -->
                         <div class="buscador-nav">
                                 <form action="">
-                                        <input type="text" placeholder="Buscar productos, marcas">
+                                        <input class="search-navInput" type="text" placeholder="Buscar productos, marcas">
                                         <button class="boton-searchNav"><i class="fas fa-search"></i></button>  
                                 </form>
                         </div>
                 <!-- menu usuario -->
                         <div class="contenedor-menuUsuario">
                                 <ul class="menu-usuario">
-                                        <li><a href="#">Creá tu cuenta<i class="fas fa-address-card"> </i></a></li>
-                                        <li><a href="#">Ingresá<i class="fas fa-sign-in-alt"></i></a></li>
-                                        <li><a href="#">Mis compras<i class="fas fa-shopping-basket"> </i></a></li>
+                                        <li class="user-desktop"><a href="#"><i class="fas fa-user"></i> </a></li>
+                                        <li class="shop-desktop"><a href="#"><i class="fas fa-shopping-bag"></i></a></li>
+                                        <li class="register-mobile"><a href="#">Creá tu cuenta<i class="fas fa-user"></i></a></li>
+                                        <li class="login-mobile"><a href="#">Ingresá<i class="fas fa-sign-in-alt"></i></a></li>
+                                        <li class="shop-mobile"><a href="#">Mis compras<i class="fas fa-shopping-bag"></i></a></li>
                                 </ul>
                         </div>
                 </nav>
@@ -79,6 +81,7 @@
                                         <img src="/img/productos/jean1.jpg" alt="Producto 1">
                                 </div> 
                                 <div class="descripcion">
+
                                         <h3 class="descripciones-productos">Jean 1</h3>
                                         <h4 class="precios">$ 10.000</h4>
                                 </div> 
@@ -117,6 +120,11 @@
                         <i class="fas fa-greater-than arrow-left"></i>
                         <i class="fas fa-greater-than arrow-right"></i>     
                         </div>
+                         <a href="" class="flex-row">
+                                <span class="todos-productos">Todos los productos</span>
+                                <span class="todos-productos2">></span>                                       
+                         </a>
+
                 </section>
                 <section class="carrusel-newColection flex-colum">
                         <div class="contenedor-newColection">
@@ -126,19 +134,19 @@
                         <div class="contenedor-productos contenedor-productosNew  flex-colum">
                         <!-- producto 1 -->
                                 <div class="cajas-productosPersonalizados cajas-productosPersonalizados-new  flex-colum">
-                                        <div class="img-producto">
+                                        <div class="img-producto img-productoNew">
                                                 <img src="/img/productos/jean1.jpg" alt="Producto 1">
                                         </div> 
                                 </div>
                         <!-- producto 2 -->
                                 <div class="cajas-productosPersonalizados cajas-productosPersonalizados-new  flex-colum solo-mobile ">
-                                        <div class="img-producto">
+                                        <div class="img-producto  img-productoNew">
                                                 <img src="/img/productos/jean1.jpg" alt="Producto 1">
                                         </div> 
                                 </div>
                         <!-- producto 2-->
                                 <div class="cajas-productosPersonalizados cajas-productosPersonalizados-new  flex-colum solo-mobile solo-tablet">
-                                        <div class="img-producto">
+                                        <div class="img-producto  img-productoNew">
                                                 <img src="/img/productos/jean1.jpg" alt="Producto 1">
                                         </div> 
                                 </div>
@@ -154,7 +162,7 @@
                                         <form class="flex-colum" action="">
                                                 <input type="email" placeholder="Escriba su correo electronico">
                                                 <textarea name="" id="" placeholder="Escriba su comentario aquí..." style="min-height: 100px; max-height: 300px;"></textarea>
-                                                <button type="submit">Enviar</button>
+                                                <button class="submit-contacHome" type="submit">Enviar</button>
                                         </form>
                                 </div>
                         </article>
@@ -163,15 +171,13 @@
         </main>
         <footer class="flex-colum">
         <!-- bloque suscribite -->
-                <div class="bloque-suscribite">
+                <div class="bloque-suscribite flex-colum">
                         <div>
-                                <h4>10% de descuento en tu primera compra online</h4>
-                                <p>SUSCRIBIÉNDOTE A NUESTRO NEWSLETTER</p>
+                                <h4 class="title-suscribite">10% de descuento en tu primera compra online</h4>
+                                <p class="descripcion-suscribite">SUSCRIBIÉNDOTE A NUESTRO NEWSLETTER</p>
                         </div>
                         <a href="">
-                                <div>
-                                       <button> <h4>SUSCRIBITE AL NEWSLETTER</h4></button>
-                                </div>
+                                <button class="boton-suscribite"> <h4 class="titulo-boton-suscribite">SUSCRIBITE AL NEWSLETTER</h4c></button>
                         </a>
                 </div>
                 <div class="footer-datosContacto flex-row">

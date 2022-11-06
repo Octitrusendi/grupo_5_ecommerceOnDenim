@@ -20,9 +20,9 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
         caption,th {
         text-align:left;
         }
-        h1,h2,h3,h4,h5,h6 {
+        h1,h2,h3,h4,h5,h6,button {
         font-size:100%;
-        font-weight:500;
+        font-family: 'DINNeuzeitGrotesk LT BoldCond';
         }
         q:before,q:after {
         content:'';
@@ -33,27 +33,56 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
                 text-decoration: none;
                 color: rgb(0, 0, 0);
         }
-        
+        @font-face {
+                font-family: 'DINNeuzeitGrotesk LT';
+                src: url('/font/DINNeuzeitGroteskLT-Light.eot');
+                src: local('DIN 30640 Neuzeit Grotesk LT Light'), local('/font/DINNeuzeitGroteskLT-Light'),
+                    url('/font/DINNeuzeitGroteskLT-Light.eot?#iefix') format('embedded-opentype'),
+                    url('/font/DINNeuzeitGroteskLT-Light.woff2') format('woff2'),
+                    url('/font/DINNeuzeitGroteskLT-Light.woff') format('woff'),
+                    url('/font/DINNeuzeitGroteskLT-Light.ttf') format('truetype');
+                font-weight: 300;
+                font-style: normal;
+                font-display: swap;
+            }
+            
+            @font-face {
+                font-family: 'DINNeuzeitGrotesk LT BoldCond';
+                src: url('font/DINNeuzeitGroteskLT-BoldCond.eot');
+                src: local('DIN 30640 Neuzeit Grotesk LT Bold Condensed'), local('font/DINNeuzeitGroteskLT-BoldCond'),
+                    url('/font/DINNeuzeitGroteskLT-BoldCond.eot?#iefix') format('embedded-opentype'),
+                    url('/font/DINNeuzeitGroteskLT-BoldCond.woff2') format('woff2'),
+                    url('/font/DINNeuzeitGroteskLT-BoldCond.woff') format('woff'),
+                    url('/font/DINNeuzeitGroteskLT-BoldCond.ttf') format('truetype');
+                font-weight: bold;
+                font-style: normal;
+                font-display: swap;
+            }
 
 body{
         text-decoration: none;
-        font-family: 'Libre Franklin', sans-serif;
+        font-family: 'DINNeuzeitGrotesk LT';
+/*         font-family: 'Libre Franklin', sans-serif; */
         background-color: #fff9f6;
+        font-size: 18px;
+
 }
 header{
         justify-content: space-between;
         align-content: center;
         align-items: center;
+        background-color: #ffff;
 }
 
 :root{
-        --colorPrincipal: #df502e;
+        --colorPrincipal: #FF6200;
+        --colorPrincipal2: #df502e;
 }
 
 /* nav */
 
 .contenedor-logo img{
-        height: 100px;
+        height: 80px;
         width: 130px;
 
 }
@@ -61,7 +90,7 @@ header{
 /* home */
 .carrusel {
         width: 100%;
-        height: 30vh;
+        height: 45vh;
         background-image: url(/img/carrusel.jpg);
         background-repeat: no-repeat;
         background-size: cover;
@@ -81,6 +110,7 @@ header{
 
 .carrusel-productosPersonalizados, .carrusel-newColection, .seccion-contacto div:first-child{
         padding: 15px 30px;
+        gap: 20px;
 }
 .carrusel-newColection{
         position: relative;
@@ -89,7 +119,6 @@ header{
         width: 85vw;
         height: max-content;
         margin: 10px 0 10px 0; 
-        padding: 10px 0 15px;
         border-radius: 6px;
         overflow: hidden;
         box-shadow: 0 2px 3px 0 rgb(0 0 0 / 40%);
@@ -110,23 +139,101 @@ header{
         width: 100%;
         height: 100%;
         object-fit: contain;
-        transition: all .3s ease-in-out;
+
 }
 .descripcion{
         width: 100%;
         text-align: center;
         border-top: 1px solid #ababab;
-        padding: 10px;
+        position: relative;
+        padding: 10px 0;
+}
+.descripcion::before, .img-productoNew::before{
+        border-radius: 6px;
+        content: "Ver Producto";
+        position: absolute;
+        background-color: #ffff;
+        height: 0%;
+        width: 60%;
+        left: 21%;
+        bottom: 30%;
+        font-size: 1rem;
+        padding: 5px 0;
+        color: var(--colorPrincipal);
+        z-index: 99;
+        font-weight: 600;
+        transition: opacity .3s ease-in;
+        opacity: 0;
+}
+.descripcion::after, .img-productoNew::after{
+        content: "";
+        position: absolute;
+        background-color: var(--colorPrincipal);
+        height: 0%;
+        width: 100%;
+        left: 0;
+        bottom:0;
+        transition: all .3s ease-in-out;
+}
+.cajas-productosPersonalizados:hover .descripcion::after{
+        height: 100%;
+}
+.cajas-productosPersonalizados:hover .descripcion::before{
+        height: 26%;
+        opacity: 1;
+}
+.cajas-productosPersonalizados:hover{
+        box-shadow: 0px 0px 10px rgb(100 100 100); 
+}
+.todos-productos{
+        border: 2px solid var(--colorPrincipal);
+        padding: 8px 12px;
+        transition:0.4s ease 0s;
+}
+.todos-productos2{
+        border: 2px solid var(--colorPrincipal);
+        padding: 8px 12px;
+        background-color: var(--colorPrincipal);
+        color: #ffff;
+}
+.cajas-productosPersonalizados-new{
+        position: relative;
+
+}
+.img-productoNew::before{
+        border-radius: 6px;
+        content: "Ver Producto";
+        position: absolute;
+        background-color: #ffff;
+        height: 0%;
+        width: 69%;
+        left: 12%;
+        bottom: 38%;
+        font-size: 1rem;
+        padding: 5px 6px;
+        color: var(--colorPrincipal);
+        z-index: 99;
+        font-weight: 600;
+        transition: opacity .3s ease-in;
+        opacity: 0;
+}
+
+.cajas-productosPersonalizados:hover  .img-productoNew::after{
+        height: 100%;
+}
+.cajas-productosPersonalizados:hover  .img-productoNew::before{
+        height: 14%;
+        opacity: 1
 }
 
 .descripciones-productos{
-        font-size: 14px;
+        font-size: 0.8rem;
         color: #ababab;
         font-weight: 600;
         padding: 5px 0;
 }
 .precios{
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: 600;
         padding: 5px 0;
 }
@@ -137,7 +244,7 @@ header{
 .formulario-contacto{
         width: 100%;
 }
-.formulario-contacto input, textarea, button{
+.formulario-contacto input, textarea, .submit-contacHome{
         padding: 8px 0;
         margin: 0 0 10px 0;
         border: 1px solid var(--colorPrincipal);
@@ -147,25 +254,62 @@ header{
         resize: none;
 
 }
+input::placeholder, textarea::placeholder{
+        padding: 2px 0 0 5px;
+        font-family: 'DINNeuzeitGrotesk LT';
+        font-weight: 600;
+        font-size: .7rem;
+}
+input:focus, textarea:focus, input:focus-visible, textarea:focus-visible{
+        outline: 2px solid var(--colorPrincipal) !important;
+}
 .formulario-contacto button{
         width: 50%;
+        padding: 5px 15px;
+        background-color: rgba(0, 0, 0, 0);
+        transition:0.4s ease 0s;
 }
+
 
 .bloque-suscribite{
         background-color: var(--colorPrincipal);
+        color: #ffff;
         text-align: center;
-        padding: 20px 0;
+        padding: 40px 0;
         width: 100%;
+        gap: 15px;
 }
 .bloque-suscribite div{
         padding: 5px 0;
+        width: 100%;
 }
 
-.bloque-suscribite h4{
-        font-size: 18px;
+.bloque-suscribite {
+        font-size: 1rem;
         font-weight: 700;
 
 }
+.title-suscribite{
+        padding: 10px 0;
+        font-size: 2rem;
+}
+.descripcion-suscribite{
+        padding: 10px 0;
+}
+.boton-suscribite{
+        width: 100%;
+        padding: 10px 15px;
+        background-color: rgba(0, 0, 0, 0);
+        border: 2px solid #ffff;
+        border-radius: 5px;
+        transition:0.4s ease 0s;
+}
+.titulo-boton-suscribite{
+        color: #ffff;
+        font-size: 1.5rem;
+        transition:0.4s ease 0s;
+}
+
 
 .footer-datosContacto{
         background-color: black ;
@@ -181,13 +325,13 @@ header{
         width: 50%;
         padding: 8px 0;
         text-align: center;
-        font-size: 14px;
+        font-size: 0.8rem;
         align-self: center;
 }
 
 .redesSociales i{
         padding: 5px;
-        font-size: 18px;
+        font-size: 1.5rem;
 }
 
 
@@ -224,14 +368,14 @@ header{
         left: 2%;
         transform: rotate(180deg);
         color: var(--colorPrincipal);
-        font-size: 18px; 
+        font-size: 1rem; 
         cursor: pointer;
 }
 .arrow-right{
         right: 2%;
         position: absolute;
         color: var(--colorPrincipal);
-        font-size: 18px; 
+        font-size: 1rem; 
         cursor: pointer;
 
 }
@@ -299,8 +443,12 @@ header{
                 right: 40%;
          }  
 
+
+
 }
 @media screen and (min-width: 760px) {
+
+        
         .carrusel {
                 background-position-y: -140px ;
         }
@@ -330,4 +478,39 @@ header{
         .arrow-rightNew{
                 right: 41%;
          }  
+         .formulario-contacto button{
+                width: 30%;
+                padding: 10px 25px;
+                font-size: 1rem;
+        }
+
+         .title-suscribite{
+                font-size: 3rem;
+         }
+
+         .bloque-suscribite button{
+                width: 100%;
+                padding: 5px 15px;
+        }
+        .bloque-suscribite button h4{
+                font-size: 1.7rem;
+        }
+        
+
+}
+
+@media (hover: hover){
+        .boton-suscribite:hover {
+                background-color: #fff9f6;
+        }
+        .boton-suscribite:hover .titulo-boton-suscribite{
+                color: var(--colorPrincipal);
+        }
+        .formulario-contacto button:hover, .todos-productos:hover{
+                background-color: var(--colorPrincipal);
+                color: #ffff;
+        }
+        .item-menu:hover  a, .boton-searchNav:hover i, .user-desktop:hover i, .shop-desktop:hover i{
+                color: var(--colorPrincipal);
+        }
 }

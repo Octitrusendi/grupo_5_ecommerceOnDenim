@@ -1,4 +1,7 @@
 
+.contenedor-logo{
+    margin: 0 0 0 10px;
+}
 .contenedor-menuPagina, .buscador-nav, .contenedor-menuUsuario{
     display: none;
 }
@@ -71,11 +74,83 @@
 	transform: rotate(90deg);
 }
 
-@media screen and (min-width: 701px) {
+@media screen and (min-width: 760px) {
+    body{
+        margin-top: 90px;
+    }
+    nav, .menuPagina, .menu-usuario{
+        display: flex;
+        flex-direction: row;
+    }
+    nav{
+        flex-grow: 2;
+        justify-content: space-evenly;
+        gap: 10px;
+    }
+    header{
+        justify-content: space-evenly;
+        position: fixed;
+        width: 100%;
+        min-height: 90px;
+        max-height: 90px;
+        z-index: 999999;
+
+        top: 0;
+    }
+    .menuPagina, .menu-usuario{
+        gap: 10px;
+        justify-content: center;
+    }
+    .register-mobile, .shop-mobile, .user-mobile, .login-mobile, .search-navInput{
+        display: none;
+    }
     .dropdown{
         visibility: hidden;
     }
+     .contenedor-menuPagina{
+        flex-grow: 2;
+
+     }
+     .contenedor-menuUsuario{
+        margin: 0 25px 0 0;
+        padding: 10px 0;
+     }
     .contenedor-menuPagina, .buscador-nav, .contenedor-menuUsuario{
         display: block;
     }
+    .boton-searchNav{
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        padding: 10px 0;
+    }
+
+    nav i{
+      font-size: 18px;  
+    }
+    .contenedor-logo{
+        margin: 0 0 0 20px;
+
+    }
+    .item-menu{
+        padding: 10px 20px;
+        transition:0.4s ease 0s;
+        position: relative;
+    }
+     .item-menu a::after {
+        content: "";
+        position: absolute;
+        background-color: var(--colorPrincipal);
+        height: 1%;
+        width: 0%;
+        left: 0;
+        bottom:0;
+        transition: all .3s ease-in-out;
+     }
+     .item-menu:hover  a::after{
+        width: 100%;
+     }
+    .item-menu a, .boton-searchNav i, .user-desktop i, .shop-desktop i {
+        transition:0.4s ease 0s;
+    }
+
 }
