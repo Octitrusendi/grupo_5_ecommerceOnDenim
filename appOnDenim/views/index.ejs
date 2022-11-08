@@ -40,42 +40,7 @@
                          </a>
 
                 </section>
-                <section class="carrusel-newColection flex-colum">
-                        <div class="contenedor-newColection">
-                                <div>
-                                        <h2 class="titulo-newColection">New Collection</h2>
-                                </div>
-                        <div class="contenedor-productos contenedor-productosNew  flex-colum">
-                        <!-- producto NewCollection -->
-                        <% products.forEach((producto, index) => { %>
-                                <% if (producto.newCollection && index <= 3) { %>
-                                        <div class="cajas-productosPersonalizados cajas-productosPersonalizados-new  flex-colum">
-                                                <a href="/producto/<%= producto.id %>">
-                                                        <div class="img-producto img-productoNew">
-                                                                <img src="/images/productos/<%= producto.image %>" alt="Producto 1">
-                                                        </div> 
-                                                </a>
-                                        </div>
-                                <% } %>
-                        <%  })%>
-
-                        </div>
-                        <i class="fas fa-greater-than arrow-left arrow-leftNew"></i>
-                        <i class="fas fa-greater-than arrow-right arrow-rightNew"></i>  
-                        </div>   
-                        <article class="flex-colum seccion-contacto">
-                                <div>
-                                        <h2>Dejanos tu contacto</h2>
-                                </div>
-                                <div class="formulario-contacto">
-                                        <form class="flex-colum" action="">
-                                                <input type="email" placeholder="Escriba su correo electronico">
-                                                <textarea name="" id="" placeholder="Escriba su comentario aquí..." style="min-height: 100px; max-height: 300px;"></textarea>
-                                                <button class="submit-contacHome" type="submit">Enviar</button>
-                                        </form>
-                                </div>
-                        </article>
-                </section>
+<%- include('partials/newCollection.ejs') %>       
 
         </main>
 <%- include('partials/footer.ejs') %>

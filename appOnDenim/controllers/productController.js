@@ -12,7 +12,7 @@ const productController = {
     if( jean == undefined){
       next(createError(404));
 
-    }return res.render('productDetail', {jean,  title: 'OnDenim | ' }, );
+    }return res.render('productDetail', {jean,products,  title: 'OnDenim | ' }, );
   },
 };
 
