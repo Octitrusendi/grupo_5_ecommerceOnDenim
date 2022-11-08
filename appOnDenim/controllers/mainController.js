@@ -4,9 +4,9 @@ var createError = require('http-errors');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-let count = 0;
 
 
+console.log(products)
 const mainController = {
   index: (req, res) => {
     res.render('index', {products, title: 'OnDenim | Home' });
