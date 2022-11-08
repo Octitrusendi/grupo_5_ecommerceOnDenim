@@ -3,10 +3,67 @@
          "id": 1,
          "name": "Jean 1",
          "price": 10000,
-         "stock": true,
+         "stock": 10,
+         "sale": "",
          "category": "Diseño Persona",
          "description": "-",
-         "image": "jean1.jpg"
+         "image": "jean1.jpg",
+         "newCollection": true
+        },
+        {
+                "id": 2,
+                "name": "Jean 2",
+                "price": 20000,
+                "stock": 10,
+                "sale": "",
+                "category": "Diseño Persona",
+                "description": "-",
+                "image": "jean1.jpg",
+                "newCollection": false
+        },
+        {
+                "id": 3,
+                "name": "Jean 3",
+                "price": 20000,
+                "stock": 10,
+                "sale": "",
+                "category": "Diseño Persona",
+                "description": "-",
+                "image": "jean1.jpg",
+                "newCollection": true
+        },
+        {
+                "id": 4,
+                "name": "Jean 4",
+                "price": 20000,
+                "stock": 0,
+                "sale": "",
+                "category": "Diseño Persona",
+                "description": "-",
+                "image": "jean1.jpg",
+                "newCollection": true
+        },
+        {
+                "id": 5,
+                "name": "Jean 5",
+                "price": 20000,
+                "stock": 3,
+                "sale": "",
+                "category": "Diseño Persona",
+                "description": "-",
+                "image": "jean1.jpg",
+                "newCollection": true
+        },
+        {
+                "id": 6,
+                "name": "Jean 6",
+                "price": 20000,
+                "stock": 3,
+                "sale": "",
+                "category": "Diseño Persona",
+                "description": "-",
+                "image": "jean1.jpg",
+                "newCollection": true
         }
 
 ]

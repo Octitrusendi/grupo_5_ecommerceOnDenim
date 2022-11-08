@@ -11,6 +11,7 @@ const productController = {
     let jean = products.find(jean => jean.id == req.params.jeanID);
     if( jean == undefined){
       next(createError(404));
+
     }return res.render('productDetail', {jean,  title: 'OnDenim | ' }, );
   },
 };

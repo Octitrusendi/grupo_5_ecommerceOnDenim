@@ -15,48 +15,22 @@
                                 <h2>Diseños personalizados</h2>
                         </div>
                         <div class="contenedor-productos flex-colum">
-                <!-- producto 1 -->
-                        <div class="cajas-productosPersonalizados  flex-colum ">
-                                <div class="img-producto">
-                                        <img src="/images/productos/jean1.jpg" alt="Producto 1">
-                                </div> 
-                                <div class="descripcion">
-
-                                        <h3 class="descripciones-productos">Jean 1</h3>
-                                        <h4 class="precios">$ 10.000</h4>
-                                </div> 
-                        </div>  
-                        <!-- producto 2 -->
-                        <div class="cajas-productosPersonalizados  flex-colum solo-mobile">
-                                <div class="img-producto">
-                                        <img src="/images/productos/jean1.jpg" alt="Producto 1">
-                                </div> 
-                                <div class="descripcion">
-                                        <h3 class="descripciones-productos">Jean 2</h3>
-                                        <h4 class="precios">$ 10.000</h4>
-                                </div> 
-                        </div>
-                        <!-- producto 3 -->
-                        <div class="cajas-productosPersonalizados  flex-colum solo-mobile solo-tablet">
-                                <div class="img-producto">
-                                        <img src="/images/productos/jean1.jpg" alt="Producto 1">
-                                </div> 
-                                <div class="descripcion">
-                                        <h3 class="descripciones-productos">Jean 3</h3>
-                                        <h4 class="precios">$ 10.000</h4>
-                                </div> 
-                        </div>     
-                        <!-- producto 4 -->
-                        <div class="cajas-productosPersonalizados  flex-colum solo-mobile solo-tablet">
-                                <div class="img-producto">
-                                        <img src="/images/productos/jean1.jpg" alt="Producto 1">
-                                </div> 
-                                <div class="descripcion">
-                                        <h3 class="descripciones-productos">Jean 4</h3>
-                                        <h4 class="precios">$ 10.000</h4>
-                                </div> 
-                        </div>            
-
+                        <% products.forEach((producto, index) => { %>
+                                                <!-- producto  -->
+                                <% if (producto.stock >= 1&& index <= 4) { %>
+                                                <div class="cajas-productosPersonalizados  flex-colum ">
+                                                        <a href="/producto/<%= producto.id %>">
+                                                        <div class="img-producto">
+                                                                <img src="/images/productos/<%= producto.image %>" alt="<%= producto.name %>">
+                                                        </div> 
+                                                        <div class="descripcion">
+                                                                <h3 class="descripciones-productos"><%= producto.name %></h3>
+                                                                <h4 class="precios">$ <%= producto.price %></h4>
+                                                        </div> 
+                                                        </a>
+                                                </div>
+                                <% } %>
+                                <%  })%>
                         <i class="fas fa-greater-than arrow-left"></i>
                         <i class="fas fa-greater-than arrow-right"></i>     
                         </div>
@@ -72,24 +46,19 @@
                                         <h2 class="titulo-newColection">New Collection</h2>
                                 </div>
                         <div class="contenedor-productos contenedor-productosNew  flex-colum">
-                        <!-- producto 1 -->
-                                <div class="cajas-productosPersonalizados cajas-productosPersonalizados-new  flex-colum">
-                                        <div class="img-producto img-productoNew">
-                                                <img src="/images/productos/jean1.jpg" alt="Producto 1">
-                                        </div> 
-                                </div>
-                        <!-- producto 2 -->
-                                <div class="cajas-productosPersonalizados cajas-productosPersonalizados-new  flex-colum solo-mobile ">
-                                        <div class="img-producto  img-productoNew">
-                                                <img src="/images/productos/jean1.jpg" alt="Producto 1">
-                                        </div> 
-                                </div>
-                        <!-- producto 2-->
-                                <div class="cajas-productosPersonalizados cajas-productosPersonalizados-new  flex-colum solo-mobile solo-tablet">
-                                        <div class="img-producto  img-productoNew">
-                                                <img src="/images/productos/jean1.jpg" alt="Producto 1">
-                                        </div> 
-                                </div>
+                        <!-- producto NewCollection -->
+                        <% products.forEach((producto, index) => { %>
+                                <% if (producto.newCollection && index <= 3) { %>
+                                        <div class="cajas-productosPersonalizados cajas-productosPersonalizados-new  flex-colum">
+                                                <a href="/producto/<%= producto.id %>">
+                                                        <div class="img-producto img-productoNew">
+                                                                <img src="/images/productos/<%= producto.image %>" alt="Producto 1">
+                                                        </div> 
+                                                </a>
+                                        </div>
+                                <% } %>
+                        <%  })%>
+
                         </div>
                         <i class="fas fa-greater-than arrow-left arrow-leftNew"></i>
                         <i class="fas fa-greater-than arrow-right arrow-rightNew"></i>  
