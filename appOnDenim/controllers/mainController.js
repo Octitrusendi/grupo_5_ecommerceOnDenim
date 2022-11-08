@@ -8,6 +8,9 @@ const mainController = {
   register: (req, res) => {
     res.render('register', { title: 'OnDenim | Registro' });
   },
+  productos: (req, res) => {
+    res.render('productDetail', { title: 'OnDenim | Registro' });
+  },
   
 };
 

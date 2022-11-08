@@ -1,0 +1,12 @@
+[
+        {
+         "id": 1,
+         "name": "Jean 1",
+         "price": 10000,
+         "stock": true,
+         "category": "Diseño Persona",
+         "description": "-",
+         "image": "jean1.jpg"
+        }
+
+]
