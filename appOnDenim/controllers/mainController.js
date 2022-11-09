@@ -15,6 +15,9 @@ const mainController = {
   register: (req, res) => {
     res.render('register', { title: 'OnDenim | Registro' });
   },
+  totalProductos: (req, res) =>{
+     res.render('totalProductos', { products, title: 'OnDenim | Todos los Jeans' }, );
+  },
 };
 
 module.exports = mainController;

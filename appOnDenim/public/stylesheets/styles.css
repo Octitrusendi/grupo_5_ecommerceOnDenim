@@ -212,7 +212,16 @@ header {
   transition: opacity 0.3s ease-in;
   opacity: 0;
 }
-.descripcion::after,
+.descripcion::after{
+  content: '';
+  position: absolute;
+  background-color: var(--colorPrincipal2);
+  height: 0%;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  transition: all 0.3s ease-in-out;
+}
 .img-productoNew::after {
   content: '';
   position: absolute;
@@ -432,6 +441,15 @@ textarea:focus-visible {
 .solo-mobile {
   display: none;
 }
+.contenedor-productos  a{
+  width: 100%;
+}
+.cajas-productosPersonalizados:nth-child(n +2){
+  display: none;
+ }
+ .cajas-productosPersonalizadosTotal{
+  display: block !important;
+ }
 
 @media screen and (min-width: 460px) {
   .carrusel {
@@ -444,6 +462,10 @@ textarea:focus-visible {
     align-items: center;
     gap: 10px;
   }
+  .cajas-productosPersonalizados:nth-child(n +4){
+    display: block;
+   }
+
   .cajas-productosPersonalizados {
     width: 50%;
     min-width: 50%;
@@ -490,8 +512,23 @@ textarea:focus-visible {
   .arrow-rightNew {
     right: 40%;
   }
+  .contenedor-productosTotal{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    justify-items: center;
+  }
+  .cajas-productosPersonalizadosTotal{
+    width: 100%;
+  }
+
+  
 }
+
 @media screen and (min-width: 760px) {
+  .cajas-productosPersonalizados{
+    display: block !important;
+   } 
   .carrusel {
     background-position-y: -140px;
   }
@@ -537,6 +574,15 @@ textarea:focus-visible {
   }
   .bloque-suscribite button h4 {
     font-size: 1.7rem;
+  }
+  .contenedor-productosTotal{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    justify-items: center;
+  }
+  .cajas-productosPersonalizadosTotal{
+    width: 100%;
   }
 }
 

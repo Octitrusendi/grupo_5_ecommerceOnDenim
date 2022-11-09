@@ -1,0 +1,40 @@
+<%- include('partials/head.ejs') %>
+
+<%- include('partials/header.ejs') %>
+<main>
+       
+        <section class="carrusel-productosPersonalizados flex-colum ">
+                <div>
+                        <h2>Todos los productos</h2>
+                </div>
+                <div class="contenedor-productos contenedor-productosTotal flex-colum">
+                        <% products.forEach((producto) => { %>
+                                <!-- producto  -->
+                <% if (producto.stock >= 1) { %>
+
+                                <div class="cajas-productosPersonalizados cajas-productosPersonalizadosTotal  flex-colum ">
+                                        <a href="/producto/<%= producto.id %>">
+                                        <div class="img-producto">
+                                                <img src="/images/productos/<%= producto.image %>" alt="<%= producto.name %>" title="<%= producto.name %>">
+                                        </div> 
+                                        <div class="descripcion">
+                                                <h3 class="descripciones-productos"><%= producto.name %></h3>
+                                                <h4 class="precios">$ <%= producto.price %></h4>
+                                                <i class="fas fa-truck camion"></i>
+                                        </div> 
+                                        </a>
+                                </div>
+                <% } %>
+                <%  })%>
+
+                </div>
+
+
+        </section>
+
+</main>
+<%- include('partials/footer.ejs') %>
+</body>
+
+<%- include('partials/scriptNav.ejs') %>
+</html>

@@ -13,7 +13,7 @@ const productController = {
       next(createError(404));
 
     }return res.render('productDetail', {jean,products,  title: 'OnDenim | ' }, );
-  },
+  }
 };
 
 module.exports = productController;

@@ -19,10 +19,10 @@
                                                 <!-- producto  -->
                                 <% if (producto.stock >= 1 && index <= 4) { %>
 
-                                                <div class="cajas-productosPersonalizados  flex-colum ">
+                                                <div class="cajas-productosPersonalizados cajas-productosPersonalizadosTotal  flex-colum ">
                                                         <a href="/producto/<%= producto.id %>">
                                                         <div class="img-producto">
-                                                                <img src="/images/productos/<%= producto.image %>" alt="<%= producto.name %>">
+                                                                <img src="/images/productos/<%= producto.image %>" alt="<%= producto.name %>" title="<%= producto.name %>">
                                                         </div> 
                                                         <div class="descripcion">
                                                                 <h3 class="descripciones-productos"><%= producto.name %></h3>
@@ -36,7 +36,7 @@
                         <i class="fas fa-greater-than arrow-left"></i>
                         <i class="fas fa-greater-than arrow-right"></i>     
                         </div>
-                         <a href="" class="flex-row">
+                         <a href="/productos" class="flex-row">
                                 <span class="todos-productos">Todos los productos</span>
                                 <span class="todos-productos2">></span>                                       
                          </a>
