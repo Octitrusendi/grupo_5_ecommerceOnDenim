@@ -121,7 +121,7 @@ header {
 }
 
 :root {
-  --colorPrincipal: #ff6200;
+  --colorPrincipal: rgba(223, 81, 46, 0.9);
   --colorPrincipal2: #df502e;
   --verde:#75ce00;
 }
@@ -185,7 +185,7 @@ header {
   margin: 0 auto;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit:contain;
 }
 .descripcion {
   width: 100%;
