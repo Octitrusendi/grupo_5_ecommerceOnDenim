@@ -1,7 +1,6 @@
 <%- include('partials/head.ejs') %>
 
 <%- include('partials/header.ejs') %>
-
         <main>
                 <!-- seccion 1 (carrusel de imagenes, se termina con js) -->
                 <section>
@@ -18,7 +17,8 @@
                         <div class="contenedor-productos flex-colum">
                         <% products.forEach((producto, index) => { %>
                                                 <!-- producto  -->
-                                <% if (producto.stock >= 1&& index <= 4) { %>
+                                <% if (producto.stock >= 1 && index <= 4) { %>
+
                                                 <div class="cajas-productosPersonalizados  flex-colum ">
                                                         <a href="/producto/<%= producto.id %>">
                                                         <div class="img-producto">
@@ -27,6 +27,7 @@
                                                         <div class="descripcion">
                                                                 <h3 class="descripciones-productos"><%= producto.name %></h3>
                                                                 <h4 class="precios">$ <%= producto.price %></h4>
+                                                                <i class="fas fa-truck camion"></i>
                                                         </div> 
                                                         </a>
                                                 </div>

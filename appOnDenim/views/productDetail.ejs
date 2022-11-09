@@ -28,18 +28,16 @@
                                         </div>
                                 </div>
                                 <div class='listaTalle'>
-                                        <div class='title pointerCursor'> TALLE <i class="fa fa-bars"></i></div>
-                                
-                                                <div class='menu pointerCursor hide'>
-                                                        <div class='option' id='option1'>34</div>
-                                                        <div class='option' id='option2'>36</div>
-                                                        <div class='option' id='option3'>38</div>
-                                                        <div class='option' id='option4'>40</div>
-                                                        <div class='option' id='option3'>42</div>
-                                                        <div class='option' id='option4'>44</div>
-                                                        <div class='option' id='option3'>46</div>
-                                                        <div class='option' id='option4'>48</div>
-                                                </div>
+                      
+                                   
+                                                <select name="" id="">
+                                                        <option value="">Selecciona el talle</option>
+                                                        <% jean.talles .forEach(element => { %>
+                                                        <option value="<%=element  %> "><%= element %> </option>
+                                                        <% }) %>
+                                                </select>
+       
+
                                         </div>
                                 
                                 <div class="chart">
