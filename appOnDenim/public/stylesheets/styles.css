@@ -123,6 +123,7 @@ header {
 :root {
   --colorPrincipal: #ff6200;
   --colorPrincipal2: #df502e;
+  --verde:#75ce00;
 }
 
 /* nav */
@@ -557,4 +558,14 @@ textarea:focus-visible {
   .shop-desktop:hover i {
     color: var(--colorPrincipal);
   }
+}
+.camion{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 5px;
+  color: var(--verde);
+  border: 1px solid var(--verde);
+  border-radius: 50%;
+  transition: all 0.25s ease-out;
 }
