@@ -19,7 +19,7 @@
                 "sale": "",
                 "category": "Clasico",
                 "description": "-",
-                "image": "jean1.jpg",
+                "image": "jean2.jpg",
                 "newCollection": false,
                 "color": "Azul"
         },
@@ -31,7 +31,7 @@
                 "sale": "",
                 "category": "Diseño Persona",
                 "description": "-",
-                "image": "jean1.jpg",
+                "image": "jean3.jpg",
                 "newCollection": true,
                 "color": "Azul"
         },
@@ -43,7 +43,7 @@
                 "sale": "",
                 "category": "Diseño Persona",
                 "description": "-",
-                "image": "jean1.jpg",
+                "image": "jean4.jpg",
                 "newCollection": true,
                 "color": "Azul"
         },
@@ -55,21 +55,33 @@
                 "sale": "",
                 "category": "Diseño Persona",
                 "description": "-",
-                "image": "jean1.jpg",
+                "image": "jean5.jpg",
                 "newCollection": true,
                 "color": "Azul"
         },
         {
                 "id": 6,
                 "name": "Jean 6",
-                "price": 20000,
+                "price": 25000,
                 "stock": 3,
                 "sale": "",
                 "category": "Diseño Persona",
                 "description": "-",
-                "image": "jean1.jpg",
+                "image": "jean6.jpg",
                 "newCollection": true,
                 "color": "Azul"
+        },
+        {
+                "id": 7,
+                "name": "Jean 7",
+                "price": 55000,
+                "stock": 8,
+                "sale": "",
+                "category": "Diseño Persona",
+                "description": "-",
+                "image": "jean7.jpg",
+                "newCollection": true,
+                "color": "Negro"
         }
 
 ]
