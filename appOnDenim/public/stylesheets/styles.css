@@ -121,7 +121,7 @@ header {
 }
 
 :root {
-  --colorPrincipal: #ff6200;
+  --colorPrincipal: rgba(223, 81, 46, 0.9);
   --colorPrincipal2: #df502e;
   --verde:#75ce00;
 }
