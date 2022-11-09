@@ -2,7 +2,7 @@
         {
          "id": 1,
          "name": "Jean 1",
-         "price": 10000,
+         "price": 20000,
          "stock": 1,
          "sale": "20% OFF",
          "category": "Chupin",
@@ -14,62 +14,74 @@
         {
                 "id": 2,
                 "name": "Jean 2",
-                "price": 20000,
+                "price": 30000,
                 "stock": 10,
                 "sale": "",
                 "category": "Clasico",
                 "description": "-",
-                "image": "jean1.jpg",
+                "image": "jean2.jpg",
                 "newCollection": false,
                 "color": "Azul"
         },
         {
                 "id": 3,
                 "name": "Jean 3",
-                "price": 20000,
+                "price": 28000,
                 "stock": 10,
                 "sale": "",
                 "category": "Diseño Persona",
                 "description": "-",
-                "image": "jean1.jpg",
+                "image": "jean3.jpg",
                 "newCollection": true,
                 "color": "Azul"
         },
         {
                 "id": 4,
                 "name": "Jean 4",
-                "price": 20000,
+                "price": 45000,
                 "stock": 0,
                 "sale": "",
                 "category": "Diseño Persona",
                 "description": "-",
-                "image": "jean1.jpg",
+                "image": "jean4.jpg",
                 "newCollection": true,
                 "color": "Azul"
         },
         {
                 "id": 5,
                 "name": "Jean 5",
-                "price": 20000,
+                "price": 33000,
                 "stock": 3,
                 "sale": "",
                 "category": "Diseño Persona",
                 "description": "-",
-                "image": "jean1.jpg",
+                "image": "jean5.jpg",
                 "newCollection": true,
                 "color": "Azul"
         },
         {
                 "id": 6,
                 "name": "Jean 6",
-                "price": 20000,
+                "price": 25000,
                 "stock": 3,
                 "sale": "",
                 "category": "Diseño Persona",
                 "description": "-",
-                "image": "jean1.jpg",
+                "image": "jean6.jpg",
                 "newCollection": true,
                 "color": "Azul"
+        },
+        {
+                "id": 7,
+                "name": "Jean 7",
+                "price": 55000,
+                "stock": 8,
+                "sale": "",
+                "category": "Diseño Persona",
+                "description": "-",
+                "image": "jean7.jpg",
+                "newCollection": true,
+                "color": "Negro"
         }
 
 ]
