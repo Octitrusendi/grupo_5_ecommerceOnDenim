@@ -4,16 +4,21 @@ var createError = require('http-errors');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
 const productController = {
   detalle: (req, res, next) => {
     let jean = products.find(jean => jean.id == req.params.jeanID);
-    if( jean == undefined){
+    if (jean == undefined) {
       next(createError(404));
-
-    }return res.render('productDetail', {jean,products,  title: 'OnDenim | ' }, );
-  }
+    }
+    return res.render('productDetail', {
+      jean,
+      products,
+      toThousand,
+      title: 'OnDenim | ',
+    });
+  },
 };
 
 module.exports = productController;
