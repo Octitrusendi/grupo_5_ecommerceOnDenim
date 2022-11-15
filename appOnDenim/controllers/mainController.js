@@ -33,6 +33,12 @@ const mainController = {
       title: 'OnDenim | Tu carrito',
     });
   },
+  agregar: (req, res) => {
+    res.render('productAdd', {
+      products,
+      title: 'OnDenim | Agregar Producto',
+    });
+  },
 };
 
 module.exports = mainController;
