@@ -15,7 +15,7 @@
                                 </div>
                                 <div class="priceProduct">
                                         <h2>Valor por transferencia o efectivo</h2>
-                                        <h2>$<%= jean.price.toFixed(0) %></h2>
+                                        <h2>$<%= toThousand(jean.price.toFixed(0)) %></h2>
                                 </div>
                                 <div class="quotesProduct">
                                         <div class="quotesleft">
@@ -49,8 +49,8 @@
                         <div class="left">
                                 <div class="descriptionText">
                                         <label>DESCRIPCION</label>
-                                        <p>Jeans premium tiro medio, Relax fit, tejido confortable. Lavado mid blue con localizados, bigotes y roturas sutiles. 99% Algodon - 1% Elastano
-                                           Lavar a mano o a maquina con agua fri­a y ciclo corto / Lavar y tender del reves / No usar blanqueadores ni cloro / Centrifugado corto / Secar en superficie plana / Esta prenda puede desteñir y manchar / Lavar colores oscuros por separado     
+                                        <p>
+                                                <%= jean.description %> 
                                         </p>
                                 </div>
                         </div>
@@ -68,7 +68,7 @@
 <%- include('partials/footer.ejs') %>
 </body>
 <%- include('partials/scriptNav.ejs') %>
-</html>
+
 <script>
         function toggleClass(elem,className){
                 if (elem.className.indexOf(className) !== -1){
