@@ -1,0 +1,617 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset,
+img {
+  border: 0;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+ol,
+ul,
+li {
+  list-style: none;
+  color: #0000;
+}
+caption,
+th {
+  text-align: left;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  font-size: 100%;
+  font-family: 'DINNeuzeitGrotesk LT BoldCond';
+}
+q:before,
+q:after {
+  content: '';
+}
+abbr,
+acronym {
+  border: 0;
+}
+a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+@font-face {
+  font-family: 'DINNeuzeitGrotesk LT';
+  src: url('/font/DINNeuzeitGroteskLT-Light.eot');
+  src: local('DIN 30640 Neuzeit Grotesk LT Light'),
+    local('/font/DINNeuzeitGroteskLT-Light'),
+    url('/font/DINNeuzeitGroteskLT-Light.eot?#iefix')
+      format('embedded-opentype'),
+    url('/font/DINNeuzeitGroteskLT-Light.woff2') format('woff2'),
+    url('/font/DINNeuzeitGroteskLT-Light.woff') format('woff'),
+    url('/font/DINNeuzeitGroteskLT-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DINNeuzeitGrotesk LT BoldCond';
+  src: url('font/DINNeuzeitGroteskLT-BoldCond.eot');
+  src: local('DIN 30640 Neuzeit Grotesk LT Bold Condensed'),
+    local('font/DINNeuzeitGroteskLT-BoldCond'),
+    url('/font/DINNeuzeitGroteskLT-BoldCond.eot?#iefix')
+      format('embedded-opentype'),
+    url('/font/DINNeuzeitGroteskLT-BoldCond.woff2') format('woff2'),
+    url('/font/DINNeuzeitGroteskLT-BoldCond.woff') format('woff'),
+    url('/font/DINNeuzeitGroteskLT-BoldCond.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  text-decoration: none;
+  font-family: 'DINNeuzeitGrotesk LT';
+  /*         font-family: 'Libre Franklin', sans-serif; */
+  background-color: #fff9f6;
+  font-size: 18px;
+}
+header {
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  background-color: #ffff;
+}
+
+:root {
+  --colorPrincipal: rgba(223, 81, 46, 0.9);
+  --colorPrincipal2: #df502e;
+  --verde:#75ce00;
+}
+
+/* nav */
+
+.contenedor-logo img {
+  height: 80px;
+  width: 130px;
+}
+
+/* home */
+.carrusel {
+  width: 100%;
+  height: 45vh;
+  background-image: url(/images/carrusel.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.flex-colum {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.carrusel-productosPersonalizados,
+.carrusel-newColection,
+.seccion-contacto div:first-child {
+  padding: 15px 30px;
+  gap: 20px;
+}
+.carrusel-newColection {
+  position: relative;
+}
+.cajas-productosPersonalizados {
+  width: 85vw;
+  height: max-content;
+  margin: 10px 0 10px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 3px 0 rgb(0 0 0 / 40%);
+  transition: all 0.3s ease-in-out;
+  border: 1px solid var(--colorPrincipal);
+  cursor: pointer;
+  position: relative;
+}
+
+.img-producto {
+  width: 100%;
+  height: 50%;
+}
+
+.img-producto img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  object-fit:contain;
+}
+.descripcion {
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid #ababab;
+  position: relative;
+  padding: 10px 0;
+}
+.descripcion::before,
+.img-productoNew::before {
+  border-radius: 6px;
+  content: 'Ver Producto';
+  position: absolute;
+  background-color: #ffff;
+  height: 0%;
+  width: 60%;
+  left: 21%;
+  bottom: 30%;
+  font-size: 1rem;
+  padding: 5px 0;
+  color: var(--colorPrincipal);
+  z-index: 99;
+  font-weight: 600;
+  transition: opacity 0.3s ease-in;
+  opacity: 0;
+}
+.descripcion::after{
+  content: '';
+  position: absolute;
+  background-color: var(--colorPrincipal2);
+  height: 0%;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  transition: all 0.3s ease-in-out;
+}
+.img-productoNew::after {
+  content: '';
+  position: absolute;
+  background-color: var(--colorPrincipal);
+  height: 0%;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  transition: all 0.3s ease-in-out;
+}
+.cajas-productosPersonalizados:hover .descripcion::after {
+  height: 100%;
+}
+.cajas-productosPersonalizados:hover .descripcion::before {
+  height: 26%;
+  opacity: 1;
+}
+.cajas-productosPersonalizados:hover {
+  box-shadow: 0px 0px 10px rgb(100 100 100);
+}
+.todos-productos {
+  border: 2px solid var(--colorPrincipal);
+  padding: 8px 12px;
+  transition: 0.4s ease 0s;
+}
+.todos-productos2 {
+  border: 2px solid var(--colorPrincipal);
+  padding: 8px 12px;
+  background-color: var(--colorPrincipal);
+  color: #ffff;
+}
+.cajas-productosPersonalizados-new {
+  position: relative;
+}
+.img-productoNew::before {
+  border-radius: 6px;
+  content: 'Ver Producto';
+  position: absolute;
+  background-color: #ffff;
+  height: 0%;
+  width: 69%;
+  left: 12%;
+  bottom: 38%;
+  font-size: 1rem;
+  padding: 5px 6px;
+  color: var(--colorPrincipal);
+  z-index: 99;
+  font-weight: 600;
+  transition: opacity 0.3s ease-in;
+  opacity: 0;
+}
+
+.cajas-productosPersonalizados:hover .img-productoNew::after {
+  height: 100%;
+}
+.cajas-productosPersonalizados:hover .img-productoNew::before {
+  height: 14%;
+  opacity: 1;
+}
+
+.descripciones-productos {
+  font-size: 0.8rem;
+  color: #ababab;
+  font-weight: 600;
+  padding: 5px 0;
+}
+.precios {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 5px 0;
+}
+.seccion-contacto {
+  width: 85vw;
+  margin: 0 auto;
+}
+.formulario-contacto {
+  width: 100%;
+}
+.formulario-contacto input,
+textarea,
+.submit-contacHome {
+  padding: 8px 0;
+  margin: 0 0 10px 0;
+  border: 1px solid var(--colorPrincipal);
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #999;
+  width: 100%;
+  resize: none;
+}
+input::placeholder,
+textarea::placeholder {
+  padding: 2px 0 0 5px;
+  font-family: 'DINNeuzeitGrotesk LT';
+  font-weight: 600;
+  font-size: 0.7rem;
+}
+input:focus,
+textarea:focus,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--colorPrincipal) !important;
+}
+.formulario-contacto button {
+  width: 50%;
+  padding: 5px 15px;
+  background-color: rgba(0, 0, 0, 0);
+  transition: 0.4s ease 0s;
+}
+
+.bloque-suscribite {
+  background-color: var(--colorPrincipal);
+  color: #ffff;
+  text-align: center;
+  padding: 40px 0;
+  width: 100%;
+  gap: 15px;
+}
+.bloque-suscribite div {
+  padding: 5px 0;
+  width: 100%;
+}
+
+.bloque-suscribite {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.title-suscribite {
+  padding: 10px 0;
+  font-size: 2rem;
+}
+.descripcion-suscribite {
+  padding: 10px 0;
+}
+.boton-suscribite {
+  width: 100%;
+  padding: 10px 15px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid #ffff;
+  border-radius: 5px;
+  transition: 0.4s ease 0s;
+}
+.titulo-boton-suscribite {
+  color: #ffff;
+  font-size: 1.5rem;
+  transition: 0.4s ease 0s;
+}
+
+.footer-datosContacto {
+  background-color: black;
+  color: #ffff;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.footer-datosContacto a {
+  color: #ffff;
+}
+.footer-datosContacto div {
+  width: 50%;
+  padding: 8px 0;
+  text-align: center;
+  font-size: 0.8rem;
+  align-self: center;
+}
+
+.redesSociales i {
+  padding: 5px;
+  font-size: 1.5rem;
+}
+
+/* login */
+
+.login-reg-bg {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  background-color: rgba(143, 143, 16, 0.596);
+}
+
+.usuario {
+  display: flex;
+  vertical-align: middle;
+  margin-top: 10%;
+}
+.text-usuario {
+  display: flex;
+  margin-left: 10%;
+  justify-content: center;
+  align-items: center;
+}
+.ingreso-usuario {
+  display: flex;
+  margin-left: 30%;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow-left {
+  position: absolute;
+  left: 2%;
+  transform: rotate(180deg);
+  color: var(--colorPrincipal);
+  font-size: 1rem;
+  cursor: pointer;
+}
+.arrow-right {
+  right: 2%;
+  position: absolute;
+  color: var(--colorPrincipal);
+  font-size: 1rem;
+  cursor: pointer;
+}
+.arrow-rightNew,
+.arrow-leftNew {
+  top: 30%;
+}
+.solo-mobile {
+  display: none;
+}
+.contenedor-productos  a{
+  width: 100%;
+}
+.cajas-productosPersonalizados:nth-child(n +2){
+  display: none;
+ }
+ .cajas-productosPersonalizadosTotal{
+  display: block !important;
+ }
+
+@media screen and (min-width: 460px) {
+  .carrusel {
+    background-position-y: -5px;
+  }
+  .contenedor-productos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .cajas-productosPersonalizados:nth-child(n +4){
+    display: block;
+   }
+
+  .cajas-productosPersonalizados {
+    width: 50%;
+    min-width: 50%;
+    display: block;
+  }
+
+  .solo-tablet {
+    display: none;
+  }
+  .arrow-right {
+    right: 1%;
+  }
+  .arrow-left {
+    left: 1%;
+  }
+  .carrusel-newColection {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 35px;
+  }
+  .contenedor-productosNew {
+    justify-content: space-evenly;
+  }
+
+  .contenedor-newColection {
+    width: 60%;
+    text-align: center;
+  }
+  .seccion-contacto {
+    width: 40%;
+  }
+  .titulo-newColection {
+    padding: 15px 30px 5px;
+  }
+  .cajas-productosPersonalizados-new {
+    width: 28%;
+    max-width: 28%;
+  }
+  .arrow-rightNew,
+  .arrow-leftNew {
+    top: 45%;
+  }
+  .arrow-rightNew {
+    right: 40%;
+  }
+  .contenedor-productosTotal{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    justify-items: center;
+  }
+  .cajas-productosPersonalizadosTotal{
+    width: 100%;
+  }
+
+  
+}
+
+@media screen and (min-width: 760px) {
+  .cajas-productosPersonalizados{
+    display: block !important;
+   } 
+  .carrusel {
+    background-position-y: -140px;
+  }
+  .contenedor-productos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .contenedor-productosNew {
+    justify-content: space-evenly;
+  }
+  .cajas-productosPersonalizados {
+    width: 23%;
+    min-width: 23%;
+    display: block;
+  }
+  .cajas-productosPersonalizados-new {
+    width: 28%;
+    max-width: 28%;
+  }
+  .arrow-rightNew,
+  .arrow-leftNew {
+    top: 50%;
+  }
+  .arrow-rightNew {
+    right: 41%;
+  }
+  .formulario-contacto button {
+    width: 30%;
+    padding: 10px 25px;
+    font-size: 1rem;
+  }
+
+  .title-suscribite {
+    font-size: 3rem;
+  }
+
+  .bloque-suscribite button {
+    width: 100%;
+    padding: 5px 15px;
+  }
+  .bloque-suscribite button h4 {
+    font-size: 1.7rem;
+  }
+  .contenedor-productosTotal{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    justify-items: center;
+  }
+  .cajas-productosPersonalizadosTotal{
+    width: 100%;
+  }
+}
+
+@media (hover: hover) {
+  .boton-suscribite:hover {
+    background-color: #fff9f6;
+  }
+  .boton-suscribite:hover .titulo-boton-suscribite {
+    color: var(--colorPrincipal);
+  }
+  .formulario-contacto button:hover,
+  .todos-productos:hover {
+    background-color: var(--colorPrincipal);
+    color: #ffff;
+  }
+  .item-menu:hover a,
+  .boton-searchNav:hover i,
+  .user-desktop:hover i,
+  .shop-desktop:hover i {
+    color: var(--colorPrincipal);
+  }
+}
+.camion{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 5px;
+  color: var(--verde);
+  border: 1px solid var(--verde);
+  border-radius: 50%;
+  transition: all 0.25s ease-out;
+}
