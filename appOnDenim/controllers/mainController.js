@@ -20,23 +20,10 @@ const mainController = {
   register: (req, res) => {
     res.render('register', { title: 'OnDenim | Registro' });
   },
-  totalProductos: (req, res) => {
-    res.render('totalProductos', {
-      products,
-      toThousand,
-      title: 'OnDenim | Todos los Jeans',
-    });
-  },
   carrito: (req, res) => {
     res.render('productCart', {
       products,
       title: 'OnDenim | Tu carrito',
-    });
-  },
-  agregar: (req, res) => {
-    res.render('productAdd', {
-      products,
-      title: 'OnDenim | Agregar Producto',
     });
   },
 };

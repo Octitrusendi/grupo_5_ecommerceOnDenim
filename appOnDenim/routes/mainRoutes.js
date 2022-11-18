@@ -5,9 +5,7 @@ const mainController = require('../controllers/mainController.js');
 router.get('/', mainController.index);
 router.get('/login', mainController.login);
 router.get('/register', mainController.register);
-router.get('/productos', mainController.totalProductos);
 router.get('/carrito', mainController.carrito);
-router.get('/agregar', mainController.agregar);
 
 
 module.exports = router;

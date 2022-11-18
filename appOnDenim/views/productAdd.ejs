@@ -1,78 +1,40 @@
 <%- include('partials/head.ejs') %>
 <%- include('partials/headProductAdd.ejs') %>
 <%- include('partials/header.ejs') %>
-        <main>
-                <!-- seccion 1 -->
-
-
-                <section>
-                        <div class="cesta-beneficios-actualizar" >
-                                <h3>
-                                        Agregar Producto
-                                </h3>
-                              
-                              <!--Tabla-->
-                              <div class="table-responsive">
-                              <table class="table table-bordered table-condensed cesta" >
-                                <thead>
-                                  <th>imagen Producto</th>
-                                  <th>Nombre</th> 
-                                  <th>Precio por unidad</th>
-                                  <th>Descripcion</th>
-                                </thead>
-                                <tr class="beneficio" >
-                                  <td>
-                                    <img src="/images/agregarImagen.png" width="125px" alt="agregarImagen"/>
-                                  </td>
-                                  <td class="cantidad">
-                                    <select class="selectpicker" >
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                    </select>
-                                    
-                                    </td> 
-                                  <td class="valor">50</td>
-                                  <td class="total">50</td>
-                                </tr>
-                                <div class="container">
-                                  <div class="central">
-                                      <div class="prod">
-                                          <div class="title">
-                                              Agregar Producto
-                                          </div>
-                                          <div class="regconsult">
-                                              <form id="regform">
-                                                      <input type="text" name="name" placeholder="Nombre" id="name" required>
-                                                      <input type="text" name="price" placeholder="Precio" id="price" required>
-                                                      <input type="text" name="stock" placeholder="Cantidad en stock" id="stock" required>
-                                                      <div class="categoria">
-                                                        <select class="selectpicker">
-                                                        <option value="0">Seleccione una categoria</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                      </select>              
-                                                      </div>
-                                                      <input type="text" name="descript" placeholder="Descripcion" id="descript" required>
-                                                      <label><input type="checkbox" id="cbox1" value="newCollection"> Agregar a "New Collection"?</label><br>
-                                                      <input type="text" name="color" placeholder="Color" id="color" required>
-                                                      <input type="text" name="talles" placeholder="Talles" id="talles" required>
-                          
-                                                      <button type="submit" title="Guardar Producto" name="guardar">Guardar producto</button>
-                                              </form>
-                                              </div>
-                              </table>
-                                <div class='pie-de-cesta'>
-                                  <span class="total4" style="float:right; font-size: 24px;"> 
-                                Precio Final<b>$450</b></span>
-                                  <br><br><br>
-                                  <button class='btn btn-link continuar'>Continuar comprando...</button>
-                                  <button class='btn continuar' style='float:right'>Comprar</button>
-                                  
-                                </div>
+        <main>                                
+          <div class="container">
+          <div class="central">
+              <div class="prod">
+                  <div class="title">
+                      Editar Producto
+                  </div>
+                  <div class="regconsult">
+                      <form id="regform">
+                              <input type="text" name="name" placeholder="Nombre" id="name" required>
+                              <input type="text" name="price" placeholder="Precio" id="price" required>
+                              <input type="text" name="stock" placeholder="Cantidad en stock" id="stock" required>
+                              <div class="categoria">
+                                <select class="selectpicker">
+                                <option value="0">Seleccione una categoria</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                              </select>              
                               </div>
-                            
+                              <input type="text" name="descript" placeholder="Descripcion" id="descript" required>
+                              <label><input type="checkbox" id="cbox1" value="newCollection"> Agregar a "New Collection"?</label><br>
+                              <input type="text" name="color" placeholder="Color" id="color" required>
+                              <input type="text" name="talles" placeholder="Talles" id="talles" required>
+  
+                              <button type="submit" title="Guardar Producto" name="guardar">Guardar producto</button>
+                      </form>
+                    </div>
+          
+        </div>
+      </div>
+    </div>
+    
+
 
 
 <%- include('partials/newCollection.ejs') %>       
