@@ -19,6 +19,25 @@ const productController = {
       title: 'OnDenim | ',
     });
   },
+  totalProductos: (req, res) => {
+    res.render('totalProductos', {
+      products,
+      toThousand,
+      title: 'OnDenim | Todos los Jeans',
+    });
+  },
+  agregar: (req, res) => {
+    res.render('productAdd', {
+      products,
+      title: 'OnDenim | Agregar Producto',
+    });
+  },
+  editar: (req, res) => {
+    res.render('productEdit', {
+      products,
+      title: 'OnDenim | Modificar Producto',
+    });
+  },
 };
 
 module.exports = productController;
