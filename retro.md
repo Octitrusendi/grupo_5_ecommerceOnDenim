@@ -27,3 +27,5 @@ La division de tareas y las reuniones de equipo.
 Evitar atrasarnos con playground. 
 
 5. Dejar de hacer.
+
+Creemos que veniamos muy bien con las reuniones, con la division de trabajos, y en los ultimos dias no logramos coordinar debido a algunos problemas personales y diferencias horarias, asi y todo pudimos sacar adelante el sprint 3 de la mejor manera y logramos la mayoria de los objetivos, a resolver es la participacion igualitaria de todos
