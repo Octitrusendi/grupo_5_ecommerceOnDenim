@@ -148,10 +148,33 @@
  },
  {
   "id": 8,
-  "image": null
+  "name": "Jean nuevo",
+  "price": "222",
+  "sale": "22",
+  "talle": [
+   "38",
+   "40",
+   "42"
+  ],
+  "category": "Clasico",
+  "newCollection": "false",
+  "stock": "22",
+  "image": null,
+  "description": "Noseeee"
  },
  {
   "id": 9,
-  "image": null
+  "name": "fdggf",
+  "price": "44",
+  "sale": "44",
+  "talle": [
+   "38",
+   "40"
+  ],
+  "category": "Slim fit",
+  "newCollection": "false",
+  "stock": "44",
+  "image": null,
+  "description": "fdgdgf"
  }
 ]
