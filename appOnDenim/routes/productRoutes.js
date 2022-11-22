@@ -4,7 +4,11 @@ const productController = require('../controllers/productController.js');
 
 router.get('/', productController.totalProductos);
 router.get('/detalle/:jeanID', productController.detalle);
+
+
 router.get('/agregar', productController.agregar);
+router.post('/', productController.store);
+
 router.get('/editar', productController.editar);
 
 module.exports = router;

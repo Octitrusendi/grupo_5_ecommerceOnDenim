@@ -310,6 +310,8 @@ textarea,
   box-shadow: 2px 2px 2px #999;
   width: 100%;
   resize: none;
+  background-color: rgba(0, 0, 0, 0);
+    transition: 0.4s ease 0s;
 }
 input::placeholder,
 textarea::placeholder {
