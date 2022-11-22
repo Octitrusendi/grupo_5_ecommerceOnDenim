@@ -25,7 +25,7 @@
   "name": "Jean 2",
   "price": 30000,
   "stock": 10,
-  "sale": "",
+  "sale": 10,
   "category": "Clasico",
   "description": "Relaxed fit, Botones y avios metalicos personalizados. Tela Denim Blue 100% Algodon. Lavado: Super Stone Wash con localizado y bigotes. Este articulo pertenece a la linea Original. Industria Argentina",
   "image": "jean2.jpg",
@@ -148,33 +148,53 @@
  },
  {
   "id": 8,
-  "name": "Jean nuevo",
-  "price": "222",
-  "sale": "22",
+  "name": "ewrwer",
+  "price": "344",
+  "sale": "33",
   "talle": [
-   "38",
    "40",
-   "42"
+   "42",
+   "44"
   ],
   "category": "Clasico",
-  "newCollection": "false",
-  "stock": "22",
-  "image": null,
-  "description": "Noseeee"
+  "newCollection": "true",
+  "stock": "44",
+  "description": "erer",
+  "image": null
  },
  {
   "id": 9,
-  "name": "fdggf",
-  "price": "44",
-  "sale": "44",
-  "talle": [
-   "38",
-   "40"
-  ],
+  "name": "45",
+  "price": "45",
+  "sale": "45",
   "category": "Slim fit",
-  "newCollection": "false",
-  "stock": "44",
-  "image": null,
-  "description": "fdgdgf"
+  "newCollection": "true",
+  "stock": "45",
+  "description": "erere",
+  "image": null
+ },
+ {
+  "id": 10,
+  "name": "45",
+  "price": "45",
+  "sale": "45",
+  "talle": "42",
+  "category": "Slim fit",
+  "newCollection": "true",
+  "stock": "45",
+  "description": "erere",
+  "image": null
+ },
+ {
+  "id": 11,
+  "name": "45",
+  "price": "45",
+  "sale": "45",
+  "talle": "42",
+  "category": "Slim fit",
+  "newCollection": "true",
+  "stock": "45",
+  "description": "erere",
+  "image": "imageproductos_1669090905744.jpg"
  }
 ]

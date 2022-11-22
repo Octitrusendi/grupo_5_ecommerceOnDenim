@@ -194,6 +194,12 @@ header {
   border-top: 1px solid #ababab;
   position: relative;
   padding: 10px 0;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center ;
+
 }
 .descripcion::before,
 .img-productoNew::before {
@@ -284,15 +290,21 @@ header {
 }
 
 .descripciones-productos {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #ababab;
+  font-weight: 600;
+
+  box-sizing: border-box;
+}
+.precios {
+  font-size: 1.1rem;
   font-weight: 600;
   padding: 5px 0;
 }
-.precios {
-  font-size: 1rem;
+.sale{
+  font-size: .9rem;
   font-weight: 600;
-  padding: 5px 0;
+  color: var(--verde);
 }
 .seccion-contacto {
   width: 85vw;

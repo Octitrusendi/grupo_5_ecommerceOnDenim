@@ -35,11 +35,16 @@ const productController = {
     });
   },
   store: (req, res) => {
-
+    let image;
+    if (req.file != undefined) {
+      image = req.file.filename;
+    } else {
+      image = null;
+    }
     let newProduct = {
       id: products[products.length - 1].id + 1,
       ...req.body,
-      image: null,
+      image,
     };
     products.push(newProduct);
     fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
