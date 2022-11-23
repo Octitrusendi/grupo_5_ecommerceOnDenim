@@ -35,6 +35,7 @@ router.get('/detalle/:jeanID', productController.detalle);
 router.get('/agregar', productController.agregar);
 router.post('/', upload.single('image'), productController.store);
 
-router.get('/editar', productController.editar);
+router.get('/editar/:id', productController.editar);
+router.put('/:id', upload.single('image'), productController.update);
 
 module.exports = router;

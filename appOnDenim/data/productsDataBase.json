@@ -1,24 +1,23 @@
 [
  {
   "id": 1,
-  "name": "Jean 1",
-  "price": 20000,
-  "stock": 1,
-  "sale": 20,
-  "category": "Slim fit",
-  "description": "Jean Slim fit, tiro medio, con botones y avíos metálicos personalizados. Tela: Denim Confort 99% algodón, 1% spandex. Lavado: Stone wash con localizado y bigotes. Este artículo pertenece a la línea Casual. Industria Argentina.",
-  "image": "jean1.jpg",
-  "newCollection": true,
-  "color": "Azul",
+  "name": "Jean 2",
+  "price": "20.000",
+  "sale": "10",
   "talles": [
-   38,
-   40,
-   42,
-   44,
-   46,
-   48,
-   50
-  ]
+   "38",
+   "40",
+   "42",
+   "44",
+   "46",
+   "48",
+   "50"
+  ],
+  "category": "Slim fit",
+  "newCollection": "true",
+  "stock": "1",
+  "description": "Jean Slim fit, tiro medio, con botones y avíos metálicos personalizados. Tela: Denim Confort 99% algodón, 1% spandex. Lavado: Stone wash con localizado y bigotes. Este artículo pertenece a la línea Casual. Industria Argentina.",
+  "image": "jean1.jpg"
  },
  {
   "id": 2,
@@ -151,7 +150,7 @@
   "name": "ewrwer",
   "price": "344",
   "sale": "33",
-  "talle": [
+  "talles": [
    "40",
    "42",
    "44"
@@ -178,7 +177,7 @@
   "name": "45",
   "price": "45",
   "sale": "45",
-  "talle": "42",
+  "talles": "42",
   "category": "Slim fit",
   "newCollection": "true",
   "stock": "45",
@@ -190,11 +189,29 @@
   "name": "45",
   "price": "45",
   "sale": "45",
-  "talle": "42",
+  "talles": "38",
   "category": "Slim fit",
   "newCollection": "true",
   "stock": "45",
   "description": "erere",
   "image": "imageproductos_1669090905744.jpg"
+ },
+ {
+  "id": 12,
+  "name": "asdsad",
+  "price": 324324,
+  "sale": "22",
+  "talles": [
+   "38",
+   "40",
+   "42",
+   "44",
+   "46"
+  ],
+  "category": "Slim fit",
+  "newCollection": "true",
+  "stock": "22",
+  "description": "sdfafghjgjklhgf",
+  "image": "imageproductos_1669161356530.png"
  }
 ]

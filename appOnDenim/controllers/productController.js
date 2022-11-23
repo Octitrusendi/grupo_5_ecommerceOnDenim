@@ -51,10 +51,48 @@ const productController = {
     res.redirect('/');
   },
   editar: (req, res) => {
-    res.render('productEdit', {
-      products,
-      title: 'OnDenim | Modificar Producto',
+    let id = req.params.id;
+    let productoAeditar = products.find(producto => producto.id == id);
+    let categorias = products.map(categorias => categorias.category);
+    let categoriasFill = new Set(categorias);
+    console.log(productoAeditar.talles);
+    if (productoAeditar != undefined) {
+      res.render('productEdit', {
+        productoAeditar,
+        categoriasFill,
+        toThousand,
+        title: 'OnDenim | Modificar Producto',
+      });
+    } else {
+      res.send('error');
+    }
+  },
+  update: (req, res) => {
+    let id = req.params.id;
+    let productoAeditar = products.find(producto => producto.id == id);
+    let image;
+
+    if (req.file != undefined) {
+      image = req.file.filename;
+    } else {
+      image = productoAeditar.image;
+    }
+    productoAeditar = {
+      id: productoAeditar.id,
+      ...req.body,
+      image: image,
+    };
+    let nuevoProducto = products.map(product => {
+      if (product.id == productoAeditar.id) {
+        return (product = { ...productoAeditar });
+      }
+      return product;
     });
+    fs.writeFileSync(
+      productsFilePath,
+      JSON.stringify(nuevoProducto, null, ' '),
+    );
+    res.redirect('/producto/detalle/' + id);
   },
 };
 
