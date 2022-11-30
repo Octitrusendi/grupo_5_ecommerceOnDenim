@@ -24,5 +24,5 @@ Equipo:
 
 - Francisco Zelalia: 21 años, vive en Berazategui (Bs As), estudia ingenieria electronica, trabajo en automatizacion y control industrial, y va a aportar sus conocimientos en el diseño visual de interfaz de usuario. 
 
-- Macarena Fernandez: 27 años, vive en Cordoba, estudia Contador Publico, trabaja en administración de compras y va a aporta sus conocimientos de lado financiero.
+
 
