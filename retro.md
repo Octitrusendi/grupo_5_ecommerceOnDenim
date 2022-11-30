@@ -29,3 +29,24 @@ Evitar atrasarnos con playground.
 5. Dejar de hacer.
 
 Creemos que veniamos muy bien con las reuniones, con la division de trabajos, y en los ultimos dias no logramos coordinar debido a algunos problemas personales y diferencias horarias, asi y todo pudimos sacar adelante el sprint 3 de la mejor manera y logramos la mayoria de los objetivos, a resolver es la participacion igualitaria de todos
+
+
+
+
+
+Sprint 4: 
+
+1. Comenzar a hacer.
+Organizarnos para tener mas reuniones y lograr hacer con mas tiempo todo el sprint
+
+2. Hacer más.
+Resalto siempre lo de las juntadas ya que despues de eso entre los 3 tenemos muy buena relacion, dividimos bien lo que cada uno tiene que hacer, y siempre llegamos a poder entregar en tiempo y forma el sprint
+
+3. Continuar haciendo.
+La buena relacion, la buena division de tareas, y la predisposicion de los 3
+
+4. Hacer menos.
+La famosa desorganizacion de las juntadas 
+
+5. Dejar de hacer.
+Ademas de la falla de organizar nuestras vidas, no tenemos puntos en contra para rever
