@@ -3,7 +3,7 @@ const multer = require('multer');
 const path = require('path');
 var router = express.Router();
 const productController = require('../controllers/productController.js');
-const MIMETYPES = ['image/jpeg', 'image/jpg', 'image/png'];
+
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
