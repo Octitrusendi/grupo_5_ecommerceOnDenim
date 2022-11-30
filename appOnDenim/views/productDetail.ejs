@@ -7,7 +7,9 @@
                 <!-- carrusel de fotos -->
                 <div class="producto">
                         <div class="left">
-                                <div class="imgProduct "></div>
+                                <div class="imgProduct ">
+                                        <img src="/images/productos/<%= jean.image %>" alt="<%= jean.name %>" title="<%= jean.name %>">
+                                </div>
                         </div>
                         <div class="right">
                                 <div class="nameProduct">
@@ -15,7 +17,8 @@
                                 </div>
                                 <div class="priceProduct">
                                         <h2>Valor por transferencia o efectivo</h2>
-                                        <h2>$<%= toThousand(jean.price.toFixed(0)) %></h2>
+                                        <% let finalPrice = toThousand((jean.price  - (jean.price * jean.sale / 100)).toFixed(0));%>
+                                        <h2>$<%= finalPrice %></h2>
                                 </div>
                                 <div class="quotesProduct">
                                         <div class="quotesleft">
@@ -23,7 +26,8 @@
                                                 <div class="quotes "></div>
                                         </div>
                                         <div class="quotesright">
-                                                <p>6 cuotas sin interes de $2.500</p>
+                                                <% let cuotas6 = toThousand(((jean.price  - (jean.price * jean.sale / 100))/6).toFixed(0));%>
+                                                <p>6 cuotas sin interes de $<%= cuotas6 %></p>
                                                 <p>9 o 12 cuotas con interes</p>
                                         </div>
                                 </div>
@@ -32,9 +36,14 @@
                                    
                                                 <select name="" id="">
                                                         <option value="">Selecciona el talle</option>
-                                                        <% jean.talles .forEach(element => { %>
-                                                        <option value="<%=element  %> "><%= element %> </option>
-                                                        <% }) %>
+                                                        <% if (Array.isArray(jean.talles)) { %>
+                                                                <% jean.talles .forEach(element => { %>
+                                                                        <option value="<%=element  %> "><%= element %> </option>
+                                                                        <% }) %>
+                                                        <% } else { %>
+                                                                <option value="<%=jean.talles  %> "><%= jean.talles %> </option>
+                                                                <% } %>
+
                                                 </select>
        
 

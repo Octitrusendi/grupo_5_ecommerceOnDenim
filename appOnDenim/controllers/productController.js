@@ -92,7 +92,7 @@ const productController = {
       productsFilePath,
       JSON.stringify(nuevoProducto, null, ' '),
     );
-    res.redirect('/producto/detalle/' + id);
+    res.redirect('/productos/detalle/' + id);
   },
 };
 

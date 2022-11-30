@@ -3,10 +3,7 @@
   margin-left: 25px;
   width: 80%;
   height: 80%;
-  background-image: url(/images/productos/jean1.jpg);
-  background-color: var(--colorPrincipal);
-  background-repeat: no-repeat;
-  background-size: contain;
+
 }
 .quotes {
   margin-top: 2px;
