@@ -213,5 +213,17 @@
   "stock": "22",
   "description": "sdfafghjgjklhgf",
   "image": "imageproductos_1669161356530.png"
+ },
+ {
+  "id": 13,
+  "name": "juligay",
+  "price": "15",
+  "sale": "1",
+  "talles": "50",
+  "category": "Clasico",
+  "newCollection": "true",
+  "stock": "1",
+  "description": "",
+  "image": "imageproductos_1669769568360.png"
  }
 ]
