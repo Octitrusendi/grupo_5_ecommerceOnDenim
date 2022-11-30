@@ -94,6 +94,12 @@ const productController = {
     );
     res.redirect('/productos/detalle/' + id);
   },
+  borrar: (req, res) => {
+    let id = req.params.id;
+    let eliminar = products.filter(producto=>producto.id!=id);
+    fs.writeFileSync(productsFilePath,JSON.stringify(eliminar,null,""))
+    res.redirect('/productos');
+  },
 };
 
 module.exports = productController;
