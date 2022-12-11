@@ -2,7 +2,7 @@
 
 Url Repositorio: https://github.com/Octitrusendi/grupo_5_ecommerceOnDenim/graphs/contributors
 
-Url al tablero de Trello: https://trello.com/b/i29XQC5Z/ondenim
+Url al tablero de Trello: https://trello.com/b/i29XQC5Z/ondenim 
 
 - Temática del sitio: Sitio web de venta mayorista/minorista de jeans. 
 - Público objetivo: Adolescentes y adultos. 
@@ -24,5 +24,5 @@ Equipo:
 
 - Francisco Zelalia: 21 años, vive en Berazategui (Bs As), estudia ingenieria electronica, trabajo en automatizacion y control industrial, y va a aportar sus conocimientos en el diseño visual de interfaz de usuario. 
 
-- Macarena Fernandez: 27 años, vive en Cordoba, estudia Contador Publico, trabaja en administración de compras y va a aporta sus conocimientos de lado financiero.
+
 

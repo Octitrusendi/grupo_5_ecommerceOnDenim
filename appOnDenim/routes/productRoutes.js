@@ -38,4 +38,6 @@ router.post('/', upload.single('image'), productController.store);
 router.get('/editar/:id', productController.editar);
 router.put('/:id', upload.single('image'), productController.update);
 
+router.delete('/:id', productController.borrar);
+
 module.exports = router;
