@@ -216,17 +216,6 @@
  },
  {
   "id": 13,
-<<<<<<< HEAD
-  "name": "juligay",
-  "price": "15",
-  "sale": "1",
-  "talles": "50",
-  "category": "Clasico",
-  "newCollection": "true",
-  "stock": "1",
-  "description": "",
-  "image": "imageproductos_1669769568360.png"
-=======
   "name": "bvbcv",
   "price": "4535",
   "sale": "3453",
@@ -274,6 +263,5 @@
   "stock": "3434",
   "description": "wqewe",
   "image": "imageproductos_1669768774726.png"
->>>>>>> 2235669f9afbc4b4c60a65c53275a2b1838d3ffe
  }
 ]
