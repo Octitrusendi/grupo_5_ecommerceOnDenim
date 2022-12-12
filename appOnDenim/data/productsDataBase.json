@@ -146,33 +146,6 @@
   ]
  },
  {
-  "id": 8,
-  "name": "ewrwer",
-  "price": "344",
-  "sale": "33",
-  "talles": [
-   "40",
-   "42",
-   "44"
-  ],
-  "category": "Clasico",
-  "newCollection": "true",
-  "stock": "44",
-  "description": "erer",
-  "image": null
- },
- {
-  "id": 9,
-  "name": "45",
-  "price": "45",
-  "sale": "45",
-  "category": "Slim fit",
-  "newCollection": "true",
-  "stock": "45",
-  "description": "erere",
-  "image": null
- },
- {
   "id": 10,
   "name": "45",
   "price": "45",
@@ -186,82 +159,62 @@
  },
  {
   "id": 11,
-  "name": "453333",
-  "price": "45",
-  "sale": "45",
-  "talles": "38",
-  "category": "Slim fit",
-  "newCollection": "true",
-  "stock": "45",
-  "description": "erereEDICION",
-  "image": "imageproductos_1669768098135.jpg"
- },
- {
-  "id": 12,
-  "name": "asdsad",
-  "price": "324324",
-  "sale": "22",
+  "name": "Octavio Trusendi",
+  "price": "234",
+  "sale": "23",
   "talles": [
    "38",
-   "40",
-   "42",
-   "44",
-   "46"
-  ],
-  "category": "Slim fit",
-  "newCollection": "true",
-  "stock": "22",
-  "description": "sdfafghjgjklhgf",
-  "image": "imageproductos_1669161356530.png"
- },
- {
-  "id": 13,
-  "name": "bvbcv",
-  "price": "4535",
-  "sale": "3453",
-  "talles": [
-   "38",
-   "40",
-   "42",
-   "44"
-  ],
-  "category": "Slim fit",
-  "newCollection": "true",
-  "stock": "3453",
-  "description": "345345",
-  "image": null
- },
- {
-  "id": 14,
-  "name": "AVRERGAAA",
-  "price": "3333",
-  "sale": "33",
-  "talles": [
-   "40",
-   "42",
-   "44",
-   "46"
+   "40"
   ],
   "category": "Clasico",
   "newCollection": "true",
-  "stock": "333",
-  "description": "EWERWRWER",
-  "image": null
+  "stock": "234",
+  "description": "23423",
+  "image": "imageproductos_1670817074381.jpeg"
  },
  {
-  "id": 15,
-  "name": "errere",
-  "price": "3434",
-  "sale": "3434",
+  "id": 12,
+  "name": "Octavio Trusendi",
+  "price": "234",
+  "sale": "23",
   "talles": [
    "38",
-   "40",
-   "42"
+   "40"
   ],
-  "category": "Slim fit",
-  "newCollection": "false",
-  "stock": "3434",
-  "description": "wqewe",
-  "image": "imageproductos_1669768774726.png"
+  "category": "Clasico",
+  "newCollection": "true",
+  "stock": "234",
+  "description": "23423",
+  "image": "imageproductos_1670817164400.jpeg"
+ },
+ {
+  "id": 13,
+  "name": "Octavio Trusendi",
+  "price": "234",
+  "sale": "23",
+  "talles": [
+   "38",
+   "40"
+  ],
+  "category": "Clasico",
+  "newCollection": "true",
+  "stock": "234",
+  "description": "23423",
+  "image": "imageproductos_1670817381947.jpeg"
+ },
+ {
+  "id": 14,
+  "name": "Octavio Trusendi",
+  "price": "234",
+  "sale": "23",
+  "talles": [
+   "38",
+   "40"
+  ],
+  "category": "Clasico",
+  "newCollection": "true",
+  "stock": "234",
+  "description": "23423",
+  "image": "imageproductos_1670817470798.jpeg"
  }
 ]

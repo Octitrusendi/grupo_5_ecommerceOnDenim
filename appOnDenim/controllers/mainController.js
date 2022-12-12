@@ -14,12 +14,6 @@ const mainController = {
       title: 'OnDenim | Home',
     });
   },
-  login: (req, res) => {
-    res.render('login', { title: 'OnDenim | Login' });
-  },
-  register: (req, res) => {
-    res.render('register', { title: 'OnDenim | Registro' });
-  },
   carrito: (req, res) => {
     res.render('productCart', {
       products,

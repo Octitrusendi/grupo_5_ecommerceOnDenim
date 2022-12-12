@@ -1,6 +1,7 @@
 const createError = require('http-errors');
 const fs = require('fs');
 const path = require('path');
+const { validationResult } = require('express-validator');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -27,6 +28,7 @@ const productController = {
     });
   },
   agregar: (req, res) => {
+
     let categorias = products.map(categorias => categorias.category);
     let categoriasFill = new Set(categorias);
     res.render('productAdd', {
@@ -35,20 +37,28 @@ const productController = {
     });
   },
   store: (req, res) => {
-    let image;
-    if (req.file != undefined) {
-      image = req.file.filename;
-    } else {
-      image = null;
+    let errores = validationResult(req);
+    let categorias = products.map(categorias => categorias.category);
+    let categoriasFill = new Set(categorias);
+    if (!errores.isEmpty()) {
+      return res.render('productAdd', {   mensajesDeError: errores.array() , categoriasFill, title: 'OnDenim | Agregar Producto',});
+    } else{
+      let image
+      if (req.file != undefined) {
+        image = req.file.filename;
+      } else {
+        image = null;
+      }
+      let newProduct = {
+        id: products[products.length - 1].id + 1,
+        ...req.body,
+        image,
+      };
+      products.push(newProduct);
+      fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
+      res.redirect('/');
     }
-    let newProduct = {
-      id: products[products.length - 1].id + 1,
-      ...req.body,
-      image,
-    };
-    products.push(newProduct);
-    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
-    res.redirect('/');
+
   },
   editar: (req, res) => {
     let id = req.params.id;
@@ -96,8 +106,8 @@ const productController = {
   },
   borrar: (req, res) => {
     let id = req.params.id;
-    let eliminar = products.filter(producto=>producto.id!=id);
-    fs.writeFileSync(productsFilePath,JSON.stringify(eliminar,null,""))
+    let eliminar = products.filter(producto => producto.id != id);
+    fs.writeFileSync(productsFilePath, JSON.stringify(eliminar, null, ''));
     res.redirect('/productos');
   },
 };

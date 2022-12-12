@@ -8,15 +8,46 @@
                         Registrarse
                     </div>
                     <div class="regconsult">
-                        <form id="regform">
-                                <input type="text" name="name" placeholder="Nombre" id="name" required>
-                                <input type="text" name="user" placeholder="Usuario" id="user" required>
-                                <input type="text" name="mail" placeholder="Correo Elecronico" id="mail" required>
-                                <input type="text" name="direc" placeholder="Direccion" id="direc" required>
-                                <input type="password" placeholder="Contraseña" name="password" id="password" required>
-                                <input type="password" placeholder="Repetir Contraseña" name="repeatPassword" id="repeatPassword" required>
-    
-                                <button type="submit" title="registrarse" name="guardar">Registrarse</button>
+                        <% if (locals && locals.mensajesDeError) { %>
+                            <div class="erorr">
+                                <% mensajesDeError.forEach(error => { %>
+                                      <p><%= error.msg %> </p>
+                                <% }) %>
+                              </div>
+                          <% } %>
+                        <form action="/user/register" method="POST" enctype="multipart/form-data">
+                            <div class="contacto-detail">
+                                    <div >
+                                        <label for="fullName" class="form-label">Nombre Completo</label>
+                                        <input type="text" id="name" name="fullName" placeholder="Ingrese su Nombre Completo" class="form-input">
+                                    </div>
+                                    <div >
+                                        <label for="usuario" class="form-label">Nombre de Usuario</label>
+                                        <input type="text" id="usuario" name="usuario"  placeholder="Ingrese un Usuario" class="form-input">
+                                    </div>
+                                    <div >
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" id="email" name="email" placeholder="Ingrese su Email  "class="form-input">
+                                    </div>
+<!--                                     <div >
+                                        <label for="email" class="form-label">Repita su Email</label>
+                                        <input type="email" id="email" name="email" placeholder="Repita su Email  "class="form-input">
+                                    </div> -->
+                                    <div >
+                                        <label for="password" class="form-label">Elija una Contraseña</label>
+                                        <input type="password" id="password" name="password" placeholder="Ingrese una Contraseña  "class="form-input">
+                                    </div>
+<!--                                     <div >
+                                        <label for="password" class="form-label">Repita su Contraseña</label>
+                                        <input type="password" id="password" name="password" placeholder="Repita su Contraseña  "class="form-input">
+                                    </div> -->
+                                    <div >
+                                        <label for="avatar" class="form-label">Ingrese una imagen de perfil</label>
+                                        <input type="file" id="avatar" name="avatar" class="form-input">
+                                    </div>
+            
+                                        <button type="submit">Registrarse</button>
+                            </div>
                         </form>
                         </div>
                     <div class="foot-form">

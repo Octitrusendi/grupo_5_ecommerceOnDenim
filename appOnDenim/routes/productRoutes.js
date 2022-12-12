@@ -1,42 +1,22 @@
 var express = require('express');
-const multer = require('multer');
-const path = require('path');
 var router = express.Router();
 const productController = require('../controllers/productController.js');
-
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './public/images/productos');
-  },
-  filename: (req, file, cb) => {
-    cb(
-      null,
-      file.fieldname +
-        'productos_' +
-        Date.now() +
-        path.extname(file.originalname),
-    );
-  },
-});
-
-const upload = multer({
-  storage,
-  limits: { fileSize: 1000000 },
-  fileFilter: function (_req, file, cb) {
-    let type = file.mimetype.startsWith('image/');
-    type ? cb(null, true) : cb(new Error('Solo subir imagenes'));
-  },
-});
+const subirArchivo = require('../middleware/multerMiddleware.js');
+const validaciones = require('../middleware/validateProductsMiddleware');
 
 router.get('/', productController.totalProductos);
 router.get('/detalle/:jeanID', productController.detalle);
 
 router.get('/agregar', productController.agregar);
-router.post('/', upload.single('image'), productController.store);
+router.post(
+  '/',
+  subirArchivo.single('image'),
+  validaciones,
+  productController.store,
+);
 
 router.get('/editar/:id', productController.editar);
-router.put('/:id', upload.single('image'), productController.update);
+router.put('/:id', subirArchivo.single('image'), productController.update);
 
 router.delete('/:id', productController.borrar);
 
