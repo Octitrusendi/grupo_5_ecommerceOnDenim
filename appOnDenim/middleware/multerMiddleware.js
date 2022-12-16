@@ -14,7 +14,6 @@ const storage = multer.diskStorage({
     cb(
       null,
       file.fieldname +
-        'productos_' +
         Date.now() +
         path.extname(file.originalname),
     );

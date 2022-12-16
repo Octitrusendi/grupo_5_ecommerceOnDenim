@@ -8,9 +8,16 @@
                         Iniciar Sesion
                     </div>
                     <div class="loginconsult">
-                        <form id="loginform">
-                                <input type="text" name="user" placeholder="Usuario" id="user" required>
-                                <input type="password" placeholder="Contraseña" name="password" id="password" required>
+                        <% if (locals && locals.mensajesDeError) { %>
+                            <div class="erorr">
+                                <% mensajesDeError.forEach(error => { %>
+                                      <p><%= error.msg %> </p>
+                                <% }) %>
+                              </div>
+                          <% } %>
+                        <form action="/user/login" method="POST" >
+                                <input type="email" name="email" placeholder="email" >
+                                <input type="password" placeholder="Contraseña" name="password" id="password" >
     
                                 <button type="submit" title="Login" name="Ingresar">Login</button>
                         </form>
