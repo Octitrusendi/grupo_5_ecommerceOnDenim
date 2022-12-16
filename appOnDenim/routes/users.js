@@ -3,6 +3,7 @@ var router = express.Router();
 const subirArchivo = require('../middleware/multerMiddleware.js');
 const validaciones = require('../middleware/validateUsersMiddleware');
 const guestMiddelware = require('../middleware/guestMiddelware.js')
+const authMiddelware = require('../middleware/authMiddelware.js')
 
 const usersControllers = require('../controllers/usersControllers.js');
 
@@ -19,5 +20,7 @@ router.post(
   validaciones,
   usersControllers.pocessRegister,
 );
+
+router.get('/logout',usersControllers.logout)
 
 module.exports = router;
