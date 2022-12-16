@@ -40,12 +40,16 @@ const usersControllers = {
         oldData: req.body,
       });
     }
-    delete userToLogin.password
+    delete userToLogin.password;
     req.session.userLogged = userToLogin;
-    console.log(req.session)
+    if(req.body.rememberUser){
+      res.cookie('userEmail', req.body.email,{ maxAge: 60 * 60 * 24 * 7 } )
+    }
+    console.log(req.cookies.userEmail)
     return res.redirect('/');
   },
   register: (req, res) => {
+    res.cookie('testing', 'hola', { maxAge: 60 * 60 * 24 * 7 });
     res.render('register', { title: 'OnDenim | Registro' });
   },
   pocessRegister: (req, res) => {
@@ -78,6 +82,11 @@ const usersControllers = {
       User.create(userToCreate);
       res.redirect('/user/login');
     }
+  },
+  logout: (req, res) => {
+    res.clearCookie('userEmail')
+    req.session.destroy();
+    return res.redirect('/');
   },
 };
 

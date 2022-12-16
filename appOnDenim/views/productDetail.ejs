@@ -52,9 +52,12 @@
                                 <div class="chart">
                                         <button type="submit" title="addToChart" name="AGREGAR AL CARRITO">AGREGAR AL CARRITO</button>
                                 </div>
-                                <div class="del">
-                                        <form action="/productos/<%=jean.id %>?_method=DELETE " method="POST"><button type="submit" title="delete" name="ELIMINAR PRODUCTO">ELIMINAR PRODUCTO</button></form>
-                                </div>
+                                <% if (locals.isLogged) { %>
+                                        <div class="del">
+                                                <form action="/productos/<%=jean.id %>?_method=DELETE " method="POST"><button type="submit" title="delete" name="ELIMINAR PRODUCTO">ELIMINAR PRODUCTO</button></form>
+                                        </div>
+                                <% } %>
+
                                 </div>
                         </div>
                 <div class="descript">
