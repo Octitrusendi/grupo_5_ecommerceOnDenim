@@ -1,0 +1,68 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/headRegister.ejs') %>
+<%- include('partials/header.ejs') %>
+        <div class="container">
+            <div class="central">
+                <div class="login">
+                    <div class="title">
+                        Registrarse
+                    </div>
+                    <div class="regconsult">
+                        <% if (locals && locals.mensajesDeError) { %>
+                            <div class="erorr">
+                                <% mensajesDeError.forEach(error => { %>
+                                      <p><%= error.msg %> </p>
+                                <% }) %>
+                              </div>
+                          <% } %>
+                        <form action="/user/register" method="POST" enctype="multipart/form-data">
+                            <div class="contacto-detail">
+                                    <div >
+                                        <label for="fullName" class="form-label">Nombre Completo </label>
+                                        <input type="text" id="name" name="fullName" placeholder="Ingrese su Nombre Completo" class="form-input" value="<%= locals.oldData && oldData.fullName ? oldData.fullName : '' %>">
+                                    </div>
+                                    <div >
+                                        <label for="usuario" class="form-label">Nombre de Usuario</label>
+                                        <input type="text" id="usuario" name="usuario"  placeholder="Ingrese un Usuario" class="form-input"  value="<%= locals.oldData && oldData.usuario ? oldData.usuario : '' %>">
+                                    </div>
+                                    <div >
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" id="email" name="email" placeholder="Ingrese su Email  "class="form-input" value="<%= locals.oldData && oldData.usuario ? oldData.usuario : '' %>">
+                                    </div>
+<!--                                     <div >
+                                        <label for="email" class="form-label">Repita su Email</label>
+                                        <input type="email" id="email" name="email" placeholder="Repita su Email  "class="form-input">
+                                    </div> -->
+                                    <div >
+                                        <label for="password" class="form-label">Elija una Contraseña</label>
+                                        <input type="password" id="password" name="password" placeholder="Ingrese una Contraseña  "class="form-input">
+                                    </div>
+<!--                                     <div >
+                                        <label for="password" class="form-label">Repita su Contraseña</label>
+                                        <input type="password" id="password" name="password" placeholder="Repita su Contraseña  "class="form-input">
+                                    </div> -->
+                                    <div >
+                                        <label for="avatar" class="form-label">Ingrese una imagen de perfil</label>
+                                        <input type="file" id="avatar" name="avatar" class="form-input">
+                                    </div>
+            
+                                        <button type="submit">Registrarse</button>
+                            </div>
+                        </form>
+                        </div>
+                    <div class="foot-form">
+                        <a href="#">¿Perdiste la contraseña?</a>
+                        <a href="/login">¿Ya tenés cuenta? Inisiar Sesion</a>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <a href="/"><p style="color:rgb(0, 0, 0);">Volver </p></a>
+                </div>
+            </div>
+        </div>
+        
+        <%- include('partials/footer.ejs') %>
+</body>
+
+<%- include('partials/scriptNav.ejs') %>
+</html>

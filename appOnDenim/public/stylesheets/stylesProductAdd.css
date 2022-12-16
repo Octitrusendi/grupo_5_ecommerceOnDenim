@@ -1,0 +1,61 @@
+.contenedorFormulario{
+  width: 90vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+    gap: 20px;
+}
+.product-detail{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-detail div{
+  width: 45%;
+}
+.form-label {
+  display: inline-block;
+  font-size: 1rem;
+  margin: 5px 0;
+  font-weight: 600;
+}
+
+.form-input {
+  display: block;
+  width: 100%;
+  height: 45px;
+  border-radius: 8px;
+  border: none;
+  border: solid 1px var(--colorPrincipal);
+}
+
+textarea.form-input {
+  min-height: 140px;
+  resize: vertical;
+}
+.create-descripcion{
+  width:90% !important;
+}
+
+.create-boton{
+width: 100% !important;
+}
+.create-img{
+  padding: 10px 10px 0 10px;
+}
+.contenedor-talles{
+  width: 100% !important; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: .9rem;
+  font-weight: 600;
+}

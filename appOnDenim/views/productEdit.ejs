@@ -1,0 +1,119 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/headProductAdd.ejs') %>
+<%- include('partials/header.ejs') %>
+<div class="contenedorFormulario">
+    <div >
+      <h2 class="products-title">Editar producto <%= productoAeditar.name %></h2>
+    </div>
+  <div >
+    <form action="/productos/<%=productoAeditar.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+      <div class="product-detail">
+        <div >
+          <label for="name" class="form-label">Nombre del producto:</label>
+          <input type="text" id="name" name="name" placeholder="Ej: Jean...XX" value="<%= productoAeditar.name %>" class="form-input">
+        </div>
+        <div >
+          <label for="price" class="form-label">Precio del producto:</label>
+          <input type="number" id="price" name="price" placeholder="Ej: 5678" class="form-input"  value="<%= toThousand(productoAeditar.price) %>" >
+        </div>
+        <div >
+          <label for="sale" class="form-label">Descuento:</label>
+          <input type="number" id="sale" name="sale" placeholder="Ej: 15" class="form-input" value="<%= productoAeditar.sale %>" >
+        </div>
+        <div >
+          <label for="talles" class="form-label">Talles:</label> 
+          <div class="contenedor-talles">
+
+            <% if (productoAeditar.talles.includes("38")) { %>
+              <input type="checkbox" name="talles" value="38" checked >38 |
+            <% } else {    %>
+                        <input type="checkbox" name="talles" value="38" >38 |
+                        <% } %>
+            <% if (productoAeditar.talles.includes("40")) { %>
+              <input type="checkbox" name="talles" value="40" checked>40 |
+            <% } else {    %>
+                   <input type="checkbox" name="talles" value="40" >40 |
+                        <% } %>
+          <% if (productoAeditar.talles.includes("42")) { %>
+            <input type="checkbox" name="talles" value="42" checked>42 |
+          <% } else {    %>
+            <input type="checkbox" name="talles" value="42" >42 |
+                      <% } %>
+          <% if (productoAeditar.talles.includes("44")) { %>
+            <input type="checkbox" name="talles" value="44" checked >44 |
+          <% } else {    %>
+            <input type="checkbox" name="talles" value="44" >44 |
+                      <% } %>
+          <% if (productoAeditar.talles.includes("46")) { %>
+            <input type="checkbox" name="talles" value="46" checked >46 |
+          <% } else {    %>
+            <input type="checkbox" name="talles" value="46" >46 |
+                      <% } %>
+            <% if (productoAeditar.talles.includes("48")) { %>
+              <input type="checkbox" name="talles" value="48"  checked>48 |
+            <% } else {    %>
+              <input type="checkbox" name="talles" value="48" >48 |
+                        <% } %>
+              <% if (productoAeditar.talles.includes("50")) { %>
+                <input type="checkbox" name="talles" value="50"  checked>50 |
+              <% } else {    %>
+                <input type="checkbox" name="talles" value="50" >50 |
+                          <% } %>
+        </div>
+        </div>
+        
+        <div >
+          <label for="category" class="form-label">Categoría:</label>
+          <select name="category" id="category" class="form-input">
+            <option value=""> Seleccionar categoría </option>
+            <% if (productoAeditar.category != undefined) { %>
+              <option value="<%= productoAeditar.category %>" selected> <%= productoAeditar.category %> </option>
+              <% categoriasFill.forEach(element => { %>
+                      
+                <option value="<%= element %>"> <%= element %> </option>
+              <% }) %>
+            <% } %>
+          </select>
+        </div>
+        <div >
+          <label for="newCollection" class="form-label">¿New Category?</label>
+          <select name="newCollection"  class="form-input">
+            <option value="">Elegí</option>
+            <% if (productoAeditar.newCollection == "true") { %>
+                  <option value=true selected>Sí</option>
+                  <option value=false >No</option>
+                  <% } else {    %>
+                <option value=true >Sí</option>
+              <option value=false selected>No</option>
+              <% } %>
+          </select>
+        </div>
+        <div >
+          <label for="stock" class="form-label">Stock:</label>
+          <input type="number" id="stock" name="stock" placeholder="Ej: 15" class="form-input" value="<%= productoAeditar.stock %>">
+        </div>
+        <div>
+          <label for="image" class="form-label">Imagen:</label>
+          <input type="file" name="image" id="image" class="form-input create-img" multiple>
+        </div>
+        <div class="create-descripcion">
+          <label for="description" class="form-label">Descripción:</label>
+          <textarea name="description" id="description" class="form-input"><%= productoAeditar.description %></textarea>
+        </div>
+
+        <div class="create-boton" >
+          <button type="submit" class="submit-contacHome">Editar producto</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+
+ 
+      </main>
+<%- include('partials/footer.ejs') %>
+</body>
+<%- include('partials/scriptNav.ejs') %>
+</html>
