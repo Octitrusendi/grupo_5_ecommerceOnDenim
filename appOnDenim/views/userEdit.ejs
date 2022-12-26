@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('partials/head') %>
+<body>
+    <%- include('partials/header') %>
+    <main class="profile">
+        <div class="main-profile">
+        <h3>¡Hola <%=  user.fullName %>!</h3>
+        
+      <form action="/user/update/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="main-profile">
+        <% if (locals && locals.mensajesDeError) { %>
+                <div class="erorr" id="error">
+                    <% mensajesDeError.forEach(error => { %>
+                          <p><%= error.msg %> </p>
+                    <% }) %>
+                  </div>
+              <% } %>
+
+                 <div class="div-avatar">
+                <img src="/images/avatar/<%= user.avatar %>" alt="" class="user-image">
+                </div>
+                <div >
+                <a class="button-imageProfile">Cambiar imagen<input type="file" name="avatar" class="input-imageProfile"></a>
+                </div>
+        <div class="div-containProfile">
+        <label for="email"> Usuario</label> 
+                <div class="div-profile">
+                        <input type="text" name="usuario" value="<%= locals.oldData && oldData.usuario ? oldData.usuario :  user.usuario  %>" class="form-profile"  readonly>
+                        <span class="icon-profile"><i class="fas fa-user"></i></span>
+                    </div>
+                <label for="fullName"> Editar Nombre</label> 
+                <div class="div-profile">
+                        <input type="text" name="fullName" value="<%= locals.oldData && oldData.fullName ? oldData.fullName :  user.fullName  %>" class="form-profile" >
+                        <span class="icon-profile"><i class="fas fa-user"></i></span>
+                </div>
+                    <label for="email"> Editar Email</label> 
+                <div class="div-profile">
+                        <input type="email" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : user.email   %>" class="form-profile" >
+                        <span class="icon-profile"><i class="fas fa-envelope"></i></span>
+                 </div>
+
+        <div style="display: flex;">
+                <label for="newPassword"> Cambiar contraseña</label> 
+                <div class="div-profile">
+                        <input type="checkbox" name="check" id="check" value="1" onchange="javascript:showContent()" class=""   >
+                </div>
+         </div>
+        </div>
+        <div class="div-containProfile" id="newPassword" style="display: none;">
+                <label for="passwordOld"> Contraseña actual</label> 
+                <div class="div-profile">
+                        <input type="password" name="passwordOld" placeholder="Ingrese su contraseña actual" class="form-profile" >
+                        <span class="icon-profile"><i class="fas fa-lock-open"></i></span>
+                </div>
+                <label for="password"> Contraseña nueva</label> 
+                <div class="div-profile">
+                        <input type="password" name="password" placeholder="Ingrese su nueva contraseña" class="form-profile" >
+                        <span class="icon-profile"><i class="fas fa-lock"></i></span>
+                </div>
+
+                <label for="password2"> Repita su nueva contraseña</label> 
+                <div class="div-profile">
+                        <input type="password"  name="password2" placeholder="Ingrese su nueva contraseña" class="form-profile" >
+                        <span class="icon-profile"><i class="fas fa-lock"></i></span>
+                </div>
+        </div>
+        
+
+        <div  class="buttons-profile">
+                <div class="div-edit-profile">
+                        <button type="submit">Actualizar perfil</button>
+                </div>
+
+            </div>
+      </form>
+            </div>
+            </main>
+            <%- include('partials/footer') %>
+        </body>
+        </html>

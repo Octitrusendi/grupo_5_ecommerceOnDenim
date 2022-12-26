@@ -19,7 +19,7 @@ const User = {
       },
   findByPk: function (id) {
     let allUsers = this.findAll();
-    let userFound = allUsers.find(oneUser => oneUser.id === id);
+    let userFound = allUsers.find(oneUser => oneUser.id == id);
     return userFound;
   },
   findByfield: function (field, text) {
@@ -39,10 +39,11 @@ const User = {
   },
   delete: function (id) {
     let allUsers = this.findAll();
-    let finalUsers = allUsers.filter(oneUser => oneUser.id !== id);
+    let finalUsers = allUsers.filter(oneUser => oneUser.id != id);
     fs.writeFileSync(this.fileName, JSON.stringify(finalUsers, null, ' '));
-    return true;
+
   },
 };
+
 
 module.exports = User;

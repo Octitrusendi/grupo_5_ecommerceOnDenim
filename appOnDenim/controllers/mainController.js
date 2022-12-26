@@ -8,6 +8,8 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
 const mainController = {
   index: (req, res) => {
+    console.log('-----------------INDEX');
+    console.log(req.session);
     res.render('index', {
       products,
       toThousand,

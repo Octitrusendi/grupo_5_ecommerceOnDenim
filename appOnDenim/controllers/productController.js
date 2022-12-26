@@ -65,7 +65,7 @@ const productController = {
     let productoAeditar = products.find(producto => producto.id == id);
     let categorias = products.map(categorias => categorias.category);
     let categoriasFill = new Set(categorias);
-    console.log(productoAeditar.talles);
+
     if (productoAeditar != undefined) {
       res.render('productEdit', {
         productoAeditar,

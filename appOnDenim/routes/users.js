@@ -21,6 +21,13 @@ router.post(
   usersControllers.pocessRegister,
 );
 
+router.get('/profile',authMiddelware, usersControllers.profile);
+
+router.get('/edit/:id',authMiddelware, usersControllers.edit);
+router.put('/update/:id',authMiddelware,  subirArchivo.single('avatar'), usersControllers.update);
+
+router.delete('/:id', usersControllers.borrar);
+
 router.get('/logout',usersControllers.logout)
 
 module.exports = router;

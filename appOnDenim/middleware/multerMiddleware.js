@@ -25,7 +25,7 @@ const upload = multer({
   limits: { fileSize: 1000000 },
   fileFilter: function (_req, file, cb) {
     let type = file.mimetype.startsWith('image/');
-    type ? cb(null, true) : cb(new Error('Solo subir imagenes'));
+    type ? cb(null, true) : cb(Error('Solo subir imagenes'));
   },
 });
 
