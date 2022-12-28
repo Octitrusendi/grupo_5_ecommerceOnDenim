@@ -16,6 +16,8 @@ router.post(
   productController.store,
 );
 
+router.get('/search', productController.search);
+
 router.get('/editar/:id', authMiddelware, productController.editar);
 router.put('/:id', subirArchivo.single('image'), productController.update);
 

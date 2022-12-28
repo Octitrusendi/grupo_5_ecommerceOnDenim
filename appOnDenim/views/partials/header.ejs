@@ -17,16 +17,39 @@
                </div>
        <!-- buscador -->
                <div class="buscador-nav">
-                       <form action="">
-                               <input class="search-navInput" type="text" placeholder="Buscar productos, marcas">
-                               <button class="boton-searchNav"><i class="fas fa-search"></i></button>  
+                       <form action="/productos/search" method="GET">
+                               <input class="search-navInput" type="text" name="keywords" placeholder="Buscar productos, marcas">
+                               <button type="submit" class="boton-searchNav"><i class="fas fa-search"></i></button>  
                        </form>
                </div>
        <!-- menu usuario -->
+       <% if (locals.isLogged) { %>
+        <div class="div-avatar">
+                <img src="/images/avatar/<%= user.avatar %>" alt="Avatar" title="Avatar de <%= user.fullName %>"   class="user-image user-imageHeader ">
+        </div>
+        <% } %>
+
                <div class="contenedor-menuUsuario">
+
                        <ul class="menu-usuario">
-                               <li class="user-desktop"><a href="/user/login"><i class="fas fa-user"></i> </a></li>
+                               <li class="user-desktop"><i class="fas fa-user"></i>
+                                        <ul class="subMenu-log">
+                                                <% if (!locals.isLogged) { %>
+                                                <li><a href="/user/register">Crear tu cuenta</a> </li>
+                                                <li><a href="/user/login"> Iniciar sesión </a></li>
+                                                <% } %>
+                                                <% if (locals.isLogged) { %>
+                                                <li><a href="/user/profile"> Mi perfil </a></li>
+                                                <li><a href="/user/logout">Cerrar sesión </a></li>
+                                                <% } %>
+                                        </ul>
+                                </li>       
                                <li class="shop-desktop"><a href="/carrito"><i class="fas fa-shopping-bag"></i></a></li>
+                               <% if (locals.isLogged) { %>
+                                <li class="user-desktop"><a href="/user/logout"><i class="fa fa-sign-out"></i></a></li>
+                                <% } %>
+
+                               
                                <li class="register-mobile"><a href="/user/register">Creá tu cuenta<i class="fas fa-user"></i></a></li>
                                <li class="login-mobile"><a href="/user/login">Ingresá<i class="fas fa-sign-in-alt"></i></a></li>
                                <li class="shop-mobile"><a href="/carrito">Mis compras<i class="fas fa-shopping-bag"></i></a></li>

@@ -25,7 +25,7 @@
         <div class="div-containProfile">
         <label for="email"> Usuario</label> 
                 <div class="div-profile">
-                        <input type="text" name="usuario" value="<%= locals.oldData && oldData.usuario ? oldData.usuario :  user.usuario  %>" class="form-profile"  readonly>
+                        <input type="text" name="usuario" value="<%= locals.oldData && oldData.usuario ? oldData.usuario :  user.usuario  %>" class="form-profile focus-none"  readonly>
                         <span class="icon-profile"><i class="fas fa-user"></i></span>
                     </div>
                 <label for="fullName"> Editar Nombre</label> 
@@ -68,8 +68,9 @@
 
         <div  class="buttons-profile">
                 <div class="div-edit-profile">
-                        <button type="submit">Actualizar perfil</button>
+                        <button  type="submit">Actualizar perfil</button>
                 </div>
+                
 
             </div>
       </form>

@@ -14,6 +14,7 @@ const productController = {
       next(createError(404));
     }
     return res.render('productDetail', {
+      user: req.session.userLogged,
       jean,
       products,
       toThousand,
@@ -22,16 +23,17 @@ const productController = {
   },
   totalProductos: (req, res) => {
     res.render('totalProductos', {
+      user: req.session.userLogged,
       products,
       toThousand,
       title: 'OnDenim | Todos los Jeans',
     });
   },
   agregar: (req, res) => {
-
     let categorias = products.map(categorias => categorias.category);
     let categoriasFill = new Set(categorias);
     res.render('productAdd', {
+      user: req.session.userLogged,
       categoriasFill,
       title: 'OnDenim | Agregar Producto',
     });
@@ -41,9 +43,14 @@ const productController = {
     let categorias = products.map(categorias => categorias.category);
     let categoriasFill = new Set(categorias);
     if (!errores.isEmpty()) {
-      return res.render('productAdd', {   mensajesDeError: errores.array() , categoriasFill, title: 'OnDenim | Agregar Producto',});
-    } else{
-      let image
+      return res.render('productAdd', {
+        user: req.session.userLogged,
+        mensajesDeError: errores.array(),
+        categoriasFill,
+        title: 'OnDenim | Agregar Producto',
+      });
+    } else {
+      let image;
       if (req.file != undefined) {
         image = req.file.filename;
       } else {
@@ -58,7 +65,6 @@ const productController = {
       fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
       res.redirect('/');
     }
-
   },
   editar: (req, res) => {
     let id = req.params.id;
@@ -68,6 +74,7 @@ const productController = {
 
     if (productoAeditar != undefined) {
       res.render('productEdit', {
+        user: req.session.userLogged,
         productoAeditar,
         categoriasFill,
         toThousand,
@@ -109,6 +116,20 @@ const productController = {
     let eliminar = products.filter(producto => producto.id != id);
     fs.writeFileSync(productsFilePath, JSON.stringify(eliminar, null, ''));
     res.redirect('/productos');
+  },
+  search: (req, res) => {
+    let search = req.query.keywords;
+    let productsToSearch = products.filter(product =>
+      product.name.toLowerCase().includes(search.toLowerCase()),
+    );
+    console.log(productsToSearch);
+    res.render('productResultFind', {
+      search,
+      user: req.session.userLogged,
+      products: productsToSearch,
+      toThousand,
+      title: 'OnDenim | Tu busqueda: ' + req.query.keywords,
+    });
   },
 };
 

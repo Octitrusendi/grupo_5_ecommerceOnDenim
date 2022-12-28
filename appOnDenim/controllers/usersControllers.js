@@ -11,6 +11,8 @@ const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const usersControllers = {
   login: (req, res) => {
+    console.log('--------LOGIN---------');
+    console.log(req.session);
     res.render('UserLogin', { title: 'OnDenim | Login' });
   },
   loginProcess: (req, res) => {
@@ -107,11 +109,12 @@ const usersControllers = {
       password: bcryptjs.hashSync(req.body.password, 10),
       avatar,
     };
+
     User.create(userToCreate);
-    /*     if(userToCreate){
-      let findEmail = User.findByfield('email', req.body.email);
-      req.session.userLogged = findEmail;
-    }
+    /*       let newUserSession = User.findByfield('email', userToCreate.email);
+      delete newUserSession.password
+      req.session.userLogged = newUserSession;
+
     res.redirect('/user/profile'); */
     res.redirect('/user/login');
   },
@@ -126,11 +129,13 @@ const usersControllers = {
   edit: (req, res) => {
     let idUser = req.params.id;
     let findUser = User.findByPk(idUser);
-    res.render('userEdit', { user: findUser, title: 'OnDenim | Perfil de ' });
+    res.render('userEdit', {
+      user: findUser,
+      title: 'OnDenim | Perfil de ' + findUser.fullName,
+    });
   },
   update: (req, res) => {
     let idUser = req.params.id;
-    let findUser = User.findByPk(idUser);
     let userToEdit = User.findByPk(idUser);
     let avatar;
     if (req.file != undefined) {
@@ -144,6 +149,22 @@ const usersControllers = {
       userToEdit.password,
     );
 
+    if (
+      req.body.check == undefined &&
+      req.body.fullName == userToEdit.fullName &&
+      req.body.email == userToEdit.email &&
+      req.file == undefined
+    ) {
+      return res.render('userProfile', {
+        mensajeExitoso: [
+          {
+            msg: '¡Su perfil no tuvo modificaciones!',
+          },
+        ],
+        user: userToEdit,
+        title: 'OnDenim | Perfil de ' + userToEdit.fullName,
+      });
+    }
     if (req.body.check == '1') {
       if (!passwordOk) {
         return res.render('userEdit', {
@@ -152,7 +173,7 @@ const usersControllers = {
               msg: 'Su contraseña actual no coincide',
             },
           ],
-          user: findUser,
+          user: userToEdit,
           title: 'OnDenim | Perfil de ',
           oldData: req.body,
         });
@@ -163,7 +184,7 @@ const usersControllers = {
               msg: 'Las contraseñas no coinciden',
             },
           ],
-          user: findUser,
+          user: userToEdit,
           title: 'OnDenim | Perfil de ',
           oldData: req.body,
         });
@@ -198,7 +219,15 @@ const usersControllers = {
     });
 
     fs.writeFileSync(usersFilePath, JSON.stringify(nuevoUsuario, null, ' '));
-    return res.redirect('/user/profile');
+    return res.render('userProfile', {
+      mensajeExitoso: [
+        {
+          msg: '¡Perfil modificado con éxito!',
+        },
+      ],
+      user: userToEdit,
+      title: 'OnDenim | Perfil de ' + userToEdit.fullName,
+    });
   },
   borrar: (req, res) => {
     let idUser = req.params.id;
