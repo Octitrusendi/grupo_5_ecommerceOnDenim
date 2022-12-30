@@ -8,20 +8,18 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
 const mainController = {
   index: (req, res) => {
+    console.log('-----------------INDEX');
+    console.log(req.session);
     res.render('index', {
+      user: req.session.userLogged,
       products,
       toThousand,
       title: 'OnDenim | Home',
     });
   },
-  login: (req, res) => {
-    res.render('login', { title: 'OnDenim | Login' });
-  },
-  register: (req, res) => {
-    res.render('register', { title: 'OnDenim | Registro' });
-  },
   carrito: (req, res) => {
     res.render('productCart', {
+      user: req.session.userLogged,
       products,
       title: 'OnDenim | Tu carrito',
     });

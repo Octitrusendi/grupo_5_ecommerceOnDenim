@@ -1,0 +1,78 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/headLogin.ejs') %>
+<!-- <%- include('partials/headRegister.ejs') %> -->
+<%- include('partials/header.ejs') %>
+<main class="profile">
+    <div class="main-profile main-login">
+
+ 
+
+                <form action="/user/register" method="POST"    enctype="multipart/form-data"class="div-containProfile center-flexProfile containLogin" autocomplete="off">
+                    <h2>¡Creá tu cuenta!</h2> 
+                    <% if (locals && locals.mensajesDeError) { %>
+                        <div class="erorr">
+                            <% mensajesDeError.forEach(error => { %>
+                                  <p><%= error.msg %> </p>
+                            <% }) %>
+                          </div>
+                      <% } %>
+                      <div class="div-profile">
+                    
+                        <input type="text" name="fullName" placeholder="Ingrese nombre completo"  class="form-profile focus-none"   title="Nombre Completo"  value="<%= locals.oldData && oldData.fullName ? oldData.fullName : '' %>" autocomplete="off">
+                        <label for="fullName"></label>
+                        <span class="icon-profile"><i class="fas fa-user"></i></span>
+                    </div>
+                    <div class="div-profile">
+                    
+                        <input type="text" name="usuario" placeholder="Ingrese un nombre de usuario"  class="form-profile focus-none"   title="Usuario" autocomplete="off" value="<%= locals.oldData && oldData.usuario ? oldData.usuario : '' %>">
+                        <label for="usuario"></label>
+                        <span class="icon-profile"><i class="fas fa-user"></i></span>
+                    </div>
+                <div class="div-profile">
+                    
+                        <input type="email" name="email" placeholder="Ingrese su email"  class="form-profile focus-none"   title="Email" autocomplete="off" value="<%= locals.oldData && oldData.email ? oldData.email : '' %>">
+                        <label for="email"></label>
+                        <span class="icon-profile"><i class="fas fa-envelope"></i></span>
+                    </div>
+            
+                <div class="div-profile">
+                        <label for="password"></label>
+                        <input type="password" name="password"  placeholder="Ingrese su contraseña"  class="form-profile focus-none"   title="Contraseña" id="password" autocomplete="off">
+                        <span class="icon-profile" id="showPassword"><i class="fas fa-eye iconPassword"></i></span>
+                 </div>
+                 <div class="div-profile">
+                    <label for="password2"></label>
+                    <input type="password" name="password2"  placeholder="Repita su contraseña"  class="form-profile focus-none"   title="Email" id="password2">
+                    <span class="icon-profile" id="showPassword2"><i class="fas fa-eye iconPassword"></i></span>
+             </div>
+             <div class="div-avatar">
+                                       
+             </div>
+             <div >
+             <a class="button-imageProfile">Agregar imagen de perfil<input type="file" name="avatar" class="input-imageProfile"></a>
+             </div>
+                 <div  class="buttons-profile">
+                    <div class="div-edit-profile">
+                        <button type="submit" title="Ingresar"  class="submit-contacHome">¡Registrarme!</button>
+                    </div>
+                </div>
+                    <div class="div-linksLogin" >
+                        <div>
+                        <a href="/user/login" class="hoverText"><h2>¿Ya tenes cuenta? ¡Ingresa!</h2></a>
+                    </div>
+                        </div>
+                    
+
+            
+   
+         </div>
+        </div>
+
+</main>
+        
+        
+        <%- include('partials/footer.ejs') %>
+</body>
+
+<%- include('partials/scriptNav.ejs') %>
+</html>

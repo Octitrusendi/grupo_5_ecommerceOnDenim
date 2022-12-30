@@ -6,6 +6,14 @@
       <h2 class="products-title">Formulario de creación de productos</h2>
     </div>
   <div >
+    <% if (locals && locals.mensajesDeError) { %>
+      <div class="erorr">
+          <% mensajesDeError.forEach(error => { %>
+                <p><%= error.msg %> </p>
+          <% }) %>
+        </div>
+    <% } %>
+
     <form action="/productos" method="POST" enctype="multipart/form-data">
       <div class="product-detail">
         <div >

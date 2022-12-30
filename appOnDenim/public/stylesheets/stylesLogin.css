@@ -8,7 +8,7 @@
     background-color: #fff9f6;
 } */
 
-.container{
+/* .container{
     display: flex;
     align-items: top;
     justify-content: center;
@@ -115,4 +115,44 @@
 
 .bottom a:hover {
     color: #3282b8;
+} */
+
+.main-login{
+    padding: 8vh 0;
+}
+
+.containLogin{
+    box-shadow: 0 2px 3px 1px rgb(0 0 0 / 30%);
+    padding: 30px 20px ;
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.div-linksLogin{
+    width: 100%;
+    padding: 0 10px;
+
+}
+
+.div-linksLogin:hover {
+    color: var(--colorPrincipal);
+}
+
+.hoverText:hover{
+    color: var(--colorPrincipal);
+}
+.gap10{
+    gap: 10px;
+}
+input[type="checkbox"]:focus-visible, input[type="checkbox"]:focus{
+    outline: 1px solid transparent !important;
+}
+input[type='checkbox'] {
+    accent-color: #df502e;
 }
