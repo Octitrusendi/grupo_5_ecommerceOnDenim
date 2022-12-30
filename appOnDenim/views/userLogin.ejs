@@ -1,13 +1,13 @@
 <%- include('partials/head.ejs') %>
 <%- include('partials/headLogin.ejs') %>
 <%- include('partials/header.ejs') %>
-        <div class="container">
-            <div class="central">
-                <div class="login">
-                    <div class="title">
-                        Iniciar Sesion
-                    </div>
-                    <div class="loginconsult">
+ <main class="profile">
+        <div class="main-profile main-login">
+
+
+
+                    <form action="/user/login" method="POST"   class="div-containProfile center-flexProfile containLogin">
+                        <h2>Iniciar sesión</h2> 
                         <% if (locals && locals.mensajesDeError) { %>
                             <div class="erorr">
                                 <% mensajesDeError.forEach(error => { %>
@@ -15,24 +15,44 @@
                                 <% }) %>
                               </div>
                           <% } %>
-                        <form action="/user/login" method="POST" >
-                                <input type="email" name="email" placeholder="email" >
-                                <input type="password" placeholder="Contraseña" name="password" id="password" >
-                                <input type="checkbox" name="rememberUser"> Recordar usuario
-    
-                                <button type="submit" title="Login" name="Ingresar">Login</button>
-                        </form>
+                    <div class="div-profile">
+                        
+                            <input type="email" name="email" placeholder="Ingrese su email"  class="form-profile focus-none"   title="Usuario"  value="<%= locals.oldData && oldData.email ? oldData.email : '' %>" >
+                            <label for="email"></label>
+                            <span class="icon-profile"><i class="fas fa-envelope"></i></span>
                         </div>
-                    <div class="foot-form">
-                        <a href="#">¿Perdiste la contraseña?</a>
-                        <a href="/user/register">¿No tenés cuenta? Registrarse</a>
+                
+                    <div class="div-profile">
+                            <label for="password"></label>
+                            <input type="password" name="password"  placeholder="Ingrese su contraseña"  class="form-profile focus-none"   title="Email" id="password">
+                            <span class="icon-profile" id="showPassword"><i class="fas fa-eye iconPassword"></i></span>
+                     </div>
+                     <div class="div-profile gap10">
+                     <label for="rememberUser">Recuérdame</label>
+                     <input type="checkbox" name="rememberUser" checked> 
                     </div>
-                </div>
-                <div class="bottom">
-                        <a href="/"><p style="color:rgb(0, 0, 0);">Volver </p></a>
-                </div>
+                     <div  class="buttons-profile">
+                        <div class="div-edit-profile">
+                            <button type="submit" title="Ingresar" name="Ingresar" class="submit-contacHome">Ingresar</button>
+                        </div>
+                    </div>
+                        <div class="div-linksLogin" >
+                            <div>
+                            <a href="/user/resetPassword" class="hoverText"><h2>Olvide mi contraseña</h2></a>
+                        </div>
+                        <div>
+                            <a href="/user/register"class="hoverText"><h2>¿No tienes cuenta? ¡Crea tu cuenta ahora!</h2></a>
+                        </div>
+                        </div>
+                        
+
+                
+       
+             </div>
             </div>
-        </div>
+
+    </main>
+      
         
  <%- include('partials/footer.ejs') %>
 </body>

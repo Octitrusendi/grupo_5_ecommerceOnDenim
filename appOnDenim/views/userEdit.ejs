@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <%- include('partials/head') %>
+    <%- include('partials/headLogin.ejs') %>
 <body>
     <%- include('partials/header') %>
     <main class="profile">
@@ -49,19 +50,19 @@
         <div class="div-containProfile" id="newPassword" style="display: none;">
                 <label for="passwordOld"> Contraseña actual</label> 
                 <div class="div-profile">
-                        <input type="password" name="passwordOld" placeholder="Ingrese su contraseña actual" class="form-profile" >
-                        <span class="icon-profile"><i class="fas fa-lock-open"></i></span>
+                        <input type="password" name="passwordOld" placeholder="Ingrese su contraseña actual" class="form-profile"  id="passwordOld">
+                        <span class="icon-profile" id="showPasswordOld"><i class=" iconPassword fas fa-eye " id="iconPassword"></i></span>
                 </div>
                 <label for="password"> Contraseña nueva</label> 
                 <div class="div-profile">
-                        <input type="password" name="password" placeholder="Ingrese su nueva contraseña" class="form-profile" >
-                        <span class="icon-profile"><i class="fas fa-lock"></i></span>
+                        <input type="password" name="password" placeholder="Ingrese su nueva contraseña" class="form-profile" id="password" >
+                        <span class="icon-profile"  id="showPassword"><i class=" iconPassword fas fa-eye " id="iconPassword"></i></span>
                 </div>
 
                 <label for="password2"> Repita su nueva contraseña</label> 
                 <div class="div-profile">
-                        <input type="password"  name="password2" placeholder="Ingrese su nueva contraseña" class="form-profile" >
-                        <span class="icon-profile"><i class="fas fa-lock"></i></span>
+                        <input type="password"  name="password2" placeholder="Ingrese su nueva contraseña" class="form-profile"  id="password2"  >
+                        <span class="icon-profile" id="showPassword2"><i class="iconPassword fas fa-eye " id="iconPassword"></i></span>
                 </div>
         </div>
         

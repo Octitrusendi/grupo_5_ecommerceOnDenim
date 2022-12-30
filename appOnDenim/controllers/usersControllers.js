@@ -232,6 +232,7 @@ const usersControllers = {
   borrar: (req, res) => {
     let idUser = req.params.id;
     User.delete(idUser);
+    req.session.destroy();
     return res.redirect('/user/login');
   },
   logout: (req, res) => {
