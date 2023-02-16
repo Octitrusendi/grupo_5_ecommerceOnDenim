@@ -6,16 +6,16 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        usuario: {
             type: dataTypes.STRING
         },
-        apellido: {
+        fullName: {
             type: dataTypes.STRING
         },
         email: {
             type: dataTypes.STRING
         },
-        image: {
+        avatar: {
             type: dataTypes.STRING
         },
         password: {
