@@ -6,7 +6,7 @@ const bcryptjs = require('bcryptjs');
 const User = require('../models/User');
 const { use } = require('../routes/productRoutes');
 
-const usersFilePath = path.join(__dirname, '../data/user.json');
+const usersFilePath = path.join(__dirname, '../database/user.json');
 const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const usersControllers = {

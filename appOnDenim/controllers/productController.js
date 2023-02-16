@@ -2,10 +2,15 @@ const createError = require('http-errors');
 const fs = require('fs');
 const path = require('path');
 const { validationResult } = require('express-validator');
+const { where } = require("sequelize");
 
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+const productsFilePath = path.join(__dirname, '../database/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+
+const db = require("../database/models");
+const sequelize = db.sequelize;
 
 const productController = {
   detalle: (req, res, next) => {
@@ -22,13 +27,15 @@ const productController = {
     });
   },
   totalProductos: (req, res) => {
+    db.Products.findAll()
+    .then(products => { 
     res.render('totalProductos', {
       user: req.session.userLogged,
-      products,
+      products:products,
       toThousand,
       title: 'OnDenim | Todos los Jeans',
     });
-  },
+  })},
   agregar: (req, res) => {
     let categorias = products.map(categorias => categorias.category);
     let categoriasFill = new Set(categorias);
@@ -122,7 +129,6 @@ const productController = {
     let productsToSearch = products.filter(product =>
       product.name.toLowerCase().includes(search.toLowerCase()),
     );
-    console.log(productsToSearch);
     res.render('productResultFind', {
       search,
       user: req.session.userLogged,

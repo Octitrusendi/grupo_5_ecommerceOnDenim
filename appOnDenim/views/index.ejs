@@ -15,28 +15,28 @@
                                 <h2>Diseños personalizados</h2>
                         </div>
                         <div class="contenedor-productos flex-colum">
-                        <% products.forEach((producto, index) => { %>
-                                                <!-- producto  -->
-                                <% if (producto.stock >= 1 && index <= 4) {
-                                        let finalPrice = producto.price - (producto.price * producto.sale / 100);
-                                        %>    
-                                                <div class="cajas-productosPersonalizados cajas-productosPersonalizadosTotal  flex-colum ">
-                                                        <a href="/productos/detalle/<%= producto.id %>">
-                                                        <div class="img-producto">
-                                                                <img src="/images/productos/<%= producto.image %>" alt="<%= producto.name %>" title="<%= producto.name %>">
-                                                        </div> 
-                                                        <div class="descripcion">
-                                                                <h3 class="descripciones-productos"><%= producto.name %></h3>
-                                                                <p class="precios">$ <%= toThousand(finalPrice.toFixed(0)) %></p>
-                                                                <% if(producto.sale > 0) { %>
-                                                                        <span class="sale"><%= producto.sale %> % OFF</span>
-                                                                        <% } %>
-                                                                <i class="fas fa-truck camion"></i>
-                                                        </div> 
-                                                        </a>
-                                                </div>
-                                <% } %>
-                                <%  })%>
+                                <% products.forEach((producto, index) => { %>
+                                                        <!-- producto  -->
+                                        <% if (producto.stock >= 1 && index <= 4) {
+                                                let finalPrice = producto.price - (producto.price * producto.sale / 100);
+                                                %>    
+                                                        <div class="cajas-productosPersonalizados cajas-productosPersonalizadosTotal  flex-colum ">
+                                                                <a href="/productos/detalle/<%= producto.id %>">
+                                                                <div class="img-producto">
+                                                                        <img src="/images/productos/<%= producto.image %>" alt="<%= producto.name %>" title="<%= producto.name %>">
+                                                                </div> 
+                                                                <div class="descripcion">
+                                                                        <h3 class="descripciones-productos"><%= producto.name %></h3>
+                                                                        <p class="precios">$ <%= toThousand(finalPrice.toFixed(0)) %></p>
+                                                                        <% if(producto.sale > 0) { %>
+                                                                                <span class="sale"><%= producto.sale %> % OFF</span>
+                                                                                <% } %>
+                                                                        <i class="fas fa-truck camion"></i>
+                                                                </div> 
+                                                                </a>
+                                                        </div>
+                                        <% } %>
+                                        <%  })%>
                         <i class="fas fa-greater-than arrow-left"></i>
                         <i class="fas fa-greater-than arrow-right"></i>     
                         </div>
