@@ -26,3 +26,13 @@ Uno de los sprint mas duros desde que arrancamos, no es falta de compromiso porq
 El mayor impedimento es el que nos viene pasando desde el sprint 1, la falta de tiempo y los compromisos que cada uno tiene ya en su vida, sin dejar de lado el proyecto pero con pocas juntadas.
 ¿Que se hace hoy?
 Hoy, como venimos desde hace rato, pusimos todo el esfuerzo y esmero para poder hacer todo lo que nos faltaba terminar.
+
+
+Daylies sprint 6:
+Opiniones de las daylies/weeklies:
+¿Que se hizo ayer?
+Tuvimos un sprint complicado, a pesar de que era uno de los mas pesados, a nosotros nos pesó mas, ya que veniamos de poco coincidir por motivos personales y esta vez aun mas por temas de vacaciones.
+¿Se encontro algun impedimento?
+Nada cambio con respecto a los otros sprint, nuestro unico problema en el proyecto es poder coincidir, despues lo demas impecable, nos juntamos y siempre siempre podemos resolver problemas en tiempos record.
+¿Que se hace hoy?
+Hoy estamos parado en una situacion media complicada, pero estamos aprovechando cada momento para poder sacar adelante el proyecto y entregar a tiempo.
