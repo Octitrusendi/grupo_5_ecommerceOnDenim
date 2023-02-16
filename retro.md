@@ -68,3 +68,21 @@ Dejar todo para ultimo momento
 
 5. Dejar de hacer.
 No tenemos puntos en contra, salvo la organizacion
+
+
+Sprint 6: 
+
+1. Comenzar a hacer.
+Terminar de la mejor manera lo que nos queda del proyecto
+
+2. Hacer más.
+Resolver antes de que sea ultimo momento
+
+3. Continuar haciendo.
+Trabajar en equipo y seguir con la buena relacion y comunicacion
+
+4. Hacer menos.
+Estamos bien, solo que problemas personales nos deja mal parado hasta lo ultimo que podemos entregar en tiempo y forma sin dejar pasar cosas por alto
+
+5. Dejar de hacer.
+Creemos que noo tenemos puntos en contra
