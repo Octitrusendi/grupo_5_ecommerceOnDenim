@@ -1,0 +1,104 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/headCarrito.ejs') %>
+<%- include('partials/header.ejs') %>
+        <main>
+                <!-- seccion 1 -->
+
+
+                <section>
+                        <div class="cesta-beneficios-actualizar" >
+                                <h3>
+                                        Resumen de compras
+                                </h3>
+                                <span>Productos</span>
+                              
+                              <!--Tabla-->
+                              <div class="table-responsive">
+                              <table class="table table-bordered table-condensed cesta" >
+                                <thead>
+                                  <th>Producto</th>
+                                  <th>Cantidad</th> 
+                                  <th>Precio por unidad</th>
+                                  <th>Total</th>
+                                </thead>
+                                <tr class="beneficio" >
+                                  <td>
+                                    <img src="/images/productos/jean1.jpg" width="125px" alt="Jean1"/>
+                                    <span>Producto 1</span><br>
+                                    <p>Descripción</p><br>
+                                    <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                  </td>
+                                  <td class="cantidad">
+                                    <select class="selectpicker" >
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                    </select>
+                                    
+                                    </td> 
+                                  <td class="valor">50</td>
+                                  <td class="total">50</td>
+                                </tr>
+                                <tr class="beneficio" data-elemento='2'>
+                                  <td>
+                                        <img src="/images/productos/jean1.jpg" width="125px" alt="Nombre del producto"/>
+                                        <span>Producto 2</span><br>
+                                        <p>Descripción</p><br>
+                                        
+                                        <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                        </td>
+                                  </td>
+                                  <td class="cantidad">
+                                    <select class="selectpicker" 
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                    </select>
+                                    
+                                    </td> 
+                                  <td class="valor">1000</td>
+                                  <td class="total">1000</td>
+                                </tr>
+                                <tr class="beneficio" data-elemento='3'>
+                                  <td>
+                                    <img src="/images/productos/jean1.jpg" width="125px" alt="Nombre del producto"/>
+                                    <span>Producto 3</span><br>
+                                    <p>Descripción</p><br>
+                                    <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                  </td>
+                                  <td class="cantidad">
+                                    <select class="selectpicker" >
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                    </select>
+                                    
+                                    </td> 
+                                  <td class="valor">500</td>
+                                  <td class="total">500</td>
+                                </tr>
+                                <tr class="totales">
+                                  <td></td>
+                                  <td></td> 
+                                  <td class="t">Total</td>
+                                  <td class="val">$450</td>
+                                </tr>
+                              </table>
+                                <div class='pie-de-cesta'>
+                                  <span class="total4" style="float:right; font-size: 24px;"> 
+                                Precio Final<b>$450</b></span>
+                                  <br><br><br>
+                                  <button class='btn btn-link continuar'>Continuar comprando...</button>
+                                  <button class='btn continuar' style='float:right'>Comprar</button>
+                                  
+                                </div>
+                              </div>
+                            
+
+
+<%- include('partials/newCollection.ejs') %>       
+      </main>
+<%- include('partials/footer.ejs') %>
+</body>
+<%- include('partials/scriptNav.ejs') %>
+</html>

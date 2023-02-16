@@ -1,0 +1,18 @@
+[
+ {
+  "id": 1,
+  "usuario": "octaviotrusendi",
+  "fullName": "Octavio Trusendi2",
+  "email": "octaviotrusendi@gmail.com",
+  "password": "$2a$10$R84.5/IxyHBMITiekGUbMeU9JMSOSVaB/PygbKpMPIraPLTi6Xp8C",
+  "avatar": "avatar1672198830810.jpg"
+ },
+ {
+  "id": 2,
+  "fullName": "fran",
+  "usuario": "pancho",
+  "email": "tuvieja@gmail.com",
+  "password": "$2a$10$G7YgDihgfq4RXCnbBanw6uHGHBTm1eakWy65tXq0oDbch56fQp146",
+  "avatar": "default-image.png"
+ }
+]
