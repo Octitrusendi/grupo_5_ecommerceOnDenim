@@ -50,3 +50,39 @@ La famosa desorganizacion de las juntadas
 
 5. Dejar de hacer.
 Ademas de la falla de organizar nuestras vidas, no tenemos puntos en contra para rever
+
+
+Sprint 5: 
+
+1. Comenzar a hacer.
+Juntarnos mas, y resolver antes los sprint para no dejarlo para ultimo momento
+
+2. Hacer más.
+Juntadas, pero no podemos ya que estamos desencontrados por temas laborales
+
+3. Continuar haciendo.
+Trabajar en equipo y seguir con la buena relacion y comunicacion
+
+4. Hacer menos.
+Dejar todo para ultimo momento
+
+5. Dejar de hacer.
+No tenemos puntos en contra, salvo la organizacion
+
+
+Sprint 6: 
+
+1. Comenzar a hacer.
+Terminar de la mejor manera lo que nos queda del proyecto
+
+2. Hacer más.
+Resolver antes de que sea ultimo momento
+
+3. Continuar haciendo.
+Trabajar en equipo y seguir con la buena relacion y comunicacion
+
+4. Hacer menos.
+Estamos bien, solo que problemas personales nos deja mal parado hasta lo ultimo que podemos entregar en tiempo y forma sin dejar pasar cosas por alto
+
+5. Dejar de hacer.
+Creemos que noo tenemos puntos en contra
