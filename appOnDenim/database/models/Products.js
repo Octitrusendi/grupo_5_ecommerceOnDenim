@@ -33,6 +33,13 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false,
     };
     const Products = sequelize.define(alias, cols, config)
+    
+    Products.belongsToMany (models.Talles,{
+        as:'talles',
+        through: 'id',
+        foreignKey:'idproducto',
+        timestamps: false
+    })
 
     return Products
 }

@@ -2,49 +2,48 @@ const createError = require('http-errors');
 const fs = require('fs');
 const path = require('path');
 const { validationResult } = require('express-validator');
-const { where } = require("sequelize");
+const { where } = require('sequelize');
 
 //const productsFilePath = path.join(__dirname, '../database/productsDataBase.json');
 //const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
-
-const db = require("../database/models");
+const db = require('../database/models');
 const sequelize = db.sequelize;
 
 const productController = {
   detalle: async (req, res, next) => {
     //let jean = products.find(jean => jean.id == req.params.jeanID);
-    let jean = await db.Products.findOne ({
+    let jean = await db.Products.findOne({
       where: {
-        id:req.params.jeanID
-      }
-    })
+        id: req.params.jeanID,
+      },
+    });
 
-    let products=await db.Products.findAll
+    let products = await db.Products.findAll;
 
-      if (jean == undefined) {
+    if (jean == undefined) {
       next(createError(404));
     }
     return res.render('productDetail', {
       user: req.session.userLogged,
       jean: jean,
-      
+
       toThousand,
       title: 'OnDenim | ',
     });
   },
   totalProductos: (req, res) => {
-    db.Products.findAll()
-    .then(products => { 
-    res.render('totalProductos', {
-      user: req.session.userLogged,
-      products:products,
-      toThousand,
-      title: 'OnDenim | Todos los Jeans',
+    db.Products.findAll().then(products => {
+      res.render('totalProductos', {
+        user: req.session.userLogged,
+        products: products,
+        toThousand,
+        title: 'OnDenim | Todos los Jeans',
+      });
     });
-  })},
+  },
   agregar: (req, res) => {
     let categorias = products.map(categorias => categorias.category);
     let categoriasFill = new Set(categorias);
