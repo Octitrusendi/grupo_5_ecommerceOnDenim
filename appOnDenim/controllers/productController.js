@@ -4,8 +4,9 @@ const path = require('path');
 const { validationResult } = require('express-validator');
 const { where } = require("sequelize");
 
-const productsFilePath = path.join(__dirname, '../database/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+//const productsFilePath = path.join(__dirname, '../database/productsDataBase.json');
+//const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
 
@@ -13,15 +14,23 @@ const db = require("../database/models");
 const sequelize = db.sequelize;
 
 const productController = {
-  detalle: (req, res, next) => {
-    let jean = products.find(jean => jean.id == req.params.jeanID);
-    if (jean == undefined) {
+  detalle: async (req, res, next) => {
+    //let jean = products.find(jean => jean.id == req.params.jeanID);
+    let jean = await db.Products.findOne ({
+      where: {
+        id:req.params.jeanID
+      }
+    })
+
+    let products=await db.Products.findAll
+
+      if (jean == undefined) {
       next(createError(404));
     }
     return res.render('productDetail', {
       user: req.session.userLogged,
-      jean,
-      products,
+      jean: jean,
+      
       toThousand,
       title: 'OnDenim | ',
     });

@@ -264,9 +264,13 @@ const usersControllers = {
       title: 'OnDenim | Perfil de ' + userToEdit.fullName,
     });
   },
-  borrar: (req, res) => {
+  borrar: async (req, res)  => {
     let idUser = req.params.id;
-    User.delete(idUser);
+    await db.Users.destroy ({
+      where:{
+        id:idUser      }
+    })
+      // User.delete(idUser);
         req.session.destroy();
     return res.redirect('/user/login');
   },
