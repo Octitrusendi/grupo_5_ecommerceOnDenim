@@ -3,7 +3,6 @@ const fs = require('fs');
 const path = require('path');
 const { validationResult } = require('express-validator');
 
-
 //const productsFilePath = path.join(__dirname, '../database/productsDataBase.json');
 //const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
@@ -11,15 +10,14 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
 const db = require('../database/models');
 const sequelize = db.sequelize;
-const { Op } = require("sequelize");
+const { Op } = require('sequelize');
 const ProductCategory = require('../database/models/ProductCategory');
 
-
 const productController = {
-  detalle:  (req, res, next) => {
+  detalle: (req, res, next) => {
     //let jean = products.find(jean => jean.id == req.params.jeanID);
-    let allProducts = db.Products.findAll()
-db.Products.findOne({
+    let allProducts = db.Products.findAll();
+    db.Products.findOne({
       include: ['talle', 'categoria'],
       where: {
         id: req.params.jeanID,
@@ -29,11 +27,10 @@ db.Products.findOne({
         user: req.session.userLogged,
         jean,
         products: allProducts,
-          toThousand,
+        toThousand,
         title: 'OnDenim | ' + jean.name,
       });
     });
-
   },
   totalProductos: (req, res) => {
     db.Products.findAll({
@@ -52,27 +49,80 @@ db.Products.findOne({
     let categoriasFill = new Set(categorias); */
     let promTalles = db.Talles.findAll();
     let categoriasFill = db.ProductCategory.findAll();
-    
-    Promise.all([categoriasFill, promTalles]).then(([ProductCategory, Talles]) => {
-      res.render('productAdd', {
-        user: req.session.userLogged,
-        talles: Talles,
-        categoriasFill: ProductCategory,
-        title: 'OnDenim | Agregar Producto',
-      });
-    })
 
-
+    Promise.all([categoriasFill, promTalles]).then(
+      ([ProductCategory, Talles]) => {
+        res.render('productAdd', {
+          user: req.session.userLogged,
+          talles: Talles,
+          categoriasFill: ProductCategory,
+          title: 'OnDenim | Agregar Producto',
+        });
+      },
+    );
   },
   store: (req, res) => {
     let errores = validationResult(req);
-    
-/*     let categorias = products.map(categorias => categorias.category);
+
+    /*     let categorias = products.map(categorias => categorias.category);
     let categoriasFill = new Set(categorias); */
 
     let promTalles = db.Talles.findAll();
     let categoriasFill = db.ProductCategory.findAll();
-    if (!errores.isEmpty()) {
+    let productoEncontrado = db.Products.findOne({
+      where: {
+        name: req.body.name,
+      },
+    });
+
+    Promise.all([categoriasFill, promTalles, productoEncontrado])
+      .then(([ProductCategory, Talles, productoEncontrado]) => {
+        if (!errores.isEmpty()) {
+          return res.render('productAdd', {
+            mensajesDeError: errores.array(),
+            user: req.session.userLogged,
+            talles: Talles,
+            categoriasFill: ProductCategory,
+            title: 'OnDenim | Agregar Producto',
+          });
+        } else {
+          let image;
+          if (req.file != undefined) {
+            image = req.file.filename;
+          } else {
+            image = null;
+          }
+          let newProduct = {
+            name: req.body.name,
+            description: req.body.description,
+            sale: req.body.sale,
+            price: req.body.price,
+            stock: req.body.stock,
+            newCollection: req.body.newCollection,
+            image: image,
+            id_category: req.body.category,
+          };
+
+          db.Products.create({
+            ...newProduct,
+          });
+
+          let tallesElegidos = req.body.talles;
+          for (let i = 0; i < tallesElegidos.length; i++) {
+            console.log('ENNTRE AL FORRR' + i);
+
+            db.ProductTalles.create({
+              id_talles: i,
+              id_product: productoEncontrado.id,
+            });
+          }
+
+          res.redirect('/');
+        }
+      })
+      .catch(error => res.send(error));
+
+    /*     if (!errores.isEmpty()) {
       return res.render('productAdd', {
         user: req.session.userLogged,
         mensajesDeError: errores.array(),
@@ -86,6 +136,7 @@ db.Products.findOne({
       } else {
         image = null;
       }
+
       let newProduct = {
         id: products[products.length - 1].id + 1,
         ...req.body,
@@ -93,8 +144,8 @@ db.Products.findOne({
       };
       products.push(newProduct);
       fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
-      res.redirect('/');
-    }
+   
+    } */
   },
   editar: (req, res) => {
     let id = req.params.id;
@@ -160,7 +211,6 @@ db.Products.findOne({
       title: 'OnDenim | Tu busqueda: ' + req.query.keywords,
     });
   },
-
 };
 
 module.exports = productController;

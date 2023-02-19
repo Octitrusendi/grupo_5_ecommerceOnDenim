@@ -5,13 +5,12 @@ const { validationResult } = require('express-validator');
 const bcryptjs = require('bcryptjs');
 const User = require('../models/User');
 const { use } = require('../routes/productRoutes');
-const { where } = require("sequelize");
+const { where } = require('sequelize');
 
 const usersFilePath = path.join(__dirname, '../database/user.json');
 const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
-
-const db = require("../database/models");
+const db = require('../database/models');
 const { response } = require('express');
 const sequelize = db.sequelize;
 
@@ -22,56 +21,59 @@ const usersControllers = {
   loginProcess: (req, res) => {
     //let userToLogin = User.findByfield('email', req.body.email);
     db.Users.findOne({
-      where:{email:req.body.email}
-    }).then(response=>{
-      let userToLogin=response;
-      if (!userToLogin) {
-        return res.render('UserLogin', {
-          mensajesDeError: [
-            {
-              msg: 'No se encuentra este email en nuestra base de datos.',
-            },
-          ],
-          title: 'OnDenim | login',
-          oldData: req.body,
-        });
-      }
-      let passwordOk = bcryptjs.compareSync(
-        req.body.password,
-        userToLogin.password,
-      );
-      if (!passwordOk) {
-        return res.render('UserLogin', {
-          mensajesDeError: [
-            {
-              msg: 'La información ingresada no es correcta.',
-            },
-          ],
-          title: 'OnDenim | login',
-          oldData: req.body,
-        });
-      }
-      delete userToLogin.password;
-      req.session.userLogged = userToLogin;
-      if (req.body.rememberUser) {
-        res.cookie('userEmail', req.body.email, { maxAge: 60 * 60 * 24 * 7 });
-      }
-      return res.redirect('/user/profile');
-    }).catch(error=>error)
+      where: { email: req.body.email },
+    })
+      .then(response => {
+        let userToLogin = response;
+        if (!userToLogin) {
+          return res.render('UserLogin', {
+            mensajesDeError: [
+              {
+                msg: 'No se encuentra este email en nuestra base de datos.',
+              },
+            ],
+            title: 'OnDenim | login',
+            oldData: req.body,
+          });
+        }
+        let passwordOk = bcryptjs.compareSync(
+          req.body.password,
+          userToLogin.password,
+        );
+        if (!passwordOk) {
+          return res.render('UserLogin', {
+            mensajesDeError: [
+              {
+                msg: 'La información ingresada no es correcta.',
+              },
+            ],
+            title: 'OnDenim | login',
+            oldData: req.body,
+          });
+        }
+        delete userToLogin.password;
+        req.session.userLogged = userToLogin;
+        if (req.body.rememberUser) {
+          res.cookie('userEmail', req.body.email, { maxAge: 60 * 60 * 24 * 7 });
+        }
+        return res.redirect('/user/profile');
+       
+      })
+      .catch(error => error);
   },
   register: (req, res) => {
     res.render('UserRegister', { title: 'OnDenim | Registro' });
   },
-  pocessRegister: async(req, res) => {
+  pocessRegister: async (req, res) => {
     let errores = validationResult(req);
     //let emailInDB = User.findByfield('email', req.body.email);
     //let userInDB = User.findByfield('usuario', req.body.usuario);
     let emailInDB = await db.Users.findOne({
-      where:{email: req.body.email}
-    })    
+      where: { email: req.body.email },
+    });
     let userInDB = await db.Users.findOne({
-      where:{usuario: req.body.usuario}
-    })
+      where: { usuario: req.body.usuario },
+    });
     if (!errores.isEmpty()) {
       return res.render('UserRegister', {
         mensajesDeError: errores.array(),
@@ -120,12 +122,12 @@ const usersControllers = {
     }
     delete req.body.password2;
     await db.Users.create({
-      usuario:req.body.usuario,
-      fullName:req.body.fullName,
-      email:req.body.email,
-      avatar:avatar,
-      password:bcryptjs.hashSync(req.body.password, 10)
-    })
+      usuario: req.body.usuario,
+      fullName: req.body.fullName,
+      email: req.body.email,
+      avatar: avatar,
+      password: bcryptjs.hashSync(req.body.password, 10),
+    });
     /*let userToCreate = {
       ...req.body,
       password: bcryptjs.hashSync(req.body.password, 10),
@@ -148,23 +150,23 @@ const usersControllers = {
       title: 'OnDenim | Perfil de ' + req.session.userLogged.fullName,
     });
   },
-  edit: async(req, res) => {
+  edit: async (req, res) => {
     let idUser = req.params.id;
     //let findUser = User.findByPk(idUser);
     let findUser = await db.Users.findOne({
-      where: {id:idUser}
-    })
+      where: { id: idUser },
+    });
     res.render('userEdit', {
       user: findUser,
       title: 'OnDenim | Perfil de ' + findUser.fullName,
     });
   },
-  update: async(req, res) => {
+  update: async (req, res) => {
     let idUser = req.params.id;
     //let userToEdit = User.findByPk(idUser);
     let userToEdit = await db.Users.findOne({
-      where: {id:idUser}
-    })
+      where: { id: idUser },
+    });
     let avatar;
     if (req.file != undefined) {
       avatar = req.file.filename;
@@ -220,31 +222,36 @@ const usersControllers = {
         delete req.body.passwordOld;
         delete req.body.check;
         delete req.body.password2;
-        await db.Users.update({
-          usuario:req.body.usuario,
-          fullName:req.body.fullName,
-          email:req.body.email,
-          avatar:avatar,
-          password: bcryptjs.hashSync(req.body.password, 10),
-        },{
-          where:{id:req.params.id}
-        })
+        await db.Users.update(
+          {
+            usuario: req.body.usuario,
+            fullName: req.body.fullName,
+            email: req.body.email,
+            avatar: avatar,
+            password: bcryptjs.hashSync(req.body.password, 10),
+          },
+          {
+            where: { id: req.params.id },
+          },
+        );
       }
     } else {
       delete req.body.passwordOld;
       delete req.body.check;
       delete req.body.password2;
-      await db.Users.update({
-        usuario:req.body.usuario,
-        fullName:req.body.fullName,
-        email:req.body.email,
-        avatar:avatar,
-        password:userToEdit.password
-      },{
-        where:{id:req.params.id}
-      })
+      await db.Users.update(
+        {
+          usuario: req.body.usuario,
+          fullName: req.body.fullName,
+          email: req.body.email,
+          avatar: avatar,
+          password: userToEdit.password,
+        },
+        {
+          where: { id: req.params.id },
+        },
+      );
     }
-    
 
     /*let nuevoUsuario = usuarios.map(user => {
       if (user.id == userToEdit.id) {
@@ -264,14 +271,15 @@ const usersControllers = {
       title: 'OnDenim | Perfil de ' + userToEdit.fullName,
     });
   },
-  borrar: async (req, res)  => {
+  borrar: async (req, res) => {
     let idUser = req.params.id;
-    await db.Users.destroy ({
-      where:{
-        id:idUser      }
-    })
-      // User.delete(idUser);
-        req.session.destroy();
+    await db.Users.destroy({
+      where: {
+        id: idUser,
+      },
+    });
+    // User.delete(idUser);
+    req.session.destroy();
     return res.redirect('/user/login');
   },
   logout: (req, res) => {
