@@ -20,13 +20,6 @@ module.exports = (sequelize, dataTypes) => {
     const ProductTalles = sequelize.define(alias, cols, config)
 
     
-    ProductTalles.associate  = function (models){
-        ProductTalles.hasMany(models.Talles,{
-            as: 'talles',
-            foreignKey:'id',
-            sourceKey: 'id_talles',
-            timestamps: false
-        })
-    }    
+
     return ProductTalles
 }

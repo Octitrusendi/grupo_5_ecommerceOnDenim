@@ -8,20 +8,19 @@ module.exports = (sequelize, dataTypes) => {
         },
         name: {
             type: dataTypes.STRING
-        },
-        description: {
-            type: dataTypes.STRING
-        },
-        image: {
-            type: dataTypes.STRING
-        },
+        }
     };
     let config = {
         tableName: 'categories',
         timestamps: false,
     };
     const ProductCategory = sequelize.define(alias, cols, config)
-
+    ProductCategory.associate = function (models) {
+        ProductCategory.hasMany(models.Products, {
+            as: 'productos',
+            foreignKey: 'id_category',
+          });
+      };   
 
     return ProductCategory
 }

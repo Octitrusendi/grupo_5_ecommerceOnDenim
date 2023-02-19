@@ -27,19 +27,28 @@ module.exports = (sequelize, dataTypes) => {
         stock: {
             type: dataTypes.INTEGER,
         },
+        newCollection:{
+            type: dataTypes.INTEGER,
+        }
     };
     let config = {
         tableName: 'Products',
         timestamps: false,
     };
     const Products = sequelize.define(alias, cols, config)
-    
-    Products.belongsToMany (models.Talles,{
-        as:'talles',
-        through: 'id',
-        foreignKey:'idproducto',
-        timestamps: false
-    })
 
+    Products.associate = function (models) {
+        Products.belongsToMany(models.Talles, {
+          as: 'talle',
+          through: "productstalles",
+          foreignKey: 'id_product',
+          otherKey: 'id_talles',
+          timestamps: false,
+        });
+        Products.belongsTo(models.ProductCategory, {
+            as: 'categoria',
+            foreignKey: 'id'
+          });
+      };   
     return Products
 }

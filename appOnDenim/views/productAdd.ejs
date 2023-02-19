@@ -29,15 +29,13 @@
           <input type="number" id="sale" name="sale" placeholder="Ej: 15" class="form-input">
         </div>
         <div >
+
           <label for="talles" class="form-label">Talles:</label> 
           <div class="contenedor-talles">
-          <input type="checkbox" name="talles" value="38" >38 |
-          <input type="checkbox" name="talles" value="40" >40 |
-          <input type="checkbox" name="talles" value="42" >42 |
-          <input type="checkbox" name="talles" value="44" >44 |
-          <input type="checkbox" name="talles" value="46" >46 |
-          <input type="checkbox" name="talles" value="48" >48 |
-          <input type="checkbox" name="talles" value="50" >50
+          <% talles.forEach(element => { %>
+            <input type="checkbox" name="talles" value="<%=element.id  %> " ><%= element.talles %> |
+            <% }) %>
+
         </div>
         </div>
         
@@ -46,7 +44,7 @@
           <select name="category" id="category" class="form-input">
             <option value=""> Seleccionar categoría </option>
               <% categoriasFill.forEach(element => { %>
-                <option value="<%= element %>"> <%= element %> </option>
+                <option value="<%= element.id %>"> <%= element.name %> </option>
               <% }) %>
           </select>
         </div>

@@ -2,7 +2,7 @@ const createError = require('http-errors');
 const fs = require('fs');
 const path = require('path');
 const { validationResult } = require('express-validator');
-const { where } = require('sequelize');
+
 
 //const productsFilePath = path.join(__dirname, '../database/productsDataBase.json');
 //const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -11,52 +11,67 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
 const db = require('../database/models');
 const sequelize = db.sequelize;
+const { Op } = require("sequelize");
+const ProductCategory = require('../database/models/ProductCategory');
+
 
 const productController = {
-  detalle: async (req, res, next) => {
+  detalle:  (req, res, next) => {
     //let jean = products.find(jean => jean.id == req.params.jeanID);
-    let jean = await db.Products.findOne({
+    let allProducts = db.Products.findAll()
+db.Products.findOne({
+      include: ['talle', 'categoria'],
       where: {
         id: req.params.jeanID,
       },
+    }).then(jean => {
+      res.render('productDetail', {
+        user: req.session.userLogged,
+        jean,
+        products: allProducts,
+          toThousand,
+        title: 'OnDenim | ' + jean.name,
+      });
     });
 
-    let products = await db.Products.findAll;
-
-    if (jean == undefined) {
-      next(createError(404));
-    }
-    return res.render('productDetail', {
-      user: req.session.userLogged,
-      jean: jean,
-
-      toThousand,
-      title: 'OnDenim | ',
-    });
   },
   totalProductos: (req, res) => {
-    db.Products.findAll().then(products => {
+    db.Products.findAll({
+      include: 'talle',
+    }).then(products => {
       res.render('totalProductos', {
         user: req.session.userLogged,
-        products: products,
+        products,
         toThousand,
         title: 'OnDenim | Todos los Jeans',
       });
     });
   },
   agregar: (req, res) => {
-    let categorias = products.map(categorias => categorias.category);
-    let categoriasFill = new Set(categorias);
-    res.render('productAdd', {
-      user: req.session.userLogged,
-      categoriasFill,
-      title: 'OnDenim | Agregar Producto',
-    });
+    /*     let categorias = products.map(categorias => categorias.category);
+    let categoriasFill = new Set(categorias); */
+    let promTalles = db.Talles.findAll();
+    let categoriasFill = db.ProductCategory.findAll();
+    
+    Promise.all([categoriasFill, promTalles]).then(([ProductCategory, Talles]) => {
+      res.render('productAdd', {
+        user: req.session.userLogged,
+        talles: Talles,
+        categoriasFill: ProductCategory,
+        title: 'OnDenim | Agregar Producto',
+      });
+    })
+
+
   },
   store: (req, res) => {
     let errores = validationResult(req);
-    let categorias = products.map(categorias => categorias.category);
-    let categoriasFill = new Set(categorias);
+    
+/*     let categorias = products.map(categorias => categorias.category);
+    let categoriasFill = new Set(categorias); */
+
+    let promTalles = db.Talles.findAll();
+    let categoriasFill = db.ProductCategory.findAll();
     if (!errores.isEmpty()) {
       return res.render('productAdd', {
         user: req.session.userLogged,
@@ -145,6 +160,7 @@ const productController = {
       title: 'OnDenim | Tu busqueda: ' + req.query.keywords,
     });
   },
+
 };
 
 module.exports = productController;

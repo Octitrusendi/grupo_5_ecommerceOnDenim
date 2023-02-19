@@ -6,7 +6,7 @@
         <div class="contenedor-productos contenedor-productosNew  flex-colum">
         <!-- producto NewCollection -->
         <% products.forEach((producto, index) => { %>
-                <% if (producto.newCollection && index <= 3) { %>
+                <% if (producto.newCollection === 1 && index <= 3) { %>
                         <div class="cajas-productosPersonalizados cajas-productosPersonalizados-new  flex-colum">
                                 <a href="/productos/detalle/<%= producto.id %>">
                                         <div class="img-producto img-productoNew">
