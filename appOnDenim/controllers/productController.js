@@ -61,7 +61,7 @@ const productController = {
       },
     );
   },
-  store: (req, res) => {
+  store:  (req, res) => {
     let errores = validationResult(req);
 
     /*     let categorias = products.map(categorias => categorias.category);
@@ -69,14 +69,10 @@ const productController = {
 
     let promTalles = db.Talles.findAll();
     let categoriasFill = db.ProductCategory.findAll();
-    let productoEncontrado = db.Products.findOne({
-      where: {
-        name: req.body.name,
-      },
-    });
+    
 
-    Promise.all([categoriasFill, promTalles, productoEncontrado])
-      .then(([ProductCategory, Talles, productoEncontrado]) => {
+    Promise.all([categoriasFill, promTalles])
+          .then (async([ProductCategory, Talles]) => {
         if (!errores.isEmpty()) {
           return res.render('productAdd', {
             mensajesDeError: errores.array(),
@@ -103,19 +99,26 @@ const productController = {
             id_category: req.body.category,
           };
 
-          db.Products.create({
+          
+          let productoEncontrado = await db.Products.create({
             ...newProduct,
           });
 
+          console.log(productoEncontrado.id)
+                    
           let tallesElegidos = req.body.talles;
-          for (let i = 0; i < tallesElegidos.length; i++) {
+          try{
+            for (let i = 0; i < tallesElegidos.length; i++){
             console.log('ENNTRE AL FORRR' + i);
 
             db.ProductTalles.create({
-              id_talles: i,
+              id_talles: tallesElegidos[i],
               id_product: productoEncontrado.id,
             });
           }
+        } catch (error) {
+          console.error(error)
+        }
 
           res.redirect('/');
         }
