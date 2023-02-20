@@ -44,7 +44,9 @@
                                                 <% } %>
                                         </ul>
                                 </li>       
-                               <li class="shop-desktop"><a href="/carrito"><i class="fas fa-shopping-bag"></i></a></li>
+                               <li class="shop-desktop"><a href="/carrito"><i class="fas fa-shopping-bag"></i>
+                                <span class="cart-number">0</span>        
+                        </a></li>
                                <% if (locals.isLogged) { %>
                                 <li class="user-desktop" title="Salir"><a href="/user/logout" ><i class="fa fa-sign-out"></i></a></li>
                                 <% } %>
@@ -52,7 +54,9 @@
                                
                                <li class="register-mobile"><a href="/user/register">Creá tu cuenta<i class="fas fa-user"></i></a></li>
                                <li class="login-mobile"><a href="/user/login">Ingresá<i class="fas fa-sign-in-alt"></i></a></li>
-                               <li class="shop-mobile"><a href="/carrito">Mis compras<i class="fas fa-shopping-bag"></i></a></li>
+                               <li class="shop-mobile"><a href="/carrito">Mis compras<i class="fas fa-shopping-bag"></i></a>
+                                <span class="cart-number">0</span>
+                                </li>
                        </ul>
                </div>
        </nav>
@@ -64,7 +68,9 @@
 
        <div class='menu pointerCursor hide'>
                <div class='option' id='option1'>HOME </div>
-               <div class='option' id='option2'><a href="/carrito">CARRITO </a></div>
+               <div class='option' id='option2'><a href="/carrito">CARRITO </a>
+                        <span class="cart-number">0</span>
+                </div>
                <div class='option' id='option3'><a href="/detalle-producto">PRODUCTO </a></div>
                <div class='option' id='option4'><a href="/user/login">LOGIN/REGISTER </a></div>
        </div>

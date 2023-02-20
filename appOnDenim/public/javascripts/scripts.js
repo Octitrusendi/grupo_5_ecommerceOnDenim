@@ -1,3 +1,4 @@
+/* 
 function showContent() {
   element = document.getElementById('newPassword');
   check = document.getElementById('check');
@@ -31,8 +32,46 @@ function mostrarPassword(passwordClick, passwordInput) {
       showIcon.classList.remove("fa-eye-slash")
     }
   });
-}
+
 
 mostrarPassword(showPassword, password);
 mostrarPassword(showPassword2, password2);
-mostrarPassword(showPasswordOld, passwordOld);
+mostrarPassword(showPasswordOld, passwordOld);  */
+function productosEnElCarrito() {
+  if (localStorage.carrito) {
+    return JSON.parse(localStorage.carrito).length;
+  } else {
+    return 0;
+  }
+}
+window.addEventListener('load', function () {
+
+  let productos = document.querySelectorAll('.agregar_carrito');
+
+  /* Creo un event listener por cada boton */
+  productos.forEach(producto => {
+    producto.addEventListener('click', function (e) {
+      if (localStorage.carrito) {
+        let carrito = JSON.parse(localStorage.carrito);
+        let index = carrito.findIndex(prod => prod.id == e.target.dataset.id);
+        if (index != -1) {
+          carrito[index].quantity = carrito[index].quantity + 1;
+        } else {
+          carrito.push({ id: e.target.dataset.id, quantity: 1 });
+        }
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+      } else {
+        localStorage.setItem(
+          'carrito',
+          JSON.stringify([{ id: e.target.dataset.id, quantity: 1 }]),
+        );
+      }
+      cartNumber.innerText = productosEnElCarrito();
+      toastr.success('Se agregó este producto al carrito');
+    });
+  });
+
+  /* Numero del carrito */
+  let cartNumber = document.querySelector('.cart-number');
+  cartNumber.innerText = productosEnElCarrito();
+});

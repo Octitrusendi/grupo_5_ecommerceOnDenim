@@ -50,12 +50,10 @@
   font-size: 80%;
 }
 
-.listaTalle {
-  float: right;
-  position: absolute;
-  margin-left: 15px;
-  margin-top: 45px;
-  width: 10em;
+.seccionDetalle {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .listaTalle .title {

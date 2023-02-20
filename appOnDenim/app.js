@@ -10,6 +10,7 @@ const userLoggedMiddelware = require('./middleware/usserLoggedMiddelware');
 var indexRouter = require('./routes/mainRoutes');
 var productRouter = require('./routes/productRoutes');
 var usersRouter = require('./routes/users');
+const apiRouter = require("./routes/api");
 
 var app = express();
 
@@ -36,6 +37,7 @@ app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use('/productos', productRouter);
 app.use('/user', usersRouter);
+app.use("/api/", apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

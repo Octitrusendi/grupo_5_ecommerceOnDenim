@@ -2,103 +2,87 @@
 <%- include('partials/headCarrito.ejs') %>
 <%- include('partials/header.ejs') %>
         <main>
-                <!-- seccion 1 -->
-
-
-                <section>
-                        <div class="cesta-beneficios-actualizar" >
-                                <h3>
-                                        Resumen de compras
-                                </h3>
-                                <span>Productos</span>
-                              
-                              <!--Tabla-->
-                              <div class="table-responsive">
-                              <table class="table table-bordered table-condensed cesta" >
-                                <thead>
-                                  <th>Producto</th>
-                                  <th>Cantidad</th> 
-                                  <th>Precio por unidad</th>
-                                  <th>Total</th>
-                                </thead>
-                                <tr class="beneficio" >
-                                  <td>
-                                    <img src="/images/productos/jean1.jpg" width="125px" alt="Jean1"/>
-                                    <span>Producto 1</span><br>
-                                    <p>Descripción</p><br>
-                                    <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                                  </td>
-                                  <td class="cantidad">
-                                    <select class="selectpicker" >
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                    </select>
-                                    
-                                    </td> 
-                                  <td class="valor">50</td>
-                                  <td class="total">50</td>
+          <main class="mt-5 pt-4">
+            <div class="container wow fadeIn animated">
+                <h2 class="mt-5 mb-3 h2 text-center">Resumen de compras</h2>
+                <div class="card my-5">
+                    <div class="card-body">
+                        <table class="table table-responsive-md mb-0">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50px;">
+                                        <strong>#</strong>
+                                    </th>
+                                    <th class="th-lg">
+                                        <strong>Producto</strong>
+                                    </th>
+                                    <th class="th-lg ">
+                                        <strong>Precio</strong>
+                                    </th>
+                                    <th class="text-center">
+                                        <strong>Cantidad</strong>
+                                    </th>
+                                    <th class="text-center">
+                                        <strong>Subtotal</strong>
+                                    </th>
+                                    <th style="width: 50px;"></th>
                                 </tr>
-                                <tr class="beneficio" data-elemento='2'>
-                                  <td>
-                                        <img src="/images/productos/jean1.jpg" width="125px" alt="Nombre del producto"/>
-                                        <span>Producto 2</span><br>
-                                        <p>Descripción</p><br>
-                                        
-                                        <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                                        </td>
-                                  </td>
-                                  <td class="cantidad">
-                                    <select class="selectpicker" 
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                    </select>
-                                    
-                                    </td> 
-                                  <td class="valor">1000</td>
-                                  <td class="total">1000</td>
-                                </tr>
-                                <tr class="beneficio" data-elemento='3'>
-                                  <td>
-                                    <img src="/images/productos/jean1.jpg" width="125px" alt="Nombre del producto"/>
-                                    <span>Producto 3</span><br>
-                                    <p>Descripción</p><br>
-                                    <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                                  </td>
-                                  <td class="cantidad">
-                                    <select class="selectpicker" >
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                    </select>
-                                    
-                                    </td> 
-                                  <td class="valor">500</td>
-                                  <td class="total">500</td>
-                                </tr>
-                                <tr class="totales">
-                                  <td></td>
-                                  <td></td> 
-                                  <td class="t">Total</td>
-                                  <td class="val">$450</td>
-                                </tr>
-                              </table>
-                                <div class='pie-de-cesta'>
-                                  <span class="total4" style="float:right; font-size: 24px;"> 
-                                Precio Final<b>$450</b></span>
-                                  <br><br><br>
-                                  <button class='btn btn-link continuar'>Continuar comprando...</button>
-                                  <button class='btn continuar' style='float:right'>Comprar</button>
-                                  
+                            </thead>
+                            <tbody class="cartRows">
+                            </tbody>
+                        </table>
+                        <div class="card-footer text-right">
+                            <h2>Total: <span class="totalAmount">$ 0</span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header text-center">
+                        Terminar la compra
+                    </div>
+                    <form class="card-body" id="checkoutCart">
+                        <div class="row">
+                            <div class=" col-md-6 mb-4">
+                                <label for="country">Tipo Envio</label>
+                                <select class="custom-select d-block w-100" id="shippingMethod" name=" shippingMethod"
+                                    required="">
+                                    <option value="">Elegir...</option>
+                                    <option value="Cadete">Cadete</option>
+                                    <option value="Correo">Correo Argentino</option>
+                                    <option value="Andreani">Andreani</option>
+                                    <option value="DHL">DHL</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Elija un tipo de envio.
                                 </div>
-                              </div>
-                            
 
+                            </div>
+                            <div class=" col-md-6 mb-4">
+                                <label for="country">Pago</label>
+                                <select class="custom-select d-block w-100" id="paymentMethod" name="paymentMethod"
+                                    required="">
+                                    <option value="">Elegir...</option>
+                                    <option value="Efectivo">Efectivo</option>
+                                    <option value="Débito">Tarjeta Débito</option>
+                                    <option value="Crédito">Tarjeta Crédito</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Elija un tipo de envio.
+                                </div>
 
-<%- include('partials/newCollection.ejs') %>       
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-lg btn-block waves-effect waves-light btn-compra"
+                            type="submit">Comprar</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+   
       </main>
 <%- include('partials/footer.ejs') %>
 </body>
 <%- include('partials/scriptNav.ejs') %>
+<script src="/javascripts/cart.js"></script>
 </html>

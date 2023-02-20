@@ -2,39 +2,51 @@
 <%- include('partials/headProductDeail.ejs') %>
 <%- include('partials/header.ejs') %>
                <main>
-                <!-- seccion 1 (carrusel de imagenes, se termina con js) -->
-                <section>
-                <!-- carrusel de fotos -->
-                <div class="producto">
-                        <div class="left">
-                                <div class="imgProduct ">
+                <main class="mt-5 pt-4">
+                        <div class="container dark-grey-text mt-5">
+            
+                            <!--Grid row-->
+                            <div class="row wow fadeIn">
+            
+                                <!--Grid column-->
+                                <div class="col-md-6 mb-4">
+            
                                         <img src="/images/productos/<%= jean.image %>" alt="<%= jean.name %>" title="<%= jean.name %>">
+            
                                 </div>
-                        </div>
-                        <div class="right">
-                                <div class="nameProduct">
-                                        <label><%= jean.name %> </label>
-                                        <br>
-                                        <label><%= categoria.name %> </label>
+                                <!--Grid column-->
+            
+                                <!--Grid column-->
+                                <div class="col-md-6 mb-4">
+            
+                                    <!--Content-->
+                                    <div class="p-4">
+            
+                                        <div class="mb-3">
+                                          
+                                                <span class="badge purple mr-1"><%= categoria.name %></span>
+                                          
+                                                <% if (jean.newCollection ==1) { %>
+                                                        <span class="badge blue mr-1">¡NewCollection!</span>
+                                                <% } %>
 
-                                </div>
-                                <div class="priceProduct">
-                                        <h2>Valor por transferencia o efectivo</h2>
-                                        <% let finalPrice = toThousand((jean.price  - (jean.price * jean.sale / 100)).toFixed(0));%>
-                                        <h2>$<%= finalPrice %></h2>
-                                </div>
-                                <div class="quotesProduct">
-                                        <div class="quotesleft">
-                                                <div class="quotes "></div>
-                                                <div class="quotes "></div>
+                                     
+
                                         </div>
-                                        <div class="quotesright">
-                                                <% let cuotas6 = toThousand(((jean.price  - (jean.price * jean.sale / 100))/6).toFixed(0));%>
-                                                <p>6 cuotas sin interes de $<%= cuotas6 %></p>
-                                                <p>9 o 12 cuotas con interes</p>
-                                        </div>
-                                </div>
-                                <div class='listaTalle'>
+                                                    <% let finalPrice = toThousand((jean.price  - (jean.price * jean.sale / 100)).toFixed(0));%>
+
+                                        <p class="lead mb-2">
+                                            <span class="mr-1 text-secondary">
+                                                <del>$200</del>
+                                            </span>
+                                            <span class="text-success">$<%= finalPrice %></span>
+                                        </p>
+                             
+                                        <p class="lead font-weight-bold mb-2"><%= jean.name %></p>
+            
+                                        <p class="mb-2">        <%= jean.description %> </p>
+                                        <div class="seccionDetalle">
+                                            <div class='listaTalle'>
                                                 <select name="" id="">
                                                         <option value="">Selecciona el talle</option>
 
@@ -44,36 +56,54 @@
                                                 </select>
        
 
-                                        </div>
-                                
-                                <div class="chart">
-                                        <button type="submit" title="addToChart" name="AGREGAR AL CARRITO">AGREGAR AL CARRITO</button>
+                                        </div>  
+            
+                                        <form class="d-flex justify-content-left">
+                                            <!-- Default input -->
+                        
+                                            <button class="btn btn-primary btn-md my-0 p agregar_carrito" data-id="<%= jean.id %> " type="submit">Agregar al Carrito
+                                                <i class="fas fa-shopping-cart ml-1"></i>
+                                            </button>
+            
+                                        </form>
+                                        <% if (locals.isLogged ) { %>
+                                                <div class="del">
+                                                        <form action="/productos/<%=jean.id %>?_method=DELETE " method="POST"><button class="btn btn-danger btn-md my-0 p" type="submit" title="delete" name="ELIMINAR PRODUCTO">ELIMINAR PRODUCTO</button></form>
+                                                </div>
+                                                <div class="del">
+                                                        <a href="/productos/editar/<%=jean.id %>"><button class="btn btn-success btn-md my-0 p" type="submit" title="delete" name="ELIMINAR PRODUCTO">EDITAR PRODUCTO</button></a>
+                                                </div>
+                                        <% } %>
                                 </div>
-                                <% if (locals.isLogged ) { %>
-                                        <div class="del">
-                                                <form action="/productos/<%=jean.id %>?_method=DELETE " method="POST"><button type="submit" title="delete" name="ELIMINAR PRODUCTO">ELIMINAR PRODUCTO</button></form>
-                                        </div>
-                                <% } %>
+                                    </div>
+                                    <!--Content-->
+            
+                                </div>
+                                <!--Grid column-->
+            
+                            </div>
+                            <!--Grid row-->
+            
+                            <hr>
+            
+                            <!--Grid row-->
+                            <div class="row d-flex justify-content-center wow fadeIn">
+            
 
-                                </div>
+            
+                            </div>
+                            <!--Grid row-->
+            
+
+            
                         </div>
-                <div class="descript">
-                        <div class="left">
-                                <div class="descriptionText">
-                                        <label>DESCRIPCION</label>
-                                        <p>
-                                                <%= jean.description %> 
-                                        </p>
-                                </div>
-                        </div>
-                        <div class="right">
-                                <div class="contact">
-                                        <label>DATOS DEL VENDEDOR</label>
-                                        <p>Juan Victor Baroni (2477-6781144)                                
-                                        </p>
-                                </div>
-                        </div>
-                </section>
+                    </main>
+
+
+
+
+
+
 
        
         </main>

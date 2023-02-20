@@ -120,13 +120,16 @@ const usersControllers = {
       avatar = 'default-image.png';
     }
     delete req.body.password2;
-    await db.Users.create({
+    let datosUser = {
       usuario: req.body.usuario,
       fullName: req.body.fullName,
       email: req.body.email,
       avatar: avatar,
       password: bcryptjs.hashSync(req.body.password, 10),
-    });
+    };
+
+    let userToCreate = await db.Users.create(datosUser);
+    req.session.userLogged = userToCreate;
     /*let userToCreate = {
       ...req.body,
       password: bcryptjs.hashSync(req.body.password, 10),
@@ -143,9 +146,13 @@ const usersControllers = {
     res.redirect('/user/profile'); */
     res.redirect('/user/login');
   },
-  profile: (req, res) => {
+  profile: async (req, res) => {
+    let orders = await db.Order.findAll({
+      where: { userId: req.session.userLogged.id },
+    });
     res.render('userProfile', {
       user: req.session.userLogged,
+      orders,
       title: 'OnDenim | Perfil de ' + req.session.userLogged.fullName,
     });
   },
@@ -285,6 +292,17 @@ const usersControllers = {
     res.clearCookie('userEmail');
     req.session.destroy();
     return res.redirect('/');
+  },
+  pedido: async function (req, res) {
+    let order = await db.Order.findByPk(req.params.id, {
+      include: db.Order.OrderItems,
+    });
+    // res.send(order);
+    return res.render('ordenes', {
+      user: req.session.userLogged,
+      order,
+      title: 'OnDenim | ',
+    });
   },
 };
 

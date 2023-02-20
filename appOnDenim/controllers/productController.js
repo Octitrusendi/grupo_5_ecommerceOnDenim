@@ -151,25 +151,48 @@ const productController = {
   },
   editar: (req, res) => {
     let id = req.params.id;
-    let productoAeditar = products.find(producto => producto.id == id);
+    /*     let productoAeditar = products.find(producto => producto.id == id);
     let categorias = products.map(categorias => categorias.category);
-    let categoriasFill = new Set(categorias);
+    let categoriasFill = new Set(categorias); */
+    let allProducts = db.Products.findAll();
+    let productoEncontrado = db.Products.findOne({
+      include: ['talle'],
+      where: {
+        id: id,
+      },
+    });
+    let promTalles = db.Talles.findAll();
+    let allCategorias = db.ProductCategory.findAll();
 
-    if (productoAeditar != undefined) {
-      res.render('productEdit', {
-        user: req.session.userLogged,
-        productoAeditar,
-        categoriasFill,
-        toThousand,
-        title: 'OnDenim | Modificar Producto',
-      });
-    } else {
-      res.send('error');
-    }
+    Promise.all([
+      productoEncontrado,
+      allProducts,
+      promTalles,
+      allCategorias,
+    ]).then(
+      async ([productoEncontrado, allProducts, promTalles, allCategorias]) => {
+        let categoriaProducto = await db.ProductCategory.findByPk(
+          productoEncontrado.id_category,
+        );
+
+        res.render('productEdit', {
+          user: req.session.userLogged,
+          productoAeditar: productoEncontrado,
+          categoriasFill: categoriaProducto,
+          products: allProducts,
+          talles: promTalles,
+          allCategorias: allCategorias,
+          toThousand,
+          title: 'OnDenim | Modificar Producto' + productoEncontrado.name,
+        });
+      },
+    );
   },
   update: (req, res) => {
     let id = req.params.id;
-    let productoAeditar = products.find(producto => producto.id == id);
+    //let productoAeditar = products.find(producto => producto.id == id);
+
+    let productoAeditar = db.Products.findByPk(id);
     let image;
 
     if (req.file != undefined) {
@@ -177,7 +200,29 @@ const productController = {
     } else {
       image = productoAeditar.image;
     }
-    productoAeditar = {
+
+    db.Products.update(
+      {
+        name: req.body.name,
+        description: req.body.description,
+        sale: req.body.sale,
+        price: req.body.price,
+        stock: req.body.stock,
+        newCollection: req.body.newCollection,
+        image: image,
+        id_category: req.body.category,
+      },
+      {
+        where: { id: id },
+      },
+    )
+    
+      .then(() => {
+        res.redirect('/productos/detalle/' + id);
+      })
+      .catch(error => res.send(error));
+
+    /*     productoAeditar = {
       id: productoAeditar.id,
       ...req.body,
       image: image,
@@ -191,26 +236,36 @@ const productController = {
     fs.writeFileSync(
       productsFilePath,
       JSON.stringify(nuevoProducto, null, ' '),
-    );
-    res.redirect('/productos/detalle/' + id);
+    ); */
   },
   borrar: async (req, res) => {
     let idProducto = req.params.id;
     // let eliminar = products.filter(producto => producto.id != id);
     // fs.writeFileSync(productsFilePath, JSON.stringify(eliminar, null, ''));
+    await db.ProductTalles.destroy({
+      where: {
+        id_product: idProducto,
+      },
+      force: true,
+    });
     await db.Products.destroy({
       where: {
         id: idProducto,
-      }
+      },
     });
 
     res.redirect('/productos');
   },
-  search: (req, res) => {
+  search: async (req, res) => {
     let search = req.query.keywords;
-    let productsToSearch = products.filter(product =>
+    /*     let productsToSearch = products.filter(product =>
       product.name.toLowerCase().includes(search.toLowerCase()),
-    );
+    ); */
+    let productsToSearch = await db.Products.findAll({
+      where: {
+        name: { [Op.like]: `%${search}%` },
+      },
+    });
     res.render('productResultFind', {
       search,
       user: req.session.userLogged,
