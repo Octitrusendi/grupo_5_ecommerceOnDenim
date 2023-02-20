@@ -15,7 +15,9 @@ const sequelize = db.sequelize;
 
 const mainController = {
   index: (req, res) => {
-    db.Products.findAll().then(products => {
+    db.Products.findAll({
+      limit: 4,
+    }).then(products => {
       res.render('index', {
         user: req.session.userLogged,
         products: products,

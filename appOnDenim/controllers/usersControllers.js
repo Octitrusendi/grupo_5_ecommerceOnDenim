@@ -57,7 +57,6 @@ const usersControllers = {
           res.cookie('userEmail', req.body.email, { maxAge: 60 * 60 * 24 * 7 });
         }
         return res.redirect('/user/profile');
-       
       })
       .catch(error => error);
   },

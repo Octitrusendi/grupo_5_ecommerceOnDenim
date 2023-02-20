@@ -17,20 +17,28 @@ const productController = {
   detalle: (req, res, next) => {
     //let jean = products.find(jean => jean.id == req.params.jeanID);
     let allProducts = db.Products.findAll();
-    db.Products.findOne({
-      include: ['talle', 'categoria'],
+    let productoEncontrado = db.Products.findOne({
+      include: ['talle'],
       where: {
         id: req.params.jeanID,
       },
-    }).then(jean => {
-      res.render('productDetail', {
-        user: req.session.userLogged,
-        jean,
-        products: allProducts,
-        toThousand,
-        title: 'OnDenim | ' + jean.name,
-      });
     });
+
+    Promise.all([productoEncontrado, allProducts]).then(
+      async ([jean, allProducts]) => {
+        let categoriaProducto = await db.ProductCategory.findByPk(
+          jean.id_category,
+        );
+        res.render('productDetail', {
+          user: req.session.userLogged,
+          jean: jean,
+          categoria: categoriaProducto,
+          products: allProducts,
+          toThousand,
+          title: 'OnDenim | ' + jean.name,
+        });
+      },
+    );
   },
   totalProductos: (req, res) => {
     db.Products.findAll({
@@ -61,7 +69,7 @@ const productController = {
       },
     );
   },
-  store:  (req, res) => {
+  store: (req, res) => {
     let errores = validationResult(req);
 
     /*     let categorias = products.map(categorias => categorias.category);
@@ -69,10 +77,9 @@ const productController = {
 
     let promTalles = db.Talles.findAll();
     let categoriasFill = db.ProductCategory.findAll();
-    
 
     Promise.all([categoriasFill, promTalles])
-          .then (async([ProductCategory, Talles]) => {
+      .then(async ([ProductCategory, Talles]) => {
         if (!errores.isEmpty()) {
           return res.render('productAdd', {
             mensajesDeError: errores.array(),
@@ -99,26 +106,18 @@ const productController = {
             id_category: req.body.category,
           };
 
-          
           let productoEncontrado = await db.Products.create({
             ...newProduct,
           });
 
-          console.log(productoEncontrado.id)
-                    
           let tallesElegidos = req.body.talles;
-          try{
-            for (let i = 0; i < tallesElegidos.length; i++){
-            console.log('ENNTRE AL FORRR' + i);
 
+          for (let i = 0; i < tallesElegidos.length; i++) {
             db.ProductTalles.create({
               id_talles: tallesElegidos[i],
               id_product: productoEncontrado.id,
             });
           }
-        } catch (error) {
-          console.error(error)
-        }
 
           res.redirect('/');
         }
@@ -195,10 +194,16 @@ const productController = {
     );
     res.redirect('/productos/detalle/' + id);
   },
-  borrar: (req, res) => {
-    let id = req.params.id;
-    let eliminar = products.filter(producto => producto.id != id);
-    fs.writeFileSync(productsFilePath, JSON.stringify(eliminar, null, ''));
+  borrar: async (req, res) => {
+    let idProducto = req.params.id;
+    // let eliminar = products.filter(producto => producto.id != id);
+    // fs.writeFileSync(productsFilePath, JSON.stringify(eliminar, null, ''));
+    await db.Products.destroy({
+      where: {
+        id: idProducto,
+      }
+    });
+
     res.redirect('/productos');
   },
   search: (req, res) => {
