@@ -15,12 +15,15 @@ const sequelize = db.sequelize;
 
 const mainController = {
   index: (req, res) => {
+
     db.Products.findAll({
       limit: 4,
     }).then(products => {
+      let succes = req.query.enviado;
       res.render('index', {
         user: req.session.userLogged,
         products: products,
+        succes,
         toThousand,
         title: 'OnDenim | Home',
       });

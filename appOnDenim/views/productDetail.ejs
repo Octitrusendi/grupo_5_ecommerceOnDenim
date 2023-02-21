@@ -36,9 +36,12 @@
                                                     <% let finalPrice = toThousand((jean.price  - (jean.price * jean.sale / 100)).toFixed(0));%>
 
                                         <p class="lead mb-2">
+                                          <% if (jean.sale >0) { %>
                                             <span class="mr-1 text-secondary">
-                                                <del>$200</del>
-                                            </span>
+                                              <del>$<%= jean.price %></del>
+                                          </span>
+                                          <% } %>
+
                                             <span class="text-success">$<%= finalPrice %></span>
                                         </p>
                              
@@ -47,7 +50,7 @@
                                         <p class="mb-2">        <%= jean.description %> </p>
                                         <div class="seccionDetalle">
                                             <div class='listaTalle'>
-                                                <select name="" id="">
+                                                <select name="talles" id="">
                                                         <option value="">Selecciona el talle</option>
 
                                                                 <% jean.talle.forEach(element => { %>

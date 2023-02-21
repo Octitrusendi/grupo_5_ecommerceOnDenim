@@ -12,52 +12,27 @@
                 <!-- seccion 2 (carrusel de diseños personalizados, se termina con js) -->
                 <section class="carrusel-productosPersonalizados flex-colum ">
                         <div>
-                                <h2>Diseños personalizados</h2>
-                        </div>
-                        <div class="contenedor-productos flex-colum">
-                                <% products.forEach((producto, index) => { %>
-                                                        <!-- producto  -->
-                                        <% if (producto.stock >= 1 && index <= 4) {
-                                                let finalPrice = producto.price - (producto.price * producto.sale / 100);
-                                                %>    
-                                                        <div class="cajas-productosPersonalizados cajas-productosPersonalizadosTotal  flex-colum ">
-                                                                <a href="/productos/detalle/<%= producto.id %>">
-                                                                <div class="img-producto">
-                                                                        <img src="/images/productos/<%= producto.image %>" alt="<%= producto.name %>" title="<%= producto.name %>">
-                                                                </div> 
-                                                                <div class="descripcion ">
-                                                                        <h3 class="descripciones-productos"><%= producto.name %></h3>
-                                                                        <p class="precios">$ <%= toThousand(finalPrice.toFixed(0)) %></p>
-                                                                        <% if(producto.sale > 0) { %>
-                                                                                <span class="sale"><%= producto.sale %> % OFF</span>
-                                                                                <% } %>
-                                                                        <i class="fas fa-truck camion"></i>
-                                                                </div> 
-                                                        </a>
-                                                                <div class="descripcion2">
-                                                                        <a href="/productos/detalle/<%= producto.id %>"><button class="btn btn-success btn-md my-0 p mb-2">Ver Producto</button> </a>
-                                                                        <button class="btn btn-success btn-md my-0 p agregar_carrito"  data-id="<%= producto.id %> " >Agregar al Carrito</button>
 
-                                                                </div>
+                                <%- include('partials/carouselHome.ejs') %>       
 
-                                                        </div>
-                                        <% } %>
-                                        <%  })%>
-                        <i class="fas fa-greater-than arrow-left"></i>
-                        <i class="fas fa-greater-than arrow-right"></i>     
                         </div>
+
                          <a href="/productos" class="flex-row">
                                 <span class="todos-productos">Todos los productos</span>
                                 <span class="todos-productos2">></span>                                       
                          </a>
 
                 </section>
-   
-<%- include('partials/newCollection.ejs') %>       
+<%- include('partials/newCollection.ejs') %>     
+
 
         </main>
 <%- include('partials/footer.ejs') %>
 </body>
 
 <%- include('partials/scriptNav.ejs') %>
-</html>
+
+
+
+
+                                </html>

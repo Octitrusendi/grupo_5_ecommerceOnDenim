@@ -7,7 +7,7 @@
 
  
 
-                <form action="/user/register" method="POST"    enctype="multipart/form-data"class="div-containProfile center-flexProfile containLogin" autocomplete="off">
+                <form action="/user/register" method="POST"  id="formRegister"   enctype="multipart/form-data"class="div-containProfile center-flexProfile containLogin" autocomplete="off">
                     <h2>¡Creá tu cuenta!</h2> 
                     <% if (locals && locals.mensajesDeError) { %>
                         <div class="erorr">
@@ -16,31 +16,34 @@
                             <% }) %>
                           </div>
                       <% } %>
-                      <div class="div-profile">
-                    
-                        <input type="text" name="fullName" placeholder="Ingrese nombre completo"  class="form-profile focus-none"   title="Nombre Completo"  value="<%= locals.oldData && oldData.fullName ? oldData.fullName : '' %>" autocomplete="off">
+
+                      <div class="div-profile form-inputs" id="grupo_fullName">
+                      <div class="div-profile" >
+                                            <input type="text" name="fullName" placeholder="Ingrese nombre completo"  class="form-profile focus-none "   title="Nombre Completo"  value="<%= locals.oldData && oldData.fullName ? oldData.fullName : '' %>" autocomplete="off">
                         <label for="fullName"></label>
                         <span class="icon-profile"><i class="fas fa-user"></i></span>
                     </div>
-                    <div class="div-profile">
+                    <p class="formulario-error">Escriba un nombre valido.</p>
+                </div>
+                    <div class="div-profile"  id="grupo_usuario">
                     
                         <input type="text" name="usuario" placeholder="Ingrese un nombre de usuario"  class="form-profile focus-none"   title="Usuario" autocomplete="off" value="<%= locals.oldData && oldData.usuario ? oldData.usuario : '' %>">
                         <label for="usuario"></label>
                         <span class="icon-profile"><i class="fas fa-user"></i></span>
                     </div>
-                <div class="div-profile">
+                <div class="div-profile" id="grupo_email">
                     
                         <input type="email" name="email" placeholder="Ingrese su email"  class="form-profile focus-none"   title="Email" autocomplete="off" value="<%= locals.oldData && oldData.email ? oldData.email : '' %>">
                         <label for="email"></label>
                         <span class="icon-profile"><i class="fas fa-envelope"></i></span>
                     </div>
             
-                <div class="div-profile">
+                <div class="div-profile" id="grupo_password">
                         <label for="password"></label>
                         <input type="password" name="password"  placeholder="Ingrese su contraseña"  class="form-profile focus-none"   title="Contraseña" id="password" autocomplete="off">
                         <span class="icon-profile" id="showPassword"><i class="fas fa-eye iconPassword"></i></span>
                  </div>
-                 <div class="div-profile">
+                 <div class="div-profile" id="grupo_password2">
                     <label for="password2"></label>
                     <input type="password" name="password2"  placeholder="Repita su contraseña"  class="form-profile focus-none"   title="Email" id="password2">
                     <span class="icon-profile" id="showPassword2"><i class="fas fa-eye iconPassword"></i></span>
@@ -75,4 +78,55 @@
 </body>
 
 <%- include('partials/scriptNav.ejs') %>
+
+<script>
+const formularioRegister = document.getElementById('formRegister');
+const inputsRegister = document.querySelectorAll('#formRegister div');
+
+ const expresiones = {
+    fecha: /^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/-](?:0?[1-9]|1[0-2])|(?:29|30)[/-](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/-](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/-]0?2[/-](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$/,
+    hora:/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/,
+
+    nombre: /^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
+    apellido: /^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
+    correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+    telefono: /^\d{7,14}$/, // 7 a 14 numeros.
+    dni: /^\d{8,8}$/ // 7 a 14 numeros.
+
+}
+
+const validarFormulario = (e) =>{
+    switch (e.target.name){
+        case 'fullName':
+            validarCampo(expresiones.nombre, e.target, 'fullName')
+        break;
+        case 'usuario':
+            validarCampo(expresiones.nombre, e.target, 'usuario')
+        break;
+    }
+}
+const validarCampo= (expresion, input, campo) =>{
+    if(expresion.test(input.value)){
+                    document.querySelector(`#grupo_${campo} input`).classList.remove('formulario-invalido')
+                    document.querySelector(`#grupo_${campo} input`).classList.add('formulario-valido')
+                    document.querySelector(`#grupo_${campo}  i`).classList.remove('formulario-invalido')
+                    document.querySelector(`#grupo_${campo}  i`).classList.add('formulario-valido')
+                    document.querySelector(`#grupo_${campo} p`).classList.remove('formulario-error-activo')
+                }else{
+                    document.querySelector(`#grupo_${campo} input`).classList.add('formulario-invalido')
+                    document.querySelector(`#grupo_${campo} i`).classList.add('formulario-invalido')
+                    document.querySelector(`#grupo_${campo} input`).classList.remove('formulario-valido')
+                    document.querySelector(`#grupo_${campo} i`).classList.remove('formulario-valido')
+                    document.querySelector(`#grupo_${campo} p`).classList.add('formulario-error-activo')
+                }
+}
+inputsRegister.forEach((input=>{
+input.addEventListener('keyup', validarFormulario )
+input.addEventListener('blur', validarFormulario )
+}))
+
+formularioRegister.addEventListener('submit', (e) => {
+  e.preventDefault();
+})
+</script>
 </html>

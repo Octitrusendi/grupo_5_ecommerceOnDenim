@@ -6,7 +6,7 @@
 
 
 
-                    <form action="/user/login" method="POST"   class="div-containProfile center-flexProfile containLogin">
+                    <form action="/user/login" method="POST" id="formLogin"  class="div-containProfile center-flexProfile containLogin">
                         <h2>Iniciar sesión</h2> 
                         <% if (locals && locals.mensajesDeError) { %>
                             <div class="erorr">
@@ -58,5 +58,7 @@
 </body>
 
 <%- include('partials/scriptNav.ejs') %>
+
+
 
 </html>

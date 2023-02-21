@@ -77,6 +77,9 @@ a {
   text-decoration: none;
   color: rgb(0, 0, 0);
 }
+a:hover {
+  text-decoration: none !important;
+}
 @font-face {
   font-family: 'DINNeuzeitGrotesk LT';
   src: url('/font/DINNeuzeitGroteskLT-Light.eot');
@@ -386,6 +389,32 @@ textarea:focus-visible {
   transition: 0.4s ease 0s;
 }
 
+.formulario-invalido {
+  color: #bb2929 !important;
+  border-color: #bb2929 !important;;
+}
+.formulario-valido {
+  color: #1ed12d;
+  border-color: #1ed12d !important;;
+}
+.form-inputs{
+
+flex-direction: column !important;
+align-items: flex-start !important;
+}
+.formulario-error{
+  margin-top: 5px;
+ font-size: 0.7rem;
+ font-weight: 900;
+ color: #bb2929 ;
+ display: none ;
+ 
+}
+.formulario-error-activo{
+display: block;
+ 
+}
+
 .bloque-suscribite {
   background-color: var(--colorPrincipal);
   color: #ffff;
@@ -489,7 +518,7 @@ textarea:focus-visible {
   align-items: center;
   gap: 10px;
 }
-.div-profile {
+.div-profile{
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -748,6 +777,47 @@ input[type='file']::-webkit-file-upload-button {
   100% {
     transform: translate(0, 0);
   }
+}
+
+.content {
+  max-width: 95vw !important;
+}
+.container-sm {
+  max-width: 600px !important;
+}
+.media-29101 h3 a {
+  color: #6c757d;
+}
+
+.owl-2-style .owl-nav {
+  display: none;
+}
+
+.owl-2-style .owl-dots {
+  text-align: center;
+  position: relative;
+  bottom: -30px;
+}
+.owl-2-style .owl-dots .owl-dot {
+  display: inline-block;
+}
+.owl-2-style .owl-dots .owl-dot span {
+  display: inline-block;
+  width: 15px;
+  height: 3px;
+  border-radius: 0px;
+  background: #cccccc;
+  -webkit-transition: 0.3s all cubic-bezier(0.32, 0.71, 0.53, 0.53);
+  -o-transition: 0.3s all cubic-bezier(0.32, 0.71, 0.53, 0.53);
+  transition: 0.3s all cubic-bezier(0.32, 0.71, 0.53, 0.53);
+  margin: 3px;
+}
+.owl-2-style .owl-dots .owl-dot.active span {
+  background: var(--colorPrincipal);
+}
+.owl-2-style .owl-dots .owl-dot:active,
+.owl-2-style .owl-dots .owl-dot:focus {
+  outline: none;
 }
 
 @media screen and (min-width: 460px) {

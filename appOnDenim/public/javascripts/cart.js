@@ -9,13 +9,18 @@ function removeItem(index) {
     products = [];
     setCarritoVacio();
   }
-
+  toastr['warning'](
+    'Producto eliminado del carrito' ,
+  );
+  
   let cartNumber = document.querySelector('.cart-number');
   cartNumber.innerText = productsEnElCarrito();
 
   document.querySelector('.totalAmount').innerText = `$ ${calcularTotal(
     products,
   )}`;
+
+
 }
 
 function setCarritoVacio() {
@@ -104,6 +109,9 @@ formCheckout.onsubmit = e => {
         vaciarCarrito();
         location.href = `/user/order/${res.order.id}?creado=true`;
       } else {
+        toastr['error'](
+          'No se pudo realizar la compra' ,
+        );
       }
     })
     .catch(error => console.log(error));

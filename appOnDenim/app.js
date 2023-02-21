@@ -5,12 +5,14 @@ var cookies = require('cookie-parser');
 var logger = require('morgan');
 const methodOverride = require('method-override');
 const session = require('express-session');
+var back = require('express-back');
 const userLoggedMiddelware = require('./middleware/usserLoggedMiddelware');
 
 var indexRouter = require('./routes/mainRoutes');
 var productRouter = require('./routes/productRoutes');
 var usersRouter = require('./routes/users');
 const apiRouter = require("./routes/api");
+
 
 var app = express();
 
@@ -31,6 +33,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
 app.use(express.json());
+app.use(back());
 
 app.use(methodOverride('_method'));
 

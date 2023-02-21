@@ -45,9 +45,7 @@
   tr td:nth-of-type(2), tr td:nth-of-type(3){
     text-align: center;
   }
-  .btn{
-    width: 50%;
-  }
+
 
   @media screen and (min-width: 460px) {
     .cesta{

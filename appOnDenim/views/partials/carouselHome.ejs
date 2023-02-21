@@ -1,17 +1,14 @@
-<section class="carrusel-newColection flex-colum">
 
-        <div class="contenedor-productos contenedor-productosNew  flex-colum">
-        <!-- producto NewCollection -->
-     
 <div class="content">
     
-        <div class="container-sm">
-                <h2 class="titulo-newColection">New Collection</h2>
+        <div class="container">
+          <h2 class="my-3 text-center">   Diseños personalizados
+        </h2>
         </div>
     
     
         <div class="site-section bg-left-half mb-5">
-          <div class="container-sm owl-2-style">
+          <div class="container owl-2-style">
             
             
     
@@ -22,7 +19,7 @@
                 <% products.forEach((producto, index) => { %>
                         <!-- producto  -->
         <div class="media-29101">
-                                <% if (producto.newCollection === 1) {
+                                <% if (producto.stock >= 1 && index <= 4) {
                                         let finalPrice = producto.price - (producto.price * producto.sale / 100);
                                         %>    
                                                 <div class="cajas-productosPersonalizados cajas-productosPersonalizadosTotal  flex-colum ">
@@ -57,19 +54,8 @@
         </div>
     
       </div>
-        </div>
+        
+        
+    
 
-        </div>   
-        <article class="flex-colum seccion-contacto">
-                <div>
-                        <h2>Dejanos tu contacto</h2>
-                </div>
-                <div class="formulario-contacto">
-                        <form class="flex-colum contact" id="checkoutContact" action="">
-                                <input type="email" name="email" placeholder="Escriba su correo electronico">
-                                <textarea name="description" id="" placeholder="Escriba su comentario aquí..." style="min-height: 100px; max-height: 300px;"></textarea>
-                                <button class="submit-contacHome" type="submit">Enviar</button>
-                        </form>
-                </div>
-        </article>
-</section>
+
