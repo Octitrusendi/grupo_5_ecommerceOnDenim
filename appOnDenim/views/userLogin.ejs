@@ -6,7 +6,7 @@
 
 
 
-                    <form action="/user/login" method="POST" id="formLogin"  class="div-containProfile center-flexProfile containLogin">
+                    <form action="/user/login" method="POST" id="form"  class="div-containProfile center-flexProfile containLogin">
                         <h2>Iniciar sesión</h2> 
                         <% if (locals && locals.mensajesDeError) { %>
                             <div class="erorr">
@@ -15,12 +15,14 @@
                                 <% }) %>
                               </div>
                           <% } %>
-                    <div class="div-profile">
-                        
-                            <input type="email" name="email" placeholder="Ingrese su email"  class="form-profile focus-none"   title="Usuario"  value="<%= locals.oldData && oldData.email ? oldData.email : '' %>" >
+                          <div class="div-profile form-inputs" id="grupo_email">
+                            <div class="div-profile" >
+                                <input type="email" name="email" placeholder="Ingrese su email"  class="form-profile focus-none"   title="Usuario"  value="<%= locals.oldData && oldData.email ? oldData.email : '' %>" >
                             <label for="email"></label>
                             <span class="icon-profile"><i class="fas fa-envelope"></i></span>
                         </div>
+                        <p class="formulario-error">Escriba una dirección de correo electronica valida.</p>
+                    </div>
                 
                     <div class="div-profile">
                             <label for="password"></label>

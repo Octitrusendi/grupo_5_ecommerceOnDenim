@@ -8,7 +8,7 @@
         <div class="main-profile">
         <h3>¡Hola <%=  user.fullName %>!</h3>
         
-      <form action="/user/update/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="main-profile">
+      <form action="/user/update/<%= user.id %>?_method=PUT" method="POST"  id="form" enctype="multipart/form-data" class="main-profile">
         <% if (locals && locals.mensajesDeError) { %>
                 <div class="erorr" id="error">
                     <% mensajesDeError.forEach(error => { %>
@@ -30,15 +30,22 @@
                         <span class="icon-profile"><i class="fas fa-user"></i></span>
                     </div>
                 <label for="fullName"> Editar Nombre</label> 
-                <div class="div-profile">
+
+                <div class="div-profile form-inputs" id="grupo_fullName">
+                        <div class="div-profile" >
                         <input type="text" name="fullName" value="<%= locals.oldData && oldData.fullName ? oldData.fullName :  user.fullName  %>" class="form-profile" >
                         <span class="icon-profile"><i class="fas fa-user"></i></span>
                 </div>
+                <p class="formulario-error">Escriba un nombre valido.</p>
+            </div>
                     <label for="email"> Editar Email</label> 
-                <div class="div-profile">
+                    <div class="div-profile form-inputs" id="grupo_email">
+                        <div class="div-profile" >
                         <input type="email" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : user.email   %>" class="form-profile" >
                         <span class="icon-profile"><i class="fas fa-envelope"></i></span>
-                 </div>
+                </div>
+                <p class="formulario-error">Escriba una dirección de correo electronica valida.</p>
+            </div>
 
         <div style="display: flex;">
                 <label for="newPassword"> Cambiar contraseña</label> 
@@ -49,21 +56,30 @@
         </div>
         <div class="div-containProfile" id="newPassword" style="display: none;">
                 <label for="passwordOld"> Contraseña actual</label> 
-                <div class="div-profile">
+                <div class="div-profile form-inputs" id="grupo_passwordOld">
+                        <div class="div-profile" >
                         <input type="password" name="passwordOld" placeholder="Ingrese su contraseña actual" class="form-profile"  id="passwordOld">
                         <span class="icon-profile" id="showPasswordOld"><i class=" iconPassword fas fa-eye " id="iconPassword"></i></span>
                 </div>
+                <p class="formulario-error">Escriba una contraseña valida que contenga por lo menos 6 caracteres y una mayuscula.</p>
+               </div>
                 <label for="password"> Contraseña nueva</label> 
-                <div class="div-profile">
+                <div class="div-profile form-inputs" id="grupo_password">
+                        <div class="div-profile" >
                         <input type="password" name="password" placeholder="Ingrese su nueva contraseña" class="form-profile" id="password" >
                         <span class="icon-profile"  id="showPassword"><i class=" iconPassword fas fa-eye " id="iconPassword"></i></span>
                 </div>
+                <p class="formulario-error">Escriba una contraseña valida que contenga por lo menos 6 caracteres y una mayuscula.</p>
+               </div>
 
                 <label for="password2"> Repita su nueva contraseña</label> 
-                <div class="div-profile">
+                <div class="div-profile form-inputs" id="grupo_password2">
+                        <div class="div-profile" >
                         <input type="password"  name="password2" placeholder="Ingrese su nueva contraseña" class="form-profile"  id="password2"  >
                         <span class="icon-profile" id="showPassword2"><i class="iconPassword fas fa-eye " id="iconPassword"></i></span>
                 </div>
+                <p class="formulario-error">Ambas contraseñas deben ser iguales.</p>
+               </div>
         </div>
         
 

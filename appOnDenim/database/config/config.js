@@ -4,7 +4,8 @@ module.exports ={
     "password": "",
     "database": "ondenim_db",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "timezone":"-03:00"
   },
   "test": {
     "username": "root",

@@ -168,6 +168,9 @@ const usersControllers = {
     });
   },
   update: async (req, res) => {
+    let orders = await db.Order.findAll({
+      where: { userId: req.session.userLogged.id },
+    });
     let idUser = req.params.id;
     //let userToEdit = User.findByPk(idUser);
     let userToEdit = await db.Users.findOne({
@@ -198,6 +201,7 @@ const usersControllers = {
           },
         ],
         user: userToEdit,
+        orders,
         title: 'OnDenim | Perfil de ' + userToEdit.fullName,
       });
     }
@@ -240,6 +244,7 @@ const usersControllers = {
             where: { id: req.params.id },
           },
         );
+
       }
     } else {
       delete req.body.passwordOld;
@@ -273,7 +278,9 @@ const usersControllers = {
           msg: '¡Perfil modificado con éxito!',
         },
       ],
+      
       user: userToEdit,
+      orders,
       title: 'OnDenim | Perfil de ' + userToEdit.fullName,
     });
   },
