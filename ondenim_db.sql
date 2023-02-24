@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-02-2023 a las 00:55:30
+-- Tiempo de generación: 22-02-2023 a las 16:41:37
 -- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.1.12
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -166,11 +166,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `sale`, `image`, `id_category`, `price`, `stock`, `newCollection`) VALUES
-(1, 'Jean 3', 'Jean Slim fit, tiro medio, con botones y avíos metálicos personalizados. Tela: Denim Confort 99% algodón, 1% spandex. Lavado: Stone wash con localizado y bigotes. Este artículo pertenece a la línea Casual. Industria Argentina.', 10, 'jean1.jpg', 3, 200, 10, 1),
-(37, 'Jean Final Prueba', 'prueba descripcion', 10, 'image1676920588649.jpg', 1, 32400, 100, 1),
-(38, 'jean 3', 'aas', 222, 'image1676989461357.jpg', 1, 2232422, 22, 1),
-(39, 'jean 4', '2222', 22, 'image1676989560683.jpg', 1, 111, 22, 0),
-(40, 'Jean', 'qwew', 2, 'image1677005756500.jpg', 1, 2222, 22, 1);
+(1, 'Jean 3', 'Jean Skinny slim fit, tiro medio, pierna estrecha, bota angosta. Botones y avíos metálicos personalizados. Tela Denim Blue 98% algodón 2% elastano. Lavado: Super Stone wash con localizado y bigotes. Este artículo pertenece a la línea Rock. Industria Argent', 10, 'jean3.jpg', 3, 28000, 10, 1),
+(37, 'Jean 5', 'Jean Skinny, Slim fit, tiro medio, con botones y avíos metálicos. Tela: Denim Confort 98% algodón, 2% spandex. Tela importada. Lavado: Raw E-flow. Este artículo pertenece a la línea Casual. Industria Argentina.', 10, 'jean5.jpg', 1, 32400, 100, 1),
+(38, 'jean 1', 'Jean Slim fit, tiro medio, con botones y avíos metálicos personalizados. Tela: Denim Confort 99% algodón, 1% spandex. Lavado: Stone wash con localizado y bigotes. Este artículo pertenece a la línea Casual. Industria Argentina.', 222, 'jean1.jpg', 1, 20000, 22, 1),
+(39, 'jean 4', 'Pantalón 5 bolsillos, Slim fit, tiro medio, Pierna Estrecha, con botones y avíos metálicos. Tela: Denim Confort 98% algodón, 2% spandex. Tela importada. Lavado: Raw. Este artículo pertenece a la línea Casual. Industria Argentina.', 22, 'image1676989560683.jpg', 1, 45000, 8, 0),
+(40, 'Jean 2', 'Jean Slim fit, tiro medio, con botones y avíos metálicos personalizados. Tela: Denim Confort 99% algodón, 1% spandex. Lavado: Stone wash con localizado y bigotes. Este artículo pertenece a la línea Casual. Industria Argentina.', 2, 'jean2.jpg', 1, 25000, 3, 1);
 
 -- --------------------------------------------------------
 
