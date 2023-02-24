@@ -86,3 +86,22 @@ Estamos bien, solo que problemas personales nos deja mal parado hasta lo ultimo 
 
 5. Dejar de hacer.
 Creemos que noo tenemos puntos en contra
+
+
+
+Sprint 7: 
+
+1. Comenzar a hacer.
+Tratar de acomodar y pulir las ultimas cosas para entregar el proyecto
+
+2. Hacer más.
+No tuvimos punto en contra en este sprint
+
+3. Continuar haciendo.
+Trabajar en equipo y seguir con la buena relacion y comunicacion
+
+4. Hacer menos.
+Estamos bien, a contrario de los sprint anteriores esta vez tuvimos mas juntadas y chances de avanzar con facilidad
+
+5. Dejar de hacer.
+Creemos que no tenemos puntos en contra de vuelta en este sprint

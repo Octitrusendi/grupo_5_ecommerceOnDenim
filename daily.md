@@ -34,3 +34,14 @@ Tuvimos un sprint complicado, a pesar de que era uno de los mas pesados, a nosot
 Nada cambio con respecto a los otros sprint, nuestro unico problema en el proyecto es poder coincidir, despues lo demas impecable, nos juntamos y siempre siempre podemos resolver problemas en tiempos record.
 ¿Que se hace hoy?
 Hoy estamos parado en una situacion media complicada, pero estamos aprovechando cada momento para poder sacar adelante el proyecto y entregar a tiempo.
+
+
+
+Daylies sprint 7:
+Opiniones de las daylies/weeklies:
+¿Que se hizo ayer?
+Uno de los sprint mas rapido de resolver y con muchas reuniones en conjunto
+¿Se encontro algun impedimento?
+Ninguno, tuvimos la suerte de juntarnos varias veces y resolver de manera rapida y sencilla
+¿Que se hace hoy?
+A comparacion del sprint anterior fuimos eficaces y nos posicionamos muy bien para finalizar el proyecyo
