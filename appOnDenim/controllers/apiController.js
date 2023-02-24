@@ -22,4 +22,11 @@ module.exports = {
     
     res.json({ ok: true, status: 200, contact: contact });
   },
+  users: async function (req, res) {
+    let users = await db.Users.findOne({
+      attributes: ['id', 'fullName', 'email', 'avatar', 'id_level'],
+      where: { email: req.query.email },
+    })
+    res.json({ ok: true, status: 200, data: users });
+  }
 };

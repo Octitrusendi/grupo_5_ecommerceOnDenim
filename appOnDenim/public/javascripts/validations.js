@@ -54,7 +54,7 @@ const validarCampo = (expresion, input, campo) => {
     document
       .querySelector(`#grupo_${campo} p`)
       .classList.remove('formulario-error-activo');
-    campos[campo] = true;
+
   } else {
     document
       .querySelector(`#grupo_${campo} input`)
@@ -71,7 +71,7 @@ const validarCampo = (expresion, input, campo) => {
     document
       .querySelector(`#grupo_${campo} p`)
       .classList.add('formulario-error-activo');
-    campos[campo] = false;
+
   }
 };
 

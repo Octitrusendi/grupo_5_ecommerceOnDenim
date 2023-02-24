@@ -54,7 +54,7 @@ const usersControllers = {
         delete userToLogin.password;
         req.session.userLogged = userToLogin;
         if (req.body.rememberUser) {
-          res.cookie('userEmail', req.body.email, { maxAge: 60 * 60 * 24 * 7 });
+          res.cookie('user.id', use.id, { maxAge: 60 * 60 * 24 * 7 });
         }
         return res.redirect('/user/profile');
       })
@@ -150,8 +150,11 @@ const usersControllers = {
     let orders = await db.Order.findAll({
       where: { userId: req.session.userLogged.id },
     });
+    let findUser = await db.Users.findOne({
+      where: { id: req.session.userLogged.id  },
+    });
     res.render('userProfile', {
-      user: req.session.userLogged,
+      user: findUser,
       orders,
       title: 'OnDenim | Perfil de ' + req.session.userLogged.fullName,
     });
@@ -272,14 +275,18 @@ const usersControllers = {
     });*/
 
     //fs.writeFileSync(usersFilePath, JSON.stringify(nuevoUsuario, null, ' '));
+    let usuarioEditado = await db.Users.findOne({
+      where: { id: idUser },
+    });     
     return res.render('userProfile', {
+ 
       mensajeExitoso: [
         {
           msg: '¡Perfil modificado con éxito!',
         },
       ],
       
-      user: userToEdit,
+      user: usuarioEditado,
       orders,
       title: 'OnDenim | Perfil de ' + userToEdit.fullName,
     });
@@ -296,7 +303,7 @@ const usersControllers = {
     return res.redirect('/user/login');
   },
   logout: (req, res) => {
-    res.clearCookie('userEmail');
+    res.clearCookie('userId');
     req.session.destroy();
     return res.redirect('/');
   },

@@ -17,11 +17,11 @@
                   </div>
               <% } %>
 
-                 <div class="div-avatar">
-                <img src="/images/avatar/<%= user.avatar %>" alt="" class="user-image">
+                 <div class="div-avatar"  id="preview" >
+                <img id="imgOld" src="/images/avatar/<%= user.avatar %>" alt="Avatar de <%=  user.fullName %>" class="user-image">
                 </div>
                 <div >
-                <a class="button-imageProfile">Cambiar imagen<input type="file" name="avatar" class="input-imageProfile"></a>
+                <a class="button-imageProfile">Cambiar imagen<input type="file" id="avatar" name="avatar" class="input-imageProfile"></a>
                 </div>
         <div class="div-containProfile">
         <label for="email"> Usuario</label> 

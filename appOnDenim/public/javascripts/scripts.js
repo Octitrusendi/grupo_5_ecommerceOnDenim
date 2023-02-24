@@ -92,7 +92,7 @@ window.addEventListener('load', function () {
 
   let formContact = document.querySelector('#checkoutContact');
 
-  /* formContact.onsubmit = e => {
+  formContact.onsubmit = e => {
     e.preventDefault();
     const formData = {
       email: formContact.email.value,
@@ -114,7 +114,7 @@ window.addEventListener('load', function () {
       })
       .catch(error => console.log(error));
   };
- */
+ 
 
   });
 
