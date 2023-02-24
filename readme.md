@@ -5,6 +5,8 @@ Url Repositorio: https://github.com/Octitrusendi/grupo_5_ecommerceOnDenim/graphs
 Url al tablero de Trello: https://trello.com/b/i29XQC5Z/ondenim 
 https://trello.com/b/i29XQC5Z/ondenim  5
 https://trello.com/b/i29XQC5Z/ondenim  6
+https://trello.com/b/i29XQC5Z/ondenim  7
+
 
 - Temática del sitio: Sitio web de venta mayorista/minorista de jeans. 
 - Público objetivo: Adolescentes y adultos. 
