@@ -4,7 +4,7 @@ const Users = db.User;
 userLoggedMiddelware = async (req, res, next) => {
   res.locals.isLogged = false;
   let userFromCookie;
-  console.log(req.session.userLogged)
+
   if (req.session && req.session.userLogged) {
     res.locals.isLogged = true;
     res.locals.userLogged = req.session.userLogged;
