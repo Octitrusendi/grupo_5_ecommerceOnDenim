@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 var back = require('express-back');
 const userLoggedMiddelware = require('./middleware/usserLoggedMiddelware');
+const cors = require('cors')
 
 var indexRouter = require('./routes/mainRoutes');
 var productRouter = require('./routes/productRoutes');
@@ -16,6 +17,7 @@ const apiRouter = require("./routes/api");
 
 var app = express();
 
+app.use(cors())
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.use(cookies());
