@@ -1,6 +1,5 @@
 const db = require('../../database/models');
 
-
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
 module.exports = {
@@ -25,23 +24,26 @@ module.exports = {
 
     res.json({ ok: true, status: 200, contact: contact });
   },
-  users: (req, res) => {
-    db.Users.findAll()
-      .then(data => {
-        res.status(200).json({
-          count: data.length,
-          data: data.map(user => ({
-            id: user.id,
-            fullName: user.fullName,
-            email: user.email,
-            id_level: user.id_level,
-            avatar: `localhost:3001/images/avatar/${user.avatar}`,
-            detail: `localhost:3001/api/users/${user.id}`,
-          })),
-        });
-      })
-      .catch(error => res.status(500).json('ERROR: DB_ERROR' + error));
+  users: async (req, res) => {
+    let users = await db.Users.findAll({
+      order: [['id', 'DESC']],
+    });
+
+    let data = await users.map(user => ({
+      id: user.id,
+      fullName: user.fullName,
+      email: user.email,
+      id_level: user.id_level,
+      avatar: `http://localhost:3001/images/avatar/${user.avatar}`,
+      detail: `http://localhost:3001/api/users/${user.id}`,
+    }));
+
+    return res.status(200).json({
+      count: users.length,
+      data: data,
+    });
   },
+
   cards: async (req, res) => {
     let users = await db.Users.findAll();
     let products = await db.Products.findAll();
@@ -82,4 +84,26 @@ module.exports = {
       ],
     });
   },
+/*   masComprados: async (req, res) => {
+    let order = await db.Order.findAll({
+      include: db.Order.OrderItems,
+    });
+ 
+    let amount = 0;
+    orders.map(vendido => {
+      amount += Number(vendido.total);
+    });
+    conso
+
+    res.json({
+      meta: {
+        status: 200,
+
+      },
+      data: [
+
+      ]
+
+    });
+  }, */
 };

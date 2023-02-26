@@ -1,4 +1,4 @@
-const formularioRegister = document.getElementById('formRegister');
+//const formularioRegister = document.getElementById('formRegister');
 const inputs = document.querySelectorAll('#form div');
 const botonRegister = document.getElementById('botonRegister');
 
@@ -16,6 +16,9 @@ const expresiones = {
 
 const validarFormulario = e => {
   switch (e.target.name) {
+    case 'name':
+      validarCampo(expresiones.nombre, e.target, 'name');
+      break
     case 'fullName':
       validarCampo(expresiones.nombre, e.target, 'fullName');
       break;
@@ -35,6 +38,7 @@ const validarFormulario = e => {
       case 'passwordOld':
       validarCampo(expresiones.password, e.target, 'passwordOld');
       break;
+
   }
 };
 const validarCampo = (expresion, input, campo) => {

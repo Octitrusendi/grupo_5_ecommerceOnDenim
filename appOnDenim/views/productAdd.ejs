@@ -16,9 +16,10 @@
 
     <form action="/productos" method="POST" enctype="multipart/form-data">
       <div class="product-detail">
-        <div >
+        <div id="grupo_name">
           <label for="name" class="form-label">Nombre del producto:</label>
           <input type="text" id="name" name="name" placeholder="Ej: Jean...XX" class="form-input">
+          <p class="formulario-error">Escriba un nombre valido.</p>
         </div>
         <div >
           <label for="price" class="form-label">Precio del producto:</label>
