@@ -41,13 +41,13 @@
                                         <td>
                                             <%= order.orderItems[i].name %>
                                         </td>
-                                        <td>$ <%= order.orderItems[i].price%>
+                                        <td>$ <%= toThousand(order.orderItems[i].price)%>
                                         </td>
                                         <td class="text-center">
                                             <%= order.orderItems[i].quantity%>
                                         </td>
                                         <td class="text-center">$
-                                            <%= order.orderItems[i].price * order.orderItems[i].quantity%>
+                                            <%= toThousand(order.orderItems[i].price * order.orderItems[i].quantity)%>
                                         </td>
                                     </tr>
 
@@ -55,7 +55,7 @@
                             </tbody>
                         </table>
                         <div class="card-footer text-right">
-                            <h2>Total: <span class="totalAmount">$ <%= order.total %> </span></h2>
+                            <h2>Total: <span class="totalAmount">$ <%= toThousand(order.total) %> </span></h2>
                         </div>
                     </div>
                 </div>

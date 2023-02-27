@@ -126,6 +126,7 @@ module.exports = {
   allProducts: async (req, res) => {
     let allProducts = db.Products.findAll({
       include: ['talle', 'categoria', 'orderItems'],
+      order: [['id', 'ASC']],
     });
 
     Promise.all([allProducts]).then(async ([jean]) => {
@@ -176,6 +177,27 @@ module.exports = {
           productsCount: category.productos.length,
         };
       }),
+    });
+  },
+  destroy: async (req, res) => {
+    let idProducto = req.params.id;
+    console.log(idProducto);
+    await db.ProductTalles.destroy({
+      where: {
+        id_product: idProducto,
+      },
+      force: true,
+    });
+    await db.Products.destroy({
+      where: {
+        id: idProducto,
+      },
+    });
+    res.json({
+      meta: {
+        status: 200,
+        msg: 'Producto Borrado con éxito',
+      },
     });
   },
 };

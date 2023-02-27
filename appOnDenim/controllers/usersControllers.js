@@ -9,6 +9,7 @@ const { where } = require('sequelize');
 
 const usersFilePath = path.join(__dirname, '../database/user.json');
 const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
 const db = require('../database/models');
 const { response } = require('express');
@@ -156,6 +157,7 @@ const usersControllers = {
     res.render('userProfile', {
       user: findUser,
       orders,
+      toThousand,
       title: 'OnDenim | Perfil de ' + req.session.userLogged.fullName,
     });
   },
@@ -204,6 +206,7 @@ const usersControllers = {
           },
         ],
         user: userToEdit,
+        toThousand,
         orders,
         title: 'OnDenim | Perfil de ' + userToEdit.fullName,
       });
@@ -314,6 +317,7 @@ const usersControllers = {
     // res.send(order);
     return res.render('ordenes', {
       user: req.session.userLogged,
+      toThousand,
       order,
       title: 'OnDenim | ',
     });
