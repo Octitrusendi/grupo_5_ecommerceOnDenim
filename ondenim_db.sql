@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-02-2023 a las 16:41:37
+-- Tiempo de generación: 27-02-2023 a las 20:24:14
 -- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Versión de PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -81,7 +81,7 @@ CREATE TABLE `orderitems` (
   `orderId` int(11) NOT NULL,
   `productId` int(11) DEFAULT NULL,
   `name` varchar(100) NOT NULL,
-  `price` decimal(10,2) NOT NULL,
+  `price` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
@@ -93,22 +93,9 @@ CREATE TABLE `orderitems` (
 --
 
 INSERT INTO `orderitems` (`id`, `orderId`, `productId`, `name`, `price`, `quantity`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
-(1, 1, 1, 'Jean 3', '180.00', 1, '2023-02-20 17:30:02', '2023-02-20 17:30:02', NULL),
-(2, 2, 1, 'Jean 3', '180.00', 1, '2023-02-20 18:20:52', '2023-02-20 18:20:52', NULL),
-(3, 3, 1, 'Jean 3', '180.00', 1, '2023-02-20 18:21:04', '2023-02-20 18:21:04', NULL),
-(4, 4, 1, 'Jean 3', '180.00', 1, '2023-02-20 18:21:05', '2023-02-20 18:21:05', NULL),
-(5, 5, 37, 'Jean Final Prueba', '29160.00', 2, '2023-02-20 19:23:33', '2023-02-20 19:23:33', NULL),
-(6, 5, 1, 'Jean 3', '180.00', 18, '2023-02-20 19:23:33', '2023-02-20 19:23:33', NULL),
-(7, 6, 1, 'Jean 3', '180.00', 1, '2023-02-20 19:27:52', '2023-02-20 19:27:52', NULL),
-(8, 6, 37, 'Jean Final Prueba', '29160.00', 1, '2023-02-20 19:27:52', '2023-02-20 19:27:52', NULL),
-(9, 7, 37, 'Jean Final Prueba', '29160.00', 1, '2023-02-20 19:29:34', '2023-02-20 19:29:34', NULL),
-(10, 7, 1, 'Jean 3', '180.00', 1, '2023-02-20 19:29:34', '2023-02-20 19:29:34', NULL),
-(11, 8, 1, 'Jean 3', '180.00', 1, '2023-02-20 20:00:15', '2023-02-20 20:00:15', NULL),
-(12, 8, 37, 'Jean Final Prueba', '29160.00', 1, '2023-02-20 20:00:15', '2023-02-20 20:00:15', NULL),
-(13, 9, 37, 'Jean Final Prueba', '29160.00', 2, '2023-02-21 20:25:08', '2023-02-21 20:25:08', NULL),
-(14, 9, 1, 'Jean 3', '180.00', 1, '2023-02-21 20:25:08', '2023-02-21 20:25:08', NULL),
-(15, 10, 37, 'Jean Final Prueba', '29160.00', 1, '2023-02-21 23:48:05', '2023-02-21 23:48:05', NULL),
-(16, 10, 1, 'Jean 3', '180.00', 1, '2023-02-21 23:48:05', '2023-02-21 23:48:05', NULL);
+(24, 14, 39, 'jean 4', 35100, 2, '2023-02-27 15:39:19', '2023-02-27 15:39:19', NULL),
+(25, 14, 1, 'Jean 3', 25200, 3, '2023-02-27 15:39:19', '2023-02-27 15:39:19', NULL),
+(26, 14, 37, 'Jean 5', 29160, 4, '2023-02-27 15:39:19', '2023-02-27 15:39:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -132,16 +119,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `userId`, `total`, `paymentMethod`, `shippingMethod`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
-(1, 7, '180.00', 'Efectivo', 'Cadete', '2023-02-20 17:30:02', '2023-02-20 17:30:02', NULL),
-(2, 7, '180.00', 'Efectivo', 'Andreani', '2023-02-20 18:20:52', '2023-02-20 18:20:52', NULL),
-(3, 7, '180.00', 'Efectivo', 'Andreani', '2023-02-20 18:21:04', '2023-02-20 18:21:04', NULL),
-(4, 7, '180.00', 'Efectivo', 'Andreani', '2023-02-20 18:21:05', '2023-02-20 18:21:05', NULL),
-(5, 7, '61560.00', 'Efectivo', 'DHL', '2023-02-20 19:23:33', '2023-02-20 19:23:33', NULL),
-(6, 7, '29340.00', 'Efectivo', 'Correo', '2023-02-20 19:27:52', '2023-02-20 19:27:52', NULL),
-(7, 7, '29340.00', 'Débito', 'Correo', '2023-02-20 19:29:34', '2023-02-20 19:29:34', NULL),
-(8, 7, '29340.00', 'Efectivo', 'Correo', '2023-02-20 20:00:15', '2023-02-20 20:00:15', NULL),
-(9, 7, '58500.00', 'Débito', 'Correo', '2023-02-21 20:25:08', '2023-02-21 20:25:08', NULL),
-(10, 7, '29340.00', 'Débito', 'Correo', '2023-02-21 23:48:05', '2023-02-21 23:48:05', NULL);
+(14, 7, '262440.00', 'Débito', 'Correo', '2023-02-27 15:39:19', '2023-02-27 15:39:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -166,11 +144,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `sale`, `image`, `id_category`, `price`, `stock`, `newCollection`) VALUES
-(1, 'Jean 3', 'Jean Skinny slim fit, tiro medio, pierna estrecha, bota angosta. Botones y avíos metálicos personalizados. Tela Denim Blue 98% algodón 2% elastano. Lavado: Super Stone wash con localizado y bigotes. Este artículo pertenece a la línea Rock. Industria Argent', 10, 'jean3.jpg', 3, 28000, 10, 1),
+(1, 'Jean 3', 'Jean Skinny slim fit, tiro medio, pierna estrecha, bota angosta. Botones y avíos metálicos personalizados. Tela Denim Blue 98% algodón 2% elastano. Lavado: Super Stone wash con localizado y bigotes. Este artículo pertenece a la línea Rock. Industria Argent', 10, 'jean3.jpg', 3, 28000, 10, 0),
 (37, 'Jean 5', 'Jean Skinny, Slim fit, tiro medio, con botones y avíos metálicos. Tela: Denim Confort 98% algodón, 2% spandex. Tela importada. Lavado: Raw E-flow. Este artículo pertenece a la línea Casual. Industria Argentina.', 10, 'jean5.jpg', 1, 32400, 100, 1),
-(38, 'jean 1', 'Jean Slim fit, tiro medio, con botones y avíos metálicos personalizados. Tela: Denim Confort 99% algodón, 1% spandex. Lavado: Stone wash con localizado y bigotes. Este artículo pertenece a la línea Casual. Industria Argentina.', 222, 'jean1.jpg', 1, 20000, 22, 1),
 (39, 'jean 4', 'Pantalón 5 bolsillos, Slim fit, tiro medio, Pierna Estrecha, con botones y avíos metálicos. Tela: Denim Confort 98% algodón, 2% spandex. Tela importada. Lavado: Raw. Este artículo pertenece a la línea Casual. Industria Argentina.', 22, 'image1676989560683.jpg', 1, 45000, 8, 0),
-(40, 'Jean 2', 'Jean Slim fit, tiro medio, con botones y avíos metálicos personalizados. Tela: Denim Confort 99% algodón, 1% spandex. Lavado: Stone wash con localizado y bigotes. Este artículo pertenece a la línea Casual. Industria Argentina.', 2, 'jean2.jpg', 1, 25000, 3, 1);
+(40, 'Jean 2', 'Jean Slim fit, tiro medio, con botones y avíos metálicos personalizados. Tela: Denim Confort 99% algodón, 1% spandex. Lavado: Stone wash con localizado y bigotes. Este artículo pertenece a la línea Casual. Industria Argentina.', 2, 'jean2.jpg', 1, 25000, 3, 1),
+(41, 'Jean Clásicoo', 'Jean Slim fit, tiro medio, con botones y avíos metálicos personalizados. Tela: Denim Confort 99% algodón, 1% spandex. Lavado: Stone wash con localizado y bigotes. Este artículo pertenece a la línea Casual. Industria Argentina.', 10, 'image1677454815802.jpg', 1, 9999, 20, 0),
+(42, 'Jean SlimFit', 'Jean Skinny slim fit, tiro medio, pierna estrecha, bota angosta. Botones y avíos metálicos personalizados. Tela Denim Blue 98% algodón 2% elastano. Lavado: Super Stone wash con localizado y bigotes. Este artículo pertenece a la línea Rock. Industria Argent', 5, 'image1677457763141.jpg', 2, 12999, 20, 1);
 
 -- --------------------------------------------------------
 
@@ -198,13 +177,16 @@ INSERT INTO `productstalles` (`id`, `id_product`, `id_talles`) VALUES
 (29, 37, 2),
 (30, 37, 6),
 (31, 37, 7),
-(32, 38, 2),
-(33, 38, 4),
-(34, 38, 5),
-(35, 38, 3),
 (36, 39, 1),
 (38, 40, 1),
-(39, 40, 2);
+(39, 40, 2),
+(40, 41, 1),
+(41, 41, 2),
+(42, 41, 5),
+(43, 41, 3),
+(44, 41, 4),
+(45, 42, 2),
+(46, 42, 1);
 
 -- --------------------------------------------------------
 
@@ -275,8 +257,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `usuario`, `fullName`, `email`, `password`, `id_level`, `avatar`) VALUES
 (3, 'pancho', 'francisco zelalia', 'pancho.dv3@gmail.com', '$2a$10$iNhNQULsD5E7lMqhEL6lc.BsizepvAnoQ/a4BWM4EFG/Al6mTgCCa', 0, 'default-image.png'),
 (4, 'julito', 'julian', 'julitro@gmail.com', '$2a$10$ua3blR4vDZC55tzF.WSv.O8kUqjA2oWvcvHV.d8vTVf/O6lyiBs5e', 0, 'default-image.png'),
-(7, 'Octaviotrusendi', 'Octaviotrusendi2', 'octaviotrusendi2@gmail.com', '$2a$10$.ZCK2c1faToVAwsQmL2P3ecgIhOmtBHP8F1UIuQrPrNKM.M19LCna', 0, 'default-image.png'),
-(8, 'octa', 'prueba', 'octaviotrusendi@gmail.com', '$2a$10$bR5HOo3K9jQZNdiFmriM.eEyKAEl..SiSGR8iEmA.ElYsB2Io8MBi', 0, 'default-image.png');
+(7, 'Octaviotrusendi', 'Octavio Trusendi', 'octaviotrusendi2@gmail.com', '$2a$10$.ZCK2c1faToVAwsQmL2P3ecgIhOmtBHP8F1UIuQrPrNKM.M19LCna', 1, 'avatar1677455148407.jpg'),
+(8, 'octa', 'prueba', 'octaviotrusendi@gmail.com', '$2a$10$bR5HOo3K9jQZNdiFmriM.eEyKAEl..SiSGR8iEmA.ElYsB2Io8MBi', 0, 'default-image.png'),
+(9, 'otctavioNew', 'Octavio TrusendiNew', 'octaviotrusendi3@gmail.com', '$2a$10$EFNK6kdQoHjr11PnFA2nC.qtDjHxJFmUsqADlJu2R4w5wcHvyudy.', 0, 'avatar1677455306531.jpg');
 
 --
 -- Índices para tablas volcadas
@@ -363,31 +346,31 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT de la tabla `orderitems`
 --
 ALTER TABLE `orderitems`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `productstalles`
 --
 ALTER TABLE `productstalles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas

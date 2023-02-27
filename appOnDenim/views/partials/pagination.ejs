@@ -1,18 +1,4 @@
-<nav aria-label="...">
-        <% if (totalPages >= 1) { %>
-                <ul class="pagination pagination-sm">
-                        <% for( let index = 0; index < totalPages; index++ ) { %>
-                                <li <% if (pageAsNumber == index) { %>
-                                        class="page-item active" 
-                                <% } %>
-                                 aria-current="page">
-                                 <a class="page-link" href="/productos/?page=<%= index %>"><%= index+1%></a>
-                                      </li>
-                         <% } %>
-                      </ul>
-                    </nav>
-        <% } %>
-        <p>
+
 
 
 

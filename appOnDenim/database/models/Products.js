@@ -49,6 +49,11 @@ module.exports = (sequelize, dataTypes) => {
             as: 'categoria',
             foreignKey: 'id_category'
           });
+          
+          Products.hasMany(models.OrderItem, {
+            as: 'orderItems',
+            foreignKey: 'productId'
+          });
       };   
     return Products
 }

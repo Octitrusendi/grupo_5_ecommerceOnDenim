@@ -1,3 +1,4 @@
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 function removeItem(index) {
   if (carrito.length > 1) {
     carrito.splice(index, 1);
@@ -44,6 +45,7 @@ function calcularTotal(products) {
 let cartRows = document.querySelector('.cartRows');
 let products = [];
 
+
 if (localStorage.carrito && localStorage.carrito != '[]') {
   carrito = JSON.parse(localStorage.carrito);
   carrito.forEach((item, index) => {
@@ -57,12 +59,10 @@ if (localStorage.carrito && localStorage.carrito != '[]') {
           <tr id="row${index}">
               <th scope="row">${index + 1}</th>
               <td>${product.name}</td>
-              <td>$ ${finalPrice}</td>
+              <td>$ ${toThousand(finalPrice)}</td>
               <td class="text-center">${item.quantity}</td>
-              <td class="text-center">$ ${parseFloat(
-                finalPrice * item.quantity,
-                2,
-              ).toFixed(2)}</td>
+              <td class="text-center">$ ${toThousand(
+                finalPrice * item.quantity)}</td>
               <td><button class="btn btn-danger btn-sm" onclick=removeItem(${index})><i class="fas fa-trash"></i></button></td>
           </tr>            
           `;

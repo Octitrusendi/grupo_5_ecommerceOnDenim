@@ -5,12 +5,12 @@
        
         <section class="carrusel-productosPersonalizados flex-colum ">
                 <div>
-                        <h2>Todos los productos</h2>
+                        <h2>¡OFERTAS!</h2>
                 </div>
                 <div class="contenedor-productos contenedor-productosTotal flex-colum">
                         <% products.forEach((producto, index) => { %>
                                 <!-- producto  -->
-                <% if (producto.stock >= 1 ) {
+                <% if (producto.stock >= 1 && producto.sale >= 1) {
                         let finalPrice = producto.price - (producto.price * producto.sale / 100);
                         %>    
                         <div class="cajas-productosPersonalizados cajas-productosPersonalizadosTotal  flex-colum ">
@@ -49,14 +49,13 @@
                                         class="page-item active" 
                                 <% } %>
                                  aria-current="page">
-                                 <a class="page-link" href="/productos/?page=<%= index %>"><%= index+1%></a>
+                                 <a class="page-link" href="/productos/sale/?page=<%= index %>"><%= index+1%></a>
                                       </li>
                          <% } %>
                       </ul>
                     </nav>
         <% } %>
         <p>
-
 </main>
 <%- include('partials/footer.ejs') %>
 </body>

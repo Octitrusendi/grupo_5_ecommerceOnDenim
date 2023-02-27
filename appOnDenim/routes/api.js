@@ -11,6 +11,7 @@ router.get("/users", controller.users);
 router.get("/cards", controller.cards);
 router.get("/allProducts", controller.allProducts);
 router.get("/lastProduct", controller.lastProduct);
+router.get("/categories", controller.categories);
 
 
 module.exports = router;

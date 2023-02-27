@@ -41,6 +41,39 @@ const productController = {
       },
     );
   },
+  sale: async (req, res) => {
+    const pageAsNumber = Number.parseInt(req.query.page);
+    const sizeAsNumber = Number.parseInt(req.query.size);
+
+    let page = 0;
+    if (!Number.isNaN(pageAsNumber) && pageAsNumber > 0) {
+      page = pageAsNumber;
+    }
+
+    let size = 2;
+    if (
+      !Number.isNaN(sizeAsNumber) &&
+      !(sizeAsNumber > size) &&
+      !(sizeAsNumber < 1)
+    ) {
+      size = sizeAsNumber;
+    }
+    let totalProductos = await db.Products.count();
+    let products = await db.Products.findAll({
+      include: 'talle',
+      limit: size,
+      offset: page * size,
+    });
+
+    res.render('sale', {
+      user: req.session.userLogged,
+      products,
+      totalPages: Math.ceil(totalProductos / Number.parseInt(size)),
+      pageAsNumber,
+      toThousand,
+      title: 'OnDenim | ¡OFERTAS!',
+    });
+  },
   totalProductos: async (req, res) => {
     const pageAsNumber = Number.parseInt(req.query.page);
     const sizeAsNumber = Number.parseInt(req.query.size);

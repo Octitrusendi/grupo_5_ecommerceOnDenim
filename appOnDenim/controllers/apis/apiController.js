@@ -26,6 +26,7 @@ module.exports = {
   },
   users: async (req, res) => {
     let users = await db.Users.findAll({
+      include: ['order'],
       order: [['id', 'DESC']],
     });
 
@@ -36,6 +37,7 @@ module.exports = {
       id_level: user.id_level,
       avatar: `http://localhost:3001/images/avatar/${user.avatar}`,
       detail: `http://localhost:3001/api/users/${user.id}`,
+      totalCompras: user.order.length,
     }));
 
     return res.status(200).json({
@@ -123,7 +125,7 @@ module.exports = {
   },
   allProducts: async (req, res) => {
     let allProducts = db.Products.findAll({
-      include: ['talle', 'categoria'],
+      include: ['talle', 'categoria', 'orderItems'],
     });
 
     Promise.all([allProducts]).then(async ([jean]) => {
@@ -133,10 +135,47 @@ module.exports = {
           cuantity: jean.length,
           link: '/api/allProducts',
         },
-        data: {
-          jean: jean,
-        },
+        data: jean.map(jean => {
+          return {
+            id: jean.id,
+            name: jean.name,
+            description: jean.description,
+            price: jean.price,
+            sale: jean.sale,
+            talle: jean.talle,
+            categoria: jean.categoria.name,
+            newCollection: jean.newCollection,
+            order: jean.orderItems.reduce(
+              (contador, ventas) => contador + ventas.quantity,
+              0,
+            ),
+            montoVendido: jean.orderItems.reduce(
+              (contador, ventas) => contador + ventas.price,
+              0,
+            ),
+          };
+        }),
       });
+    });
+  },
+  categories: async (req, res) => {
+    const categories = await db.ProductCategory.findAll({
+      include: ['productos'],
+    });
+
+    res.json({
+      meta: {
+        status: 200,
+        totalItems: categories.length,
+        link: '/api/categories',
+      },
+      data: categories.map(category => {
+        return {
+          id: category.id,
+          name: category.name,
+          productsCount: category.productos.length,
+        };
+      }),
     });
   },
 };

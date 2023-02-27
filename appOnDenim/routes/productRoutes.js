@@ -6,6 +6,7 @@ const validaciones = require('../middleware/validateProductsMiddleware');
 const authMiddelware = require('../middleware/authMiddelware.js');
 
 router.get('/', productController.totalProductos);
+router.get('/sale', productController.sale);
 router.get('/detalle/:jeanID', productController.detalle);
 
 router.get('/agregar', authMiddelware, productController.agregar);

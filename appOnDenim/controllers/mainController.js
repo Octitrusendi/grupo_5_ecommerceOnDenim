@@ -32,6 +32,7 @@ const mainController = {
   carrito: (req, res) => {
     res.render('productCart', {
       user: req.session.userLogged,
+      toThousand,
       products,
       title: 'OnDenim | Tu carrito',
     });
