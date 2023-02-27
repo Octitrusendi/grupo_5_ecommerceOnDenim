@@ -200,4 +200,21 @@ module.exports = {
       },
     });
   },
+  allSales: async (req, res) => {
+    const compras = await db.Order.findAll({
+      include: ['orderItems', 'user'],
+      order: [['createdAt', 'DESC']],
+    });
+
+    res.json({
+      meta: {
+        status: 200,
+        totalVentas: compras.length,
+        link: '/api/allSales',
+      },
+      data: {
+        compras
+      }
+    });
+  },
 };

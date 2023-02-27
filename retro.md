@@ -104,4 +104,23 @@ Trabajar en equipo y seguir con la buena relacion y comunicacion
 Estamos bien, a contrario de los sprint anteriores esta vez tuvimos mas juntadas y chances de avanzar con facilidad
 
 5. Dejar de hacer.
-Creemos que no tenemos puntos en contra de vuelta en este sprint
+Creemos que no tenemos puntos en contra de vuelta en este sprint.
+
+
+
+Sprint 8: 
+
+1. Comenzar a hacer.
+Mirar para adelante y tratar de aprobar el proyecto completo.
+
+2. Hacer más.
+Para un futuro, mejorar el tema de las reuniones y coordinacion horaria.
+
+3. Continuar haciendo.
+El trabajo en equipo que logramos y la buena relacion y dialogo.
+
+4. Hacer menos.
+Estamos bien, a contrario de los sprint anteriores esta vez tuvimos mas reuniones.
+
+5. Dejar de hacer.
+Creemos que no tenemos puntos en contra de vuelta en este ultimo sprint.

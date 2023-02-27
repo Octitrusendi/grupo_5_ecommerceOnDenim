@@ -13,5 +13,6 @@ router.get('/allProducts', controller.allProducts);
 router.get('/lastProduct', controller.lastProduct);
 router.get('/categories', controller.categories);
 router.delete('/producto/delete/:id', controller.destroy);
+router.get('/allSales', controller.allSales);
 
 module.exports = router;

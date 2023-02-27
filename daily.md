@@ -44,4 +44,14 @@ Uno de los sprint mas rapido de resolver y con muchas reuniones en conjunto
 ¿Se encontro algun impedimento?
 Ninguno, tuvimos la suerte de juntarnos varias veces y resolver de manera rapida y sencilla
 ¿Que se hace hoy?
-A comparacion del sprint anterior fuimos eficaces y nos posicionamos muy bien para finalizar el proyecyo
+A comparacion del sprint anterior fuimos eficaces y nos posicionamos muy bien para finalizar el proyecto
+
+
+Daylies sprint 8:
+Opiniones de las daylies/weeklies:
+¿Que se hizo ayer?
+Pudimos lograr terminar el proyecto de la mejor manera, reuniendonos mas seguido y logramos ser eficaz con los tiempos. 
+¿Se encontro algun impedimento?
+No tuvimos impedimentos ya que apretaban los tiempos y pudimos juntarnos mas seguido para terminar nuestro proyecto.
+¿Que se hace hoy?
+Hoy podemos decir que logramos con exito terminar de la mejor manera el proyecto.
