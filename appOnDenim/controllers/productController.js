@@ -140,8 +140,8 @@ const productController = {
               id_product: productoEncontrado.id,
             });
           }
-
-          res.redirect('/');
+   
+          res.redirect('/productos/detalle/'+ productoEncontrado.id);
         }
       })
       .catch(error => res.send(error));

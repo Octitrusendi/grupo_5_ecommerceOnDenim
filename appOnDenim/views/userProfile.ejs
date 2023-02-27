@@ -18,6 +18,9 @@
                         <% }) %>
                       </div>
                   <% } %>
+                  <% if (locals.userAdmin) { %>
+                    <label class="label bg-olive">ADMIN</label>
+                    <% } %>
                     <div class="div-profile">
                             <input type="text" name="usuario" value="<%= user.usuario  %>" class="form-profile focus-none"  readonly title="Usuario">
                             <span class="icon-profile"><i class="fas fa-user"></i></span>

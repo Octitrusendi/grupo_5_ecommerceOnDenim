@@ -136,7 +136,12 @@ header {
   height: 80px;
   width: 130px;
 }
-
+.bg-olive {
+  background-color: #3d9970 !important;
+  color: #ffff;
+  padding: 5px;
+  font-size: 0.8rem !important;
+}
 /* home */
 .carrusel {
   width: 100%;
@@ -391,28 +396,25 @@ textarea:focus-visible {
 
 .formulario-invalido {
   color: #bb2929 !important;
-  border-color: #bb2929 !important;;
+  border-color: #bb2929 !important;
 }
 .formulario-valido {
   color: #1ed12d;
-  border-color: #1ed12d !important;;
+  border-color: #1ed12d !important;
 }
-.form-inputs{
-
-flex-direction: column !important;
-align-items: flex-start !important;
+.form-inputs {
+  flex-direction: column !important;
+  align-items: flex-start !important;
 }
-.formulario-error{
+.formulario-error {
   margin-top: 5px;
- font-size: 0.7rem;
- font-weight: 900;
- color: #bb2929 ;
- display: none ;
- 
+  font-size: 0.7rem;
+  font-weight: 900;
+  color: #bb2929;
+  display: none;
 }
-.formulario-error-activo{
-display: block;
- 
+.formulario-error-activo {
+  display: block;
 }
 
 .bloque-suscribite {
@@ -492,17 +494,7 @@ display: block;
 }
 
 .user-image {
-  max-width: 50px;
-  max-height: 250px;
-  min-width: 250px;
-  min-height: 250px;
-  border: 0.5px solid #9494944a;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
+  display: none;
 }
 .div-containProfile {
   width: 40%;
@@ -513,12 +505,12 @@ display: block;
   align-items: flex-start;
 }
 .center-flexProfile {
-  width: 40%;
+  width: 100%;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
-.div-profile{
+.div-profile {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -616,7 +608,7 @@ input[type='file']::-webkit-file-upload-button {
   cursor: pointer;
 }
 .buttons-profile {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -821,6 +813,12 @@ input[type='file']::-webkit-file-upload-button {
 }
 
 @media screen and (min-width: 460px) {
+  .buttons-profile {
+    width: 80%;
+  }
+  .center-flexProfile {
+    width: 50%;
+  }
   .carrusel {
     background-position-y: -5px;
   }
@@ -950,6 +948,19 @@ input[type='file']::-webkit-file-upload-button {
   }
   .cajas-productosPersonalizadosTotal {
     width: 100%;
+  }
+  .user-image {
+    max-width: 50px;
+    max-height: 250px;
+    min-width: 250px;
+    min-height: 250px;
+    border: 0.5px solid #9494944a;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
   }
 }
 

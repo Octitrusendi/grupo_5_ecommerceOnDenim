@@ -1,6 +1,6 @@
 const db = require('../../database/models');
 
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 module.exports = {
   product: async function (req, res) {
@@ -48,6 +48,8 @@ module.exports = {
     let users = await db.Users.findAll();
     let products = await db.Products.findAll();
     let orders = await db.Order.findAll();
+    let categorias = await db.ProductCategory.findAll();
+    let contactos = await db.Contact.findAll();
 
     let amount = 0;
     orders.map(vendido => {
@@ -81,29 +83,60 @@ module.exports = {
           cuantity: users.length,
           icon: 'fas fa-user-check',
         },
+        {
+          color: 'warning',
+          name: 'Total de Categorias',
+          cuantity: categorias.length,
+          icon: 'fas fa-bookmark',
+        },
+        {
+          color: 'warning',
+          name: 'Total de solicitudes de contacto',
+          cuantity: contactos.length,
+          icon: 'fas fa-id-card',
+        },
       ],
     });
   },
-/*   masComprados: async (req, res) => {
-    let order = await db.Order.findAll({
-      include: db.Order.OrderItems,
+  lastProduct: async (req, res) => {
+    const product = await db.Products.findOne({
+      order: [['id', 'DESC']],
     });
- 
-    let amount = 0;
-    orders.map(vendido => {
-      amount += Number(vendido.total);
-    });
-    conso
-
+    let finalPrice = product.price - (product.price * product.sale) / 100;
     res.json({
       meta: {
         status: 200,
-
+        link: '/api/lastproduct',
       },
-      data: [
-
-      ]
-
+      data: {
+        id: product.id,
+        name: product.name,
+        image: `http://localhost:3001/images/productos/${product.image}`,
+        description: product.description,
+        price: toThousand(product.price),
+        sale: product.sale,
+        newCollection: product.newCollection,
+        stock: product.stock,
+        finalPrice: toThousand(finalPrice),
+      },
     });
-  }, */
+  },
+  allProducts: async (req, res) => {
+    let allProducts = db.Products.findAll({
+      include: ['talle', 'categoria'],
+    });
+
+    Promise.all([allProducts]).then(async ([jean]) => {
+      res.json({
+        meta: {
+          status: 200,
+          cuantity: jean.length,
+          link: '/api/allProducts',
+        },
+        data: {
+          jean: jean,
+        },
+      });
+    });
+  },
 };

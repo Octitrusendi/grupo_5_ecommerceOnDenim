@@ -9,7 +9,8 @@ router.post("/checkout", controller.checkout);
 router.post("/contact", controller.contact);
 router.get("/users", controller.users);
 router.get("/cards", controller.cards);
-//router.get("/masComprados", controller.masComprados);
+router.get("/allProducts", controller.allProducts);
+router.get("/lastProduct", controller.lastProduct);
 
 
 module.exports = router;

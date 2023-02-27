@@ -10,7 +10,8 @@ const expresiones = {
   nombre: /^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
   apellido: /^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
   correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-  telefono: /^\d{7,14}$/, // 7 a 14 numeros.
+  numeros: /^\d{1,14}$/, // 7 a 14 numeros.
+  sale: /^\d{1,2}$/,
   dni: /^\d{8,8}$/, // 7 a 14 numeros.
 };
 
@@ -18,7 +19,16 @@ const validarFormulario = e => {
   switch (e.target.name) {
     case 'name':
       validarCampo(expresiones.nombre, e.target, 'name');
-      break
+      break;
+    case 'price':
+      validarCampo(expresiones.numeros, e.target, 'price');
+      break;
+    case 'sale':
+      validarCampo(expresiones.sale, e.target, 'sale');
+      break;
+    case 'stock':
+      validarCampo(expresiones.numeros, e.target, 'stock');
+      break;
     case 'fullName':
       validarCampo(expresiones.nombre, e.target, 'fullName');
       break;
@@ -35,10 +45,9 @@ const validarFormulario = e => {
     case 'password2':
       validarPassword2();
       break;
-      case 'passwordOld':
+    case 'passwordOld':
       validarCampo(expresiones.password, e.target, 'passwordOld');
       break;
-
   }
 };
 const validarCampo = (expresion, input, campo) => {
@@ -58,7 +67,6 @@ const validarCampo = (expresion, input, campo) => {
     document
       .querySelector(`#grupo_${campo} p`)
       .classList.remove('formulario-error-activo');
-
   } else {
     document
       .querySelector(`#grupo_${campo} input`)
@@ -75,7 +83,6 @@ const validarCampo = (expresion, input, campo) => {
     document
       .querySelector(`#grupo_${campo} p`)
       .classList.add('formulario-error-activo');
-
   }
 };
 

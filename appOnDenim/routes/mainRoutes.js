@@ -5,7 +5,7 @@ const mainController = require('../controllers/mainController.js');
 router.get('/', mainController.index);
 const authMiddelware = require('../middleware/authMiddelware.js');
 
-router.get('/carrito',authMiddelware, mainController.carrito);
+router.get('/carrito', mainController.carrito);
 
 
 module.exports = router;

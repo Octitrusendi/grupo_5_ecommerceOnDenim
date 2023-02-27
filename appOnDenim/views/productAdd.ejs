@@ -14,29 +14,33 @@
         </div>
     <% } %>
 
-    <form action="/productos" method="POST" enctype="multipart/form-data">
+    <form action="/productos" method="POST" id="form" enctype="multipart/form-data">
       <div class="product-detail">
         <div id="grupo_name">
           <label for="name" class="form-label">Nombre del producto:</label>
           <input type="text" id="name" name="name" placeholder="Ej: Jean...XX" class="form-input">
+         <i style="display: none;"></i>
           <p class="formulario-error">Escriba un nombre valido.</p>
         </div>
-        <div >
+        <div id="grupo_price">
           <label for="price" class="form-label">Precio del producto:</label>
           <input type="number" id="price" name="price" placeholder="Ej: 5678" class="form-input">
+          <i style="display: none;"></i>
+          <p class="formulario-error">Escriba un número entero sin puntos ni comas.</p>
         </div>
-        <div >
+        
+          <div id="grupo_sale">
           <label for="sale" class="form-label">Descuento:</label>
           <input type="number" id="sale" name="sale" placeholder="Ej: 15" class="form-input">
+          <i style="display: none;"></i>
+          <p class="formulario-error">Escriba un número entre 0 y 99</p>
         </div>
         <div >
-
           <label for="talles" class="form-label">Talles:</label> 
           <div class="contenedor-talles">
           <% talles.forEach(element => { %>
             <input type="checkbox" name="talles" value="<%=element.id  %> " ><%= element.talles %> |
             <% }) %>
-
         </div>
         </div>
         
@@ -57,9 +61,11 @@
               <option value="0">No</option>
           </select>
         </div>
-        <div >
+        <div id="grupo_stock" >
           <label for="stock" class="form-label">Stock:</label>
           <input type="number" id="stock" name="stock" placeholder="Ej: 15" class="form-input">
+          <i style="display: none;"></i>
+          <p class="formulario-error">Escriba un número entero sin puntos ni comas</p>
         </div>
         <div>
           <label for="image" class="form-label">Imagen:</label>

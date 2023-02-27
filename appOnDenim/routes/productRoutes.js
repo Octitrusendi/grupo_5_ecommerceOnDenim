@@ -8,7 +8,7 @@ const authMiddelware = require('../middleware/authMiddelware.js');
 router.get('/', productController.totalProductos);
 router.get('/detalle/:jeanID', productController.detalle);
 
-router.get('/agregar', productController.agregar);
+router.get('/agregar', authMiddelware, productController.agregar);
 router.post(
   '/',
   subirArchivo.single('image'),

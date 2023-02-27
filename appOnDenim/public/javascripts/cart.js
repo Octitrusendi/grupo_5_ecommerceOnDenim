@@ -51,6 +51,7 @@ if (localStorage.carrito && localStorage.carrito != '[]') {
       .then(res => res.json())
       .then(product => {
         if (product) {
+          console.log(product);
           let finalPrice = product.price - (product.price * product.sale) / 100;
           cartRows.innerHTML += `
           <tr id="row${index}">
@@ -65,6 +66,7 @@ if (localStorage.carrito && localStorage.carrito != '[]') {
               <td><button class="btn btn-danger btn-sm" onclick=removeItem(${index})><i class="fas fa-trash"></i></button></td>
           </tr>            
           `;
+          
           products.push({
             productId: product.id,
             name: product.name,
