@@ -54,9 +54,10 @@ const usersControllers = {
         }
         delete userToLogin.password;
         req.session.userLogged = userToLogin;
+        
         if (req.body.rememberUser) {
-          res.cookie('user.id', use.id, { maxAge: 60 * 60 * 24 * 7 });
-        }
+          res.cookie('userId', userToLogin.id, { maxAge: 1000 * 60 * 5 });
+        } 
         return res.redirect('/user/profile');
       })
       .catch(error => error);
@@ -140,12 +141,7 @@ const usersControllers = {
     User.create(userToCreate);
     */
 
-    /*       let newUserSession = User.findByfield('email', userToCreate.email);
-      delete newUserSession.password
-      req.session.userLogged = newUserSession;
-
-    res.redirect('/user/profile'); */
-    res.redirect('/user/login');
+    res.redirect('/user/profile');
   },
   profile: async (req, res) => {
     let orders = await db.Order.findAll({
@@ -291,6 +287,7 @@ const usersControllers = {
       
       user: usuarioEditado,
       orders,
+      toThousand,
       title: 'OnDenim | Perfil de ' + userToEdit.fullName,
     });
   },

@@ -73,9 +73,13 @@ abbr,
 acronym {
   border: 0;
 }
+input{
+  font-weight: 600;
+}
 a {
   text-decoration: none;
   color: rgb(0, 0, 0);
+  font-weight: 600;
 }
 a:hover {
   text-decoration: none !important;

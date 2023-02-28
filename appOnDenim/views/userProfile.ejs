@@ -20,6 +20,7 @@
                   <% } %>
                   <% if (locals.userAdmin) { %>
                     <label class="label bg-olive">ADMIN</label>
+                    <a target="__BLANK" href="http://localhost:3000/" class="label bg-olive">  Ir al Dashoard </a>
                     <% } %>
                     <div class="div-profile">
                             <input type="text" name="usuario" value="<%= user.usuario  %>" class="form-profile focus-none"  readonly title="Usuario">
@@ -83,7 +84,7 @@
                                     <td>
                                         <%= order.paymentMethod %>
                                     </td>
-                                    <td>$ <%= toThousand(order.total) %>
+                                    <td>$ <%= toThousand(Number(order.total)) %>
                                     </td>
                                     <td><a class="btn btn-warning btn-sm" href="<%= `/user/order/${order.id}` %> "><i
                                                 class="fas fa-eye"></i></a>

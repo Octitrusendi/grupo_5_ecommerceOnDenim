@@ -6,18 +6,19 @@ var logger = require('morgan');
 const methodOverride = require('method-override');
 const session = require('express-session');
 var back = require('express-back');
+const sessionTimeMiddleware = require('./middleware/sessionTimeMiddleware');
 const userLoggedMiddelware = require('./middleware/usserLoggedMiddelware');
-const cors = require('cors')
+const cors = require('cors');
+const moment = require('moment');
 
 var indexRouter = require('./routes/mainRoutes');
 var productRouter = require('./routes/productRoutes');
 var usersRouter = require('./routes/users');
-const apiRouter = require("./routes/api");
-
+const apiRouter = require('./routes/api');
 
 var app = express();
 
-app.use(cors())
+app.use(cors());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.use(cookies());
@@ -30,7 +31,9 @@ app.use(
     saveUninitialized: false,
   }),
 );
+app.locals.moment = require('moment');
 app.use(userLoggedMiddelware);
+app.use(sessionTimeMiddleware);
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
@@ -42,7 +45,7 @@ app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use('/productos', productRouter);
 app.use('/user', usersRouter);
-app.use("/api/", apiRouter);
+app.use('/api/', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

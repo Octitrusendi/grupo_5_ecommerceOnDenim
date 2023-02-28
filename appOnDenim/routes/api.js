@@ -14,5 +14,7 @@ router.get('/lastProduct', controller.lastProduct);
 router.get('/categories', controller.categories);
 router.delete('/producto/delete/:id', controller.destroy);
 router.get('/allSales', controller.allSales);
+router.get('/masVendido', controller.masVendido);
+router.get('/contact', controller.contact);
 
 module.exports = router;

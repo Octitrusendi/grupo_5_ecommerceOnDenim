@@ -1,12 +1,13 @@
 <%- include('partials/head.ejs') %>
 <%- include('partials/headProductDeail.ejs') %>
 <%- include('partials/header.ejs') %>
+
                <main>
                 <main class="mt-5 pt-4">
                         <div class="container dark-grey-text mt-5">
             
                             <!--Grid row-->
-                            <div class="row wow fadeIn">
+                            <div class="row ">
             
                                 <!--Grid column-->
                                 <div class="col-md-6 mb-4">
@@ -69,7 +70,7 @@
                                             </button>
             
                                         </form>
-                                        <% if (locals.isLogged ) { %>
+                                        <% if (locals.userAdmin ) { %>
                                                 <div class="del">
                                                         <form action="/productos/<%=jean.id %>?_method=DELETE " method="POST"><button class="btn btn-danger btn-md my-0 p" type="submit" title="delete" name="ELIMINAR PRODUCTO">ELIMINAR PRODUCTO</button></form>
                                                 </div>

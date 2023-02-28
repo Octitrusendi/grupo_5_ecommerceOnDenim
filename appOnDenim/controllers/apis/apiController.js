@@ -38,6 +38,10 @@ module.exports = {
       avatar: `http://localhost:3001/images/avatar/${user.avatar}`,
       detail: `http://localhost:3001/api/users/${user.id}`,
       totalCompras: user.order.length,
+      order: user.order.reduce(
+        (contador, ventas) => contador + Number(ventas.total),
+        0,
+      ),
     }));
 
     return res.status(200).json({
@@ -67,35 +71,41 @@ module.exports = {
           name: 'Total de productos',
           cuantity: products.length,
           icon: 'fas fa-clipboard-list',
+          acceso: 'AllProducts'
         },
         {
           color: 'success',
           name: 'Cantidad de ventas',
           cuantity: orders.length,
           icon: 'fas fa-check',
+          acceso: 'AllSales'
         },
         {
           name: 'Total Vendio',
           cuantity: `$ ${toThousand(amount)}`,
           icon: 'fas fa-dollar-sign',
+          acceso: 'AllSales'
         },
         {
           color: 'warning',
           name: 'Total de Usuarios',
           cuantity: users.length,
           icon: 'fas fa-user-check',
+          acceso: 'AllUsers',
         },
         {
           color: 'warning',
           name: 'Total de Categorias',
           cuantity: categorias.length,
           icon: 'fas fa-bookmark',
+          acceso: 'Categories',
         },
         {
           color: 'warning',
           name: 'Total de solicitudes de contacto',
           cuantity: contactos.length,
           icon: 'fas fa-id-card',
+          acceso: 'Contact',
         },
       ],
     });
@@ -144,6 +154,7 @@ module.exports = {
             price: jean.price,
             sale: jean.sale,
             talle: jean.talle,
+            stock: jean.stock,
             categoria: jean.categoria.name,
             newCollection: jean.newCollection,
             order: jean.orderItems.reduce(
@@ -151,7 +162,7 @@ module.exports = {
               0,
             ),
             montoVendido: jean.orderItems.reduce(
-              (contador, ventas) => contador + ventas.price,
+              (contador, ventas) => contador + Number(ventas.price),
               0,
             ),
           };
@@ -213,8 +224,49 @@ module.exports = {
         link: '/api/allSales',
       },
       data: {
-        compras
-      }
+        compras,
+      },
+    });
+  },
+  masVendido: async (req, res) => {
+    const masVendido = await db.Products.findOne({
+      include: ['talle', 'categoria', 'orderItems'],
+      order: [['orderItems', 'quantity', 'DESC']],
+      offset: 1,
+      limit: 1,
+    });
+    const finalPrice =
+      masVendido.price - (masVendido.price * masVendido.sale) / 100;
+    res.json({
+      meta: {
+        status: 200,
+        link: '/api/lastproduct',
+      },
+      data: {
+        id: masVendido.id,
+        name: masVendido.name,
+        image: `http://localhost:3001/images/productos/${masVendido.image}`,
+        description: masVendido.description,
+        price: toThousand(masVendido.price),
+        sale: masVendido.sale,
+        newCollection: masVendido.newCollection,
+        stock: masVendido.stock,
+        finalPrice: toThousand(finalPrice),
+      },
+    });
+  },
+  contact: async (req, res) => {
+    const contacto = await db.Contact.findAll();
+
+    res.json({
+      meta: {
+        status: 200,
+        totalContactos: contacto.length,
+        link: '/api/contacto',
+      },
+      data: {
+        contacto,
+      },
     });
   },
 };
