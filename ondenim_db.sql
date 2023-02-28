@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-02-2023 a las 20:24:14
+-- Tiempo de generación: 01-03-2023 a las 00:50:48
 -- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.1.12
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -95,7 +95,14 @@ CREATE TABLE `orderitems` (
 INSERT INTO `orderitems` (`id`, `orderId`, `productId`, `name`, `price`, `quantity`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
 (24, 14, 39, 'jean 4', 35100, 2, '2023-02-27 15:39:19', '2023-02-27 15:39:19', NULL),
 (25, 14, 1, 'Jean 3', 25200, 3, '2023-02-27 15:39:19', '2023-02-27 15:39:19', NULL),
-(26, 14, 37, 'Jean 5', 29160, 4, '2023-02-27 15:39:19', '2023-02-27 15:39:19', NULL);
+(26, 14, 37, 'Jean 5', 29160, 4, '2023-02-27 15:39:19', '2023-02-27 15:39:19', NULL),
+(27, 15, 39, 'jean 4', 35100, 1, '2023-02-28 20:45:42', '2023-02-28 20:45:42', NULL),
+(28, 15, 40, 'Jean 2', 24500, 1, '2023-02-28 20:45:42', '2023-02-28 20:45:42', NULL),
+(29, 16, 39, 'jean 4', 35100, 1, '2023-02-28 20:46:06', '2023-02-28 20:46:06', NULL),
+(30, 16, 40, 'Jean 2', 24500, 1, '2023-02-28 20:46:06', '2023-02-28 20:46:06', NULL),
+(31, 17, 39, 'jean 4', 35100, 2, '2023-02-28 20:47:02', '2023-02-28 20:47:02', NULL),
+(32, 17, 40, 'Jean 2', 24500, 1, '2023-02-28 20:47:02', '2023-02-28 20:47:02', NULL),
+(33, 17, 37, 'Jean 5', 29160, 1, '2023-02-28 20:47:02', '2023-02-28 20:47:02', NULL);
 
 -- --------------------------------------------------------
 
@@ -119,7 +126,10 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `userId`, `total`, `paymentMethod`, `shippingMethod`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
-(14, 7, '262440.00', 'Débito', 'Correo', '2023-02-27 15:39:19', '2023-02-27 15:39:19', NULL);
+(14, 7, '262440.00', 'Débito', 'Correo', '2023-02-27 15:39:19', '2023-02-27 15:39:19', NULL),
+(15, 3, '59600.00', 'Efectivo', 'Correo', '2023-02-28 20:45:42', '2023-02-28 20:45:42', NULL),
+(16, 3, '59600.00', 'Débito', 'Andreani', '2023-02-28 20:46:06', '2023-02-28 20:46:06', NULL),
+(17, 10, '123860.00', 'Débito', 'DHL', '2023-02-28 20:47:02', '2023-02-28 20:47:02', NULL);
 
 -- --------------------------------------------------------
 
@@ -149,7 +159,10 @@ INSERT INTO `products` (`id`, `name`, `description`, `sale`, `image`, `id_catego
 (39, 'jean 4', 'Pantalón 5 bolsillos, Slim fit, tiro medio, Pierna Estrecha, con botones y avíos metálicos. Tela: Denim Confort 98% algodón, 2% spandex. Tela importada. Lavado: Raw. Este artículo pertenece a la línea Casual. Industria Argentina.', 22, 'image1676989560683.jpg', 1, 45000, 8, 0),
 (40, 'Jean 2', 'Jean Slim fit, tiro medio, con botones y avíos metálicos personalizados. Tela: Denim Confort 99% algodón, 1% spandex. Lavado: Stone wash con localizado y bigotes. Este artículo pertenece a la línea Casual. Industria Argentina.', 2, 'jean2.jpg', 1, 25000, 3, 1),
 (41, 'Jean Clásicoo', 'Jean Slim fit, tiro medio, con botones y avíos metálicos personalizados. Tela: Denim Confort 99% algodón, 1% spandex. Lavado: Stone wash con localizado y bigotes. Este artículo pertenece a la línea Casual. Industria Argentina.', 10, 'image1677454815802.jpg', 1, 9999, 20, 0),
-(42, 'Jean SlimFit', 'Jean Skinny slim fit, tiro medio, pierna estrecha, bota angosta. Botones y avíos metálicos personalizados. Tela Denim Blue 98% algodón 2% elastano. Lavado: Super Stone wash con localizado y bigotes. Este artículo pertenece a la línea Rock. Industria Argent', 5, 'image1677457763141.jpg', 2, 12999, 20, 1);
+(42, 'Jean SlimFit', 'Jean Skinny slim fit, tiro medio, pierna estrecha, bota angosta. Botones y avíos metálicos personalizados. Tela Denim Blue 98% algodón 2% elastano. Lavado: Super Stone wash con localizado y bigotes. Este artículo pertenece a la línea Rock. Industria Argent', 5, 'image1677457763141.jpg', 2, 12999, 20, 1),
+(43, 'jean skinny', '', 3, 'image1677627292545.webp', 2, 19000, 15, 0),
+(44, 'jean skin', '', 27, 'image1677627805942.webp', 1, 32000, 19, 0),
+(45, 'jean regular', '', 16, 'image1677627874004.webp', 3, 24000, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -186,7 +199,15 @@ INSERT INTO `productstalles` (`id`, `id_product`, `id_talles`) VALUES
 (43, 41, 3),
 (44, 41, 4),
 (45, 42, 2),
-(46, 42, 1);
+(46, 42, 1),
+(47, 43, 2),
+(48, 43, 3),
+(49, 43, 4),
+(50, 44, 3),
+(51, 44, 4),
+(52, 45, 1),
+(53, 45, 3),
+(54, 45, 4);
 
 -- --------------------------------------------------------
 
@@ -255,11 +276,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `usuario`, `fullName`, `email`, `password`, `id_level`, `avatar`) VALUES
-(3, 'pancho', 'francisco zelalia', 'pancho.dv3@gmail.com', '$2a$10$iNhNQULsD5E7lMqhEL6lc.BsizepvAnoQ/a4BWM4EFG/Al6mTgCCa', 0, 'default-image.png'),
+(3, 'pancho', 'francisco zelalia', 'pancho.dv3@gmail.com', '$2a$10$iNhNQULsD5E7lMqhEL6lc.BsizepvAnoQ/a4BWM4EFG/Al6mTgCCa', 1, 'default-image.png'),
 (4, 'julito', 'julian', 'julitro@gmail.com', '$2a$10$ua3blR4vDZC55tzF.WSv.O8kUqjA2oWvcvHV.d8vTVf/O6lyiBs5e', 0, 'default-image.png'),
 (7, 'Octaviotrusendi', 'Octavio Trusendi', 'octaviotrusendi2@gmail.com', '$2a$10$.ZCK2c1faToVAwsQmL2P3ecgIhOmtBHP8F1UIuQrPrNKM.M19LCna', 1, 'avatar1677455148407.jpg'),
 (8, 'octa', 'prueba', 'octaviotrusendi@gmail.com', '$2a$10$bR5HOo3K9jQZNdiFmriM.eEyKAEl..SiSGR8iEmA.ElYsB2Io8MBi', 0, 'default-image.png'),
-(9, 'otctavioNew', 'Octavio TrusendiNew', 'octaviotrusendi3@gmail.com', '$2a$10$EFNK6kdQoHjr11PnFA2nC.qtDjHxJFmUsqADlJu2R4w5wcHvyudy.', 0, 'avatar1677455306531.jpg');
+(9, 'otctavioNew', 'Octavio TrusendiNew', 'octaviotrusendi3@gmail.com', '$2a$10$EFNK6kdQoHjr11PnFA2nC.qtDjHxJFmUsqADlJu2R4w5wcHvyudy.', 0, 'avatar1677455306531.jpg'),
+(10, 'JuliBion', 'Julian Biondi', 'julian@gmail.com', '$2a$10$sMhOQa3oJRy2uTbi8aRLKOIA40CT3.3p8bhFxMeOLDsjtakOqX8oe', 0, 'default-image.png');
 
 --
 -- Índices para tablas volcadas
@@ -346,31 +368,31 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT de la tabla `orderitems`
 --
 ALTER TABLE `orderitems`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de la tabla `productstalles`
 --
 ALTER TABLE `productstalles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
