@@ -30,4 +30,4 @@ Equipo:
 
 
 
-Github de react: https://github.com/Octitrusendi/dashboard_onDenim-React.git
+Dashboard creado en React: https://github.com/Octitrusendi/dashboard_onDenim-React.git
