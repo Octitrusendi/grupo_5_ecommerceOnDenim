@@ -16,7 +16,6 @@ module.exports = (req, res, next) => {
     // sino actualizo la fecha en formato numerico
     req.session.lastActitity = dateNow;
   }
-  console.log('dateNow', dateNow);
-  console.log('lastActivity:', req.session.lastActitity);
+
   return next();
 };

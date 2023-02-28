@@ -16,5 +16,6 @@ router.delete('/producto/delete/:id', controller.destroy);
 router.get('/allSales', controller.allSales);
 router.get('/masVendido', controller.masVendido);
 router.get('/contact', controller.contact);
+router.put('/isAdmin/:id', controller.isAdmin);
 
 module.exports = router;

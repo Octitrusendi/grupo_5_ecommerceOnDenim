@@ -71,20 +71,20 @@ module.exports = {
           name: 'Total de productos',
           cuantity: products.length,
           icon: 'fas fa-clipboard-list',
-          acceso: 'AllProducts'
+          acceso: 'AllProducts',
         },
         {
           color: 'success',
           name: 'Cantidad de ventas',
           cuantity: orders.length,
           icon: 'fas fa-check',
-          acceso: 'AllSales'
+          acceso: 'AllSales',
         },
         {
           name: 'Total Vendio',
           cuantity: `$ ${toThousand(amount)}`,
           icon: 'fas fa-dollar-sign',
-          acceso: 'AllSales'
+          acceso: 'AllSales',
         },
         {
           color: 'warning',
@@ -267,6 +267,24 @@ module.exports = {
       data: {
         contacto,
       },
+    });
+  },
+  isAdmin: async (req, res) => {
+    await db.Users.update(
+      {
+        id_level: 1,
+      },
+      {
+        where: { id: req.params.id },
+      },
+    );
+
+    res.json({
+      meta: {
+        status: 200,
+        link: '/api/isAdmin',
+      },
+      data: 'Usuario Editado',
     });
   },
 };
