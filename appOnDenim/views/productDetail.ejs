@@ -62,14 +62,14 @@
 
                                         </div>  
             
-                                        <form class="d-flex justify-content-left">
+                                        <div class="d-flex justify-content-left">
                                             <!-- Default input -->
                         
                                             <button class="btn btn-primary btn-md my-0 p agregar_carrito" data-id="<%= jean.id %> " type="submit">Agregar al Carrito
                                                 <i class="fas fa-shopping-cart ml-1"></i>
                                             </button>
             
-                                        </form>
+                                        </div>
                                         <% if (locals.userAdmin ) { %>
                                                 <div class="del">
                                                         <form action="/productos/<%=jean.id %>?_method=DELETE " method="POST"><button class="btn btn-danger btn-md my-0 p" type="submit" title="delete" name="ELIMINAR PRODUCTO">ELIMINAR PRODUCTO</button></form>

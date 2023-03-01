@@ -54,6 +54,11 @@ li {
 caption,
 th {
   text-align: left;
+  font-weight: 600 !important;
+}
+
+strong {
+  font-weight: 600 !important;
 }
 h1,
 h2,
@@ -73,7 +78,7 @@ abbr,
 acronym {
   border: 0;
 }
-input{
+input {
   font-weight: 600;
 }
 a {
